@@ -1,38 +1,116 @@
+// import { createRouter, createWebHistory } from 'vue-router'
+
+// // private pages
+// import DashboardView from '@/views/private/DashboardView.vue'
+
+// const routes = [
+
+
+
+//   // public pages
+//   {
+//     path: '/',
+//     component: () => import("@/layouts/default"),
+//     children: [
+//       {
+//         path: "",
+//         name: "Home",
+//         redirect: { name: "MemberLogin" },
+//       },
+
+//       {
+//         path: "auth/login",
+//         name: "MemberLogin",
+//         component: () => import("@/views/public/LogInView.vue"),
+//       },
+//       {
+//         path: 'auth/signup',
+//         name: 'MemberSignup',
+//         component: () => import("@/views/public/SignUpView.vue"),
+//       },
+//     ]
+//   },
+
+
+//   // private pages
+//   {
+//     path: '/dashboard',
+//     name: 'dashboard',
+//     component: DashboardView
+//   },
+
+//     // Catch-all route
+//     {
+//       path: '/:catchAll(.*)',
+//       redirect: { name: 'MemberLogin' } // Redirect to MemberLogin if no route matches
+//     }
+// ]
+
+// const router = createRouter({
+//   history: createWebHistory(process.env.BASE_URL),
+//   routes
+// })
+
+// export default router
+
 import { createRouter, createWebHistory } from 'vue-router'
 
-// public pages
-import HomeView from '@/views/public/HomeView.vue'
-import LogInView from '@/views/public/LogInView.vue'
-import SignUpView from '@/views/public/SignUpView.vue'
 
-// private pages
-import DashboardView from '@/views/private/DashboardView.vue'
 
 const routes = [
-
-  // public pages
+  // default
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    component: () => import("@/layouts/default"),
+    children: [
+      {
+        path: "",
+        name: "Home",
+        redirect: { name: "MemberLogin" },
+      },
+      {
+        path: "auth/login",
+        name: "MemberLogin",
+        component: () => import("@/views/public/LogInView.vue"),
+      },
+      {
+        path: 'auth/signup',
+        name: 'MemberSignup',
+        component: () => import("@/views/public/SignUpView.vue"),
+      },
+    ]
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: LogInView
+
+   // member
+   {
+    path: '/member/',
+    component: () => import("@/layouts/default"),
+    children: [
+    
+    ]
   },
+
+  // Admin
   {
-    path: '/signup',
-    name: 'signup',
-    component: SignUpView
+    path: '/admin/',
+    component: () => import("@/layouts/default"),
+    children: [
+      {
+        path: '/dashboard',
+        name: 'AdminDashboard',
+        component: () => import("@/views/private/DashboardView.vue"),
+      },
+    ]
   },
 
   // private pages
+ 
+
+  // Catch-all route
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: DashboardView
-  },
+    path: '/:catchAll(.*)',
+    redirect: { name: 'MemberLogin' } // Redirect to MemberLogin if no route matches
+  }
 ]
 
 const router = createRouter({
