@@ -1,0 +1,61 @@
+/* @import "~vuetify/src/styles/settings/_variables.scss";
+@import "~vuetify/src/styles/styles.sass";
+
+@media only screen and (min-width: map-get($grid-breakpoints, "xl")) {
+  .container {
+    max-width: 1400px !important;
+  }
+} */
+
+.font-h1{
+ font-size: 50px;
+}
+.font-h2{
+  font-size: 40px;
+}
+.font-h3{
+  font-size: 30px;
+}
+.font-h4{
+  font-size: 20px;
+}
+.font-p{
+  font-size: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .font-h1{
+    font-size: 40px;
+   }
+   .font-h2{
+     font-size: 30px;
+   }
+   .font-h3{
+     font-size: 25px;
+   }
+   .font-h4{
+     font-size: 20px;
+   }
+   .font-p{
+     font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 425px) {
+  /* .font-h1{
+    font-size: 60px;
+   }
+   .font-h2{
+     font-size: 50px;
+   }
+   .font-h3{
+     font-size: 40px;
+   }
+   .font-h4{
+     font-size: 30px;
+   } */
+   /* .font-p{
+     font-size: 15px;
+   } */
+}
