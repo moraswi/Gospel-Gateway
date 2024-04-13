@@ -14,7 +14,7 @@
        bring about positive change and improvement within the church management processes.
       Simplify coordination and maximize efficiency in providing support to those in need</p>
 
-      <p class="mt-5 font-p">Give us  call: <span class="text-red"> +27 11 111 1111</span></p>
+      <h3 class="mt-5 font-h3">Give us  call: <span class="text-red"> +27 78 432 2343</span></h3>
           <!-- 
       <v-text-field
             label="Plain"

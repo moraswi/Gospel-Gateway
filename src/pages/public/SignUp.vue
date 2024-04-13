@@ -11,7 +11,7 @@
 
       <v-row>
         <v-col cols="12" md="6">
-     <h1 class="mt-16 font-h2">Unlock Exclusive Church Updates by <span class="text-red"> Registering Today!</span></h1>
+     <h1 class="mt-16 font-h2">Unlock exclusive church updates by <span class="text-red"> registering today!</span></h1>
      <p class="mt-5 font-p">Registering as a member gives you access to church announcements, 
       upcoming events, service schedules, and more, ensuring you never miss 
       out on important information or opportunities to engage with your community.</p>
@@ -23,13 +23,13 @@
     ></v-text-field>
 
         <v-text-field
-        class="mt-3"
+        class=""
         label="Email"
         variant="outlined"
       ></v-text-field>
 
         <v-text-field
-        class="mt-3"
+        class=""
         label="Password"
         variant="outlined"
       ></v-text-field>
@@ -47,7 +47,7 @@
       ></v-select>
 
       <v-text-field
-      class="mt-3"
+      class="mt-0"
       label="Phone number"
       variant="outlined"
     ></v-text-field>
