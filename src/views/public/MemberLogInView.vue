@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LogIn from '@/pages/public/LogIn'
+import LogIn from '@/pages/public/MemberLogIn'
 
 export default {
   name: 'LogInView',

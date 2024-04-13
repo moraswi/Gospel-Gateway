@@ -71,7 +71,7 @@ const routes = [
       {
         path: "auth/login",
         name: "MemberLogin",
-        component: () => import("@/views/public/LogInView.vue"),
+        component: () => import("@/views/public/MemberLogInView.vue"),
       },
       {
         path: 'auth/signup',
