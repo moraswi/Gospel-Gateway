@@ -2,7 +2,7 @@
   <div>
     <!-- login section -->
     <div style="background-color: grey;">
-    <v-container class=" py-16">
+    <v-container class="py-16">
       <v-row>
         <v-col cols="12" md="6">
      <h1 class="text-red font-h2">GospelGateway</h1>

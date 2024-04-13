@@ -12,6 +12,7 @@
 }
 .font-h2{
   font-size: 40px;
+  line-height: 45px;
 }
 .font-h3{
   font-size: 30px;
@@ -21,6 +22,7 @@
 }
 .font-p{
   font-size: 15px;
+  line-height: 23px;
 }
 
 
