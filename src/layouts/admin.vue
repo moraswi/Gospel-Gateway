@@ -1,15 +1,16 @@
+
 <template>
-  <!--  -->
   <v-card
     class="gray200 py-md-8 ma-0 px-0"
     min-height="100vh"
-    :max-height="maxHeight"
     flat
   >
+    <!-- :max-height="maxHeight" -->
+    <!--  -->
     <v-container class="mt-0 pt-0" fluid>
       <!-- Desktop -->
-      <!-- <v-layout v-if="!isMobileLayout">
-        <AdminSidebar class="hidden-sm-and-down" />
+      <v-layout v-if="!isMobileLayout">
+         <AdminSidebar class="hidden-sm-and-down" /> 
 
         <v-card
           class="overflow-auto"
@@ -22,7 +23,7 @@
             <router-view />
           </v-layout>
         </v-card>
-      </v-layout>
+      </v-layout> 
 
       <v-layout v-else>
         <v-card class="ma-0 pa-0" color="transparent" width="100%" flat>
@@ -32,53 +33,54 @@
         </v-card>
       </v-layout>
 
-      <GetAQuoteDialog /> -->
+     <GetAQuoteDialog />
     </v-container>
   </v-card>
 </template>
 
 <script>
-// import AdminSidebar from "@/components/shared/sidebars/AdminSidebar.vue";
+import AdminSidebar from "@/components/sidebars/AdminSidebar.vue";
 // import GetAQuoteDialog from "@/components/shared/dialogs/get-a-quote/GetAQuoteDialog.vue";
 
 export default {
-  name: "AllianceuiAdmin",
+  name: 'GospelGatewayAdmin',
 
-  components: {
-    // AdminSidebar,
+    components: {
+    AdminSidebar,
     // GetAQuoteDialog,
   },
 
-  data() {
-    return {};
-  },
+  data: () => ({
 
-  computed: {
+  }),
+
+    // computed: {
     // maxHeight
-    maxHeight() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          return "1000000";
-        default:
-          return "1117";
-      }
-    },
+    // maxHeight() {
+    //   switch (this.$vuetify.breakpoint.name) {
+    //     case "xs":
+    //       return "1000000";
+    //     default:
+    //       return "1117";
+    //   }
+    // },
 
     // isMobileLayout
-    isMobileLayout() {
-      return this.$vuetify.breakpoint.mdAndDown;
-    },
-  },
+  //   isMobileLayout() {
+  //     return this.$vuetify.breakpoint.mdAndDown;
+  //   },
+  // },
 
-  mounted() {},
-
-  methods: {},
-};
+}
 </script>
 
-<style lang="scss" scoped>
+<!-- <style>
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-</style>
+</style> -->
+
+
+
+

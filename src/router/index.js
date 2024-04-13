@@ -93,7 +93,9 @@ const routes = [
   // Admin
   {
     path: '/admin/',
-    component: () => import("@/layouts/default"),
+    // component: () => import("@/layouts/admin"),
+    component: () => import("@/layouts/admin"),
+
     children: [
       {
         path: '/dashboard',

@@ -2,7 +2,7 @@
   <div>
     <!-- login section -->
     <div style="background-color: grey;">
-    <v-container class="py-16">
+    <v-container class="py-16" >
       <v-row>
         <v-col cols="12" md="6">
      <h1 class="text-red font-h2">GospelGateway</h1>
@@ -37,9 +37,10 @@
      <p class="mt-5 font-p">Don't you have account yet? <router-link :to="{ name: 'MemberSignup' }" class="text-red">Create Account.</router-link></p>
     </v-col>
   </v-row>
-</v-container>
-</div>
-<!-- summary of the web -->
+      </v-container>
+    </div>
+
+    <!-- summary of the web -->
     <v-container>
       <div>
     <v-card width="600" flat>
@@ -81,7 +82,6 @@
   </div>
     </v-container>
 
-
     <div class="mt-16 py-16" style="background-color: grey;">
       <v-container class="text-center">
         <h1 class="font-h3">
@@ -90,11 +90,11 @@
         </v-container>
     </div>
 
-    <v-container class="mt-16">
-<div class="text-center">
+    <v-container class="mt-16" width="1400px">
+    <div class="text-center">
       <h1 class="font-h3">When you create an impact, we all contribute to that impact.</h1>
-    </div>
-      <v-row class="mt-3">
+        </div>
+        <v-row class="mt-3">
         <v-col cols="12" md="4">
           <v-card class="pa-5  rounded-xl " rounded>
             <p font-p>
@@ -138,7 +138,7 @@
             </p>
           </v-card>
         </v-col>
-      </v-row>
+        </v-row>
     </v-container>
 
     <div class="text-center mt-16">
@@ -167,6 +167,7 @@
   </script>
 
 
-<style>
+<style >
 @import "@/assets/css/Styles.css";
+
 </style>
