@@ -330,7 +330,7 @@ export default {
 <style lang="scss" scoped>
 
 .sidebar {
-  background: linear-gradient(176.15deg, #1776ee -9.36%, #ec8181 106.46%);
+  background: linear-gradient(176.15deg, #1776ee -9.36%, #20505d 106.46%);
   border-radius: 16px;
 }
 

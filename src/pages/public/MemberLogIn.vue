@@ -1,29 +1,24 @@
 <template>
   <div>
     <!-- login section -->
-    <div style="background-color: grey;">
+    <div style="background-color: #20505d;">
     <v-container class="py-16" >
       <v-row>
         <v-col cols="12" md="6">
      <h1 class="red--text font-h2">GospelGateway</h1>
 
-     <p class="mt-10 font-p">Easy and Affordable <span class="text--red"> Case Management Software </span> for Your Church</p>
+     <p class="mt-10 font-p white--text">Easy and Affordable <span class="text--red"> Case Management Software </span> for Your Church</p>
 
-     <p class="mt-5 font-p">Streamline your church's administrative tasks with our user-friendly case management software.
+     <p class="mt-5 white--text font-p">Streamline your church's administrative tasks with our user-friendly case management software.
       How about "Transformative"? It conveys the idea that using GospelGateway can
        bring about positive change and improvement within the church management processes.
       Simplify coordination and maximize efficiency in providing support to those in need</p>
 
-      <h3 class="mt-5 font-h3">Give us  call: <span class="red--text"> +27 78 432 2343</span></h3>
-          <!-- 
-      <v-text-field
-            label="Plain"
-            placeholder="Placeholder"
-            variant="plain"
-          ></v-text-field> -->
+      <h3 class="mt-5 font-h3 grey--text">Give us  call: <span class="red--text"> +27 78 432 2343</span></h3>
+
 
           <v-text-field
-          class="mt-5"
+          class="mt-5 pa-0"
           label="Email"
           outlined
         ></v-text-field>
@@ -34,7 +29,7 @@
       ></v-text-field>
 
      <v-btn class="white--text" :to="{name:'AdminDashboard'}" style="background-color: red;" block>Login</v-btn>
-     <p class="mt-5 font-p">Don't you have account yet? <router-link :to="{ name: 'MemberSignup' }" class="red--text">Create Account.</router-link></p>
+     <p class="mt-5 font-p white--text">Don't you have account yet? <router-link :to="{ name: 'MemberSignup' }" class="red--text">Create Account.</router-link></p>
     </v-col>
   </v-row>
       </v-container>
@@ -46,7 +41,7 @@
     <v-card width="600" flat>
     <h1 class="mt-10 font-h3">assist your church in <span class="red--text"> understanding data </span> and evaluating its impact.</h1>
   </v-card>
-    <v-row class="mt-10 " >
+    <v-row class="mt-5 mt-md-10 " >
       <v-col cols="12" md="3">
         <h2 class="red--text font-h4">
           Introduction to Case Management for Churches
@@ -82,17 +77,17 @@
   </div>
     </v-container>
 
-    <div class="mt-16 py-16" style="background-color: grey;">
+    <div class="mt-1 mt-md-16 py-10 py-md-16" style="background-color: #e6ebf1;">
       <v-container class="text-center">
-        <h1 class="font-h3">
+        <h1 class="font-h3 ">
            to begin using our user-friendly client management software, <span class="red--text"> Contact us </span>, for efficiently managing data beyond just church services.</h1>
-          <v-btn class="white--text mt-5" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
+          <v-btn class="white--text mt-5" :to="{name:'MemberLogin'}" style="background-color: red;">Get Demo</v-btn>
         </v-container>
     </div>
 
-    <v-container class="mt-16" width="1400px">
+    <v-container class="mt-10 mt-md-16" width="1400px">
     <div class="text-center">
-      <h1 class="font-h3">When you create an impact, we all contribute to that impact.</h1>
+      <h1 class="font-h3">When you create an impact, we all contribute it.</h1>
         </div>
         <v-row class="mt-5">
         <v-col cols="12" md="4">
@@ -141,13 +136,8 @@
         </v-row>
     </v-container>
 
-    <div class="text-center mt-16">
-    <h1 class="font-h3">Transformation begins at this point.</h1>
-    <v-btn class="white--text mt-4" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
+    <div class="mt-8 mt-md-16" style="background-color: #20505d;">
 
-    </div>
-
-      <div class="mt-16" style="background-color: grey;">
       <v-container>
       <h1 class="  red--text">GospelGateway</h1>
     </v-container>
