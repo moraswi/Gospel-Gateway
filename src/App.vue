@@ -28,10 +28,10 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style> -->
-
+<!-- style="background-color: grey;" -->
 <template>
-  <v-app>
-    <v-main>
+  <v-app class="pa-0 ma-0">
+    <v-main class="pa-0 ma-0">
       <router-view />
     </v-main>
   </v-app>

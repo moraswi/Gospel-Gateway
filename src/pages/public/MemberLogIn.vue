@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- login section -->
-    <v-container>
+    <div style="background-color: grey;">
+    <v-container class=" py-16">
       <v-row>
         <v-col cols="12" md="6">
      <h1 class="  text-red">GospelGateway</h1>
@@ -37,7 +38,7 @@
     </v-col>
   </v-row>
 </v-container>
-
+</div>
 <!-- summary of the web -->
     <v-container>
       <div>
@@ -81,14 +82,15 @@
     </v-container>
 
 
-    <div>
+    <div class="mt-16 py-16" style="background-color: grey;">
       <v-container class="text-center">
         <h1>
           Avoid lengthy training or onboarding. <span class="text-red"> Contact us to begin using our user-friendly client management software, GospelGateway,</span> for efficiently managing data beyond just church services.</h1>
-      </v-container>
+          <v-btn class="text-white mt-5" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
+        </v-container>
     </div>
 
-    <v-container >
+    <v-container class="mt-16">
 <div class="text-center">
       <h1>When you create an impact, we all contribute to that impact.</h1>
     </div>
@@ -141,11 +143,11 @@
 
     <div class="text-center mt-16">
     <h1>The journey of transformation begins at this point.</h1>
-    <v-btn :to="{name:'MemberLogin'}" >Get Demo</v-btn>
+    <v-btn class="text-white" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
 
     </div>
 
-    <div class="mt-16">
+      <div class="mt-16" style="background-color: grey;">
       <v-container>
       <h1 class="  text-red">GospelGateway</h1>
     </v-container>

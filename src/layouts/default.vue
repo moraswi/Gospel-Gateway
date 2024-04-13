@@ -1,8 +1,8 @@
 <template>
-  <div class="white default-layout">
-    <v-container fluid>
+  <div  class="white default-layout ">
+    <!-- <v-container class="ma-0" fluid> -->
       <router-view />
-    </v-container>
+    <!-- </v-container> -->
 
     <!-- Get A Quote Dialog -->
     <!-- <GetAQuoteDialog /> -->
