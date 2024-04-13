@@ -2,7 +2,6 @@
 <template>
   <v-card
     class="gray200 py-md-8 ma-0 px-0"
-    min-height="100vh"
     flat
   >
     <!-- :max-height="maxHeight" -->
@@ -16,7 +15,6 @@
           class="overflow-auto"
           color="transparent"
           width="100%"
-          height="1053"
           flat
         >
           <v-layout column>
@@ -33,7 +31,7 @@
         </v-card>
       </v-layout>
 
-     <GetAQuoteDialog />
+     <!-- <GetAQuoteDialog /> -->
     </v-container>
   </v-card>
 </template>
@@ -74,7 +72,8 @@ export default {
 }
 </script>
 
-<!-- <style>
+<!-- <style lang="scss" scoped>
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

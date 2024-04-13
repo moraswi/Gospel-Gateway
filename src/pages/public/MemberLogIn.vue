@@ -33,7 +33,7 @@
         outlined
       ></v-text-field>
 
-     <v-btn class="text-white" :to="{name:'AdminDashboard'}" style="background-color: red;" block>Login</v-btn>
+     <v-btn class="white--text" :to="{name:'AdminDashboard'}" style="background-color: red;" block>Login</v-btn>
      <p class="mt-5 font-p">Don't you have account yet? <router-link :to="{ name: 'MemberSignup' }" class="red--text">Create Account.</router-link></p>
     </v-col>
   </v-row>
@@ -86,7 +86,7 @@
       <v-container class="text-center">
         <h1 class="font-h3">
            to begin using our user-friendly client management software, <span class="red--text"> Contact us </span>, for efficiently managing data beyond just church services.</h1>
-          <v-btn class="text-white mt-5" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
+          <v-btn class="white--text mt-5" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
         </v-container>
     </div>
 
@@ -143,7 +143,7 @@
 
     <div class="text-center mt-16">
     <h1 class="font-h3">Transformation begins at this point.</h1>
-    <v-btn class="text-white mt-4" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
+    <v-btn class="white--text mt-4" :to="{name:'MemberLogin'}" style="background-color: red;" >Get Demo</v-btn>
 
     </div>
 

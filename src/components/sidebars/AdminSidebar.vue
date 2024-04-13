@@ -1,13 +1,11 @@
 <template>
   <div>
-    <!--  :width="sideBarWidth" -->
     <v-card
       :class="opened ? 'pa-2 pa-lg-4' : 'pa-3'"
       class="sidebar"
-     
-      min-height="1053"
-      height="1053"
-      max-height="1053"
+      min-height="800"
+      height="800"
+      max-height="800"
     >
       <v-layout column fill-height>
         <!-- Logo -->
@@ -27,17 +25,20 @@
 
         <!-- My Stokvel -->
         <span v-if="opened" class="cap-3 ff-1 ml-4 white--text mt-7">
-          My Stokvel
+         GospelGateway
         </span>
 
         <!-- WASCO -->
         <v-card
           v-if="opened"
-          class="card-wasco mt-4"
+          class="card-wasco mt-4    justify-center
+          align-center text-center"
           width="100%"
           min-height="48"
           flat
+       
         >
+
           <v-layout class="px-4" fill-height align-center>
             <!-- badges -->
             <!-- <v-img
@@ -81,7 +82,7 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
+                color="gray50"
                 icon="mdi-domain"
                 size="large"
               ></v-icon>
@@ -89,7 +90,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Overview </v-list-item-title>
+                <v-list-item-title> Dashboard </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -118,7 +119,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> My Stokvel </v-list-item-title>
+                <v-list-item-title> Events </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -147,7 +148,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Contributions </v-list-item-title>
+                <v-list-item-title> Offerring </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -176,7 +177,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Investments </v-list-item-title>
+                <v-list-item-title> Service Program </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -205,7 +206,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Loans </v-list-item-title>
+                <v-list-item-title> Add Events </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -234,122 +235,45 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Transact </v-list-item-title>
+                <v-list-item-title> Church Plan </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>
 
-          <!-- Settings -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
-                <!-- <v-icon color="gray50"> $settingsIcon </v-icon> -->
-              </v-list-item-icon>
+         <!-- Transact -->
+         <v-card
+         class="mt-1"
+         color="transparent"
+         width="100%"
+         height="48"
+         flat
+       >
+         <v-list-item
+           class="transparent white--text"
+           active-class="bg-active gray50--text"
+           :to="{ name: 'MemberLogin' }"
+           link
+         >
+           <v-list-item-icon>
+             <v-icon
+             color="green-darken-2"
+             icon="mdi-domain"
+             size="large"
+           ></v-icon>
+             <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
+           </v-list-item-icon>
 
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Settings </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
+           <v-list-item-content v-if="opened">
+             <v-list-item-title> LogOut </v-list-item-title>
+           </v-list-item-content>
+         </v-list-item>
+       </v-card>
         </v-list>
 
-        <!-- For me -->
-        <span v-if="opened" class="cap-3 ff-1 ml-4 white--text mt-8">
-          For me
-        </span>
-
-        <v-card v-else class="bg-none mt-8" height="16" flat> </v-card>
-
-        <!-- For me List-->
-        <v-list class="transparent">
-          <!-- Messages -->
-          <v-card
-            class="mt-1 mb-2"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
-                <!-- <v-icon v-if="opened" color="gray50"> $messagesIcon </v-icon>
-                <v-icon v-else class="ml-n2 my-n7" color="gray50" size="52">
-                  $messagesNotOpenedIcon
-                </v-icon> -->
-              </v-list-item-icon>
-
-              <v-list-item-content v-if="opened">
-                <v-layout justify-space-between align-center>
-                  <v-list-item-title> Messages </v-list-item-title>
-
-                  <span class="messge-card red900 ff-1 fsn fw-500 fs-12 lh-15">
-                    {{ lengths }}
-                  </span>
-                </v-layout>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-
-          <span v-if="opened" class="cap-3 ff-1 ml-4 white--text">
-            Favourites
-          </span>
-          <v-card
-            class="mt-1 mb-11"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
-                <!-- <v-icon color="gray50"> $favouritesIcon </v-icon> -->
-              </v-list-item-icon>
-
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Name here </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-        </v-list>
+   
 
         <v-flex fill-height> </v-flex>
 
- 
         <!-- menu-opener -->
         <v-layout class="mt-6 mb-9 mr-n2 mr-lg-n4" align-end justify-end>
           <div class="menu-opener pointer" @click="opened = !opened">
@@ -374,12 +298,10 @@
       </v-layout>
     </v-card>
 
-    <h1>adss</h1>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
 
 export default {
   name: "GospelGatewayAdminSidebar",
@@ -390,35 +312,10 @@ export default {
     };
   },
 
-  computed: {
-    // sideBarWidth
-    sideBarWidth() {
-      if (this.opened) {
-        switch (this.$vuetify.breakpoint.name) {
-          case "xs":
-            return "235px";
-          case "sm":
-            return "235px";
-          case "md":
-            return "235px";
-          default:
-            return "268px";
-        }
-      } else {
-        return 80;
-      }
-    },
-  },
-
-
-
   mounted() {},
 
   methods: {
-    ...mapMutations({
-      // setShowMobileSidebar
-      setShowMobileSidebar: "mobileSidebar/setShowMobileSidebar",
-    }),
+
 
     // logOut
     logOut() {
@@ -430,15 +327,11 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss" scoped>
+
 .sidebar {
   background: linear-gradient(176.15deg, #1776ee -9.36%, #ec8181 106.46%);
   border-radius: 16px;
-}
-
-.card-wasco {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
 }
 
 .bg {
@@ -450,19 +343,6 @@ export default {
   border-radius: 8px;
 }
 
-.email {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-.messge-card {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.13);
-  border-radius: 4px;
-  padding: 3px 9px;
-}
 
 .menu-opener {
   background: rgba(255, 255, 255, 0.2);
