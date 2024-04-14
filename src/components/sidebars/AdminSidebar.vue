@@ -221,6 +221,60 @@
             </v-list-item>
           </v-card>
 
+              <!-- Transact -->
+              <v-card
+              class="mt-1"
+              color="transparent"
+              width="100%"
+              height="48"
+              flat
+            >
+              <v-list-item
+                class="transparent white--text"
+                active-class="bg-active gray50--text"
+                :to="{ name: 'MemberLogin' }"
+                link
+              >
+                <v-list-item-icon>
+                  <v-icon
+                  color="white"
+                >mdi-account-multiple</v-icon>
+                  <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
+                </v-list-item-icon>
+  
+                <v-list-item-content v-if="opened">
+                  <v-list-item-title> Members & Roles </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card>
+
+                 <!-- Transact -->
+                 <v-card
+                 class="mt-1"
+                 color="transparent"
+                 width="100%"
+                 height="48"
+                 flat
+               >
+                 <v-list-item
+                   class="transparent white--text"
+                   active-class="bg-active gray50--text"
+                   :to="{ name: 'MemberLogin' }"
+                   link
+                 >
+                   <v-list-item-icon>
+                     <v-icon
+                     color="white"
+                   >mdi-floor-plan</v-icon>
+                     <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
+                   </v-list-item-icon>
+     
+                   <v-list-item-content v-if="opened">
+                     <v-list-item-title> Refer a Friend </v-list-item-title>
+                   </v-list-item-content>
+                 </v-list-item>
+               </v-card>
+
          <!-- Transact -->
          <v-card
          class="mt-1"
