@@ -56,14 +56,49 @@ const routes = [
   // Admin
   {
     path: '/admin/',
-    // component: () => import("@/layouts/admin"),
     component: () => import("@/layouts/admin"),
 
     children: [
+      // AdminDashboard
       {
         path: '/dashboard',
         name: 'AdminDashboard',
-        component: () => import("@/views/private/DashboardView.vue"),
+        component: () => import("@/views/private/dashboard/DashboardView.vue"),
+      },
+
+       // AdminChurchPlan
+       {
+        path: '/church-plan',
+        name: 'AdminChurchPlan',
+        component: () => import("@/views/private/churchplan/ChurchPlan.vue"),
+      },
+
+       // AdminEvents
+       {
+        path: '/events',
+        name: 'AdminEvents',
+        component: () => import("@/views/private/events/Events.vue"),
+      },
+
+      // AdminMemberAndRoles
+      {
+        path: '/member-and-roles',
+        name: 'AdminMemberAndRoles',
+        component: () => import("@/views/private/member&roles/Member&Roles.vue"),
+      },
+
+      // AdminOffering
+      {
+        path: '/offering',
+        name: 'AdminOffering',
+        component: () => import("@/views/private/offering/Offering.vue"),
+      },
+
+       // AdminPeople
+       {
+        path: '/people',
+        name: 'AdminPeople',
+        component: () => import("@/views/private/people/People.vue"),
       },
     ]
   },

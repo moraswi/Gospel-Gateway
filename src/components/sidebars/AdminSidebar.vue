@@ -8,49 +8,33 @@
       max-height="800"
     >
       <v-layout column fill-height>
-        <!-- Logo -->
-        <!-- <v-layout justify-start>
-          <v-img
-            :class="opened ? 'mt-6 ml-4' : 'mt-6 ml-3'"
-            :src="
-              opened
-                ? require('@/assets/img/member/sidebar/logo-ipsum.png')
-                : require('@/assets/img/member/sidebar/mini-logo.png')
-            "
-            :min-height="opened ? 29 : 29"
-            :max-width="opened ? 158 : 29"
-            contain
-          />
-        </v-layout> -->
 
-        <!-- My Stokvel -->
+        <!-- GospelGateway -->
         <h1 v-if="opened" class="white--text mt-7 font-h4">
          GospelGateway
         </h1>
 
-        <!-- WASCO -->
-      
-
         <!-- Main Menu -->
-        <span v-if="opened" class="cap-3 ff-1 ml-4 white--text mt-7">
+        <span v-if="opened" class="  ml-4 white--text mt-7">
           Main Menu
         </span>
 
         <!-- Main Menu List-->
         <v-list class="transparent mt-1">
-          <!-- Overview -->
+          
+          <!-- Dashboard -->
           <v-card color="transparent" width="100%" height="48" flat>
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminDashboard' }"
               link
             >
               <v-list-item-icon>
                 <v-icon
                 color="white"
               >mdi-view-dashboard</v-icon>
-                <!-- <v-icon color="gray50"> $overviewIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -59,7 +43,7 @@
             </v-list-item>
           </v-card>
 
-          <!-- Contributions -->
+          <!-- People -->
           <v-card
             class="mt-1"
             color="transparent"
@@ -70,14 +54,14 @@
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminPeople' }"
               link
             >
               <v-list-item-icon>
                 <v-icon
                 color="white"            
               >mdi-account-group</v-icon>
-                <!-- <v-icon color="gray50"> $myStokvelIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -86,7 +70,7 @@
             </v-list-item>
           </v-card>
 
-          <!-- Contributions -->
+          <!-- Events -->
           <v-card
             class="mt-1"
             color="transparent"
@@ -97,14 +81,14 @@
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminEvents' }"
               link
             >
               <v-list-item-icon>
                 <v-icon
                 color="white"
               >mdi-calendar-check</v-icon>
-                <!-- <v-icon color="gray50"> $myStokvelIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -113,7 +97,7 @@
             </v-list-item>
           </v-card>
 
-          <!-- Contributions -->
+          <!-- Offerring -->
           <v-card
             class="mt-1"
             color="transparent"
@@ -124,14 +108,14 @@
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminOffering' }"
               link
             >
               <v-list-item-icon>
                 <v-icon
                 color="white"
               >mdi-offer</v-icon>
-                <!-- <v-icon color="gray50"> $contributionsIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -140,7 +124,7 @@
             </v-list-item>
           </v-card>
 
-          <!-- Investments -->
+          <!-- Service Program -->
           <v-card
             class="mt-1"
             color="transparent"
@@ -158,7 +142,7 @@
                 <v-icon
                 color="white"
               >mdi-note-text</v-icon>
-                <!-- <v-icon color="gray50"> $savingsIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -167,7 +151,7 @@
             </v-list-item>
           </v-card>
 
-          <!-- Loans -->
+          <!-- Add Events -->
           <v-card
             class="mt-1"
             color="transparent"
@@ -178,14 +162,14 @@
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminEvents' }"
               link
             >
               <v-list-item-icon>
                 <v-icon
                 color="white"
               >mdi-file-document-plus</v-icon>
-                <!-- <v-icon color="gray50"> $loansIcon </v-icon> -->
+
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -194,34 +178,34 @@
             </v-list-item>
           </v-card>
 
-          <!-- Transact -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
-              link
+          <!-- Church Plan -->
+            <v-card
+              class="mt-1"
+              color="transparent"
+              width="100%"
+              height="48"
+              flat
             >
-              <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-floor-plan</v-icon>
-                <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
-              </v-list-item-icon>
+              <v-list-item
+                class="transparent white--text"
+                active-class="bg-active gray50--text"
+                :to="{ name: 'AdminChurchPlan' }"
+                link
+              >
+                <v-list-item-icon>
+                  <v-icon
+                  color="white"
+                >mdi-floor-plan</v-icon>
 
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Church Plan </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
+                </v-list-item-icon>
 
-              <!-- Transact -->
+                <v-list-item-content v-if="opened">
+                  <v-list-item-title> Church Plan </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card>
+
+              <!-- Members & Roles -->
               <v-card
               class="mt-1"
               color="transparent"
@@ -232,14 +216,14 @@
               <v-list-item
                 class="transparent white--text"
                 active-class="bg-active gray50--text"
-                :to="{ name: 'MemberLogin' }"
+                :to="{ name: 'AdminMemberAndRoles' }"
                 link
               >
                 <v-list-item-icon>
                   <v-icon
                   color="white"
                 >mdi-account-multiple</v-icon>
-                  <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
+     
                 </v-list-item-icon>
   
                 <v-list-item-content v-if="opened">
@@ -248,7 +232,7 @@
               </v-list-item>
             </v-card>
 
-                 <!-- Transact -->
+                 <!-- Refer a Friend -->
                  <v-card
                  class="mt-1"
                  color="transparent"
@@ -266,7 +250,7 @@
                      <v-icon
                      color="white"
                    >mdi-floor-plan</v-icon>
-                     <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
+     
                    </v-list-item-icon>
      
                    <v-list-item-content v-if="opened">
@@ -275,35 +259,34 @@
                  </v-list-item>
                </v-card>
 
-         <!-- Transact -->
-         <v-card
-         class="mt-1"
-         color="transparent"
-         width="100%"
-         height="48"
-         flat
-       >
-         <v-list-item
-           class="transparent white--text"
-           active-class="bg-active gray50--text"
-           :to="{ name: 'MemberLogin' }"
-           link
-         >
-           <v-list-item-icon>
-            <v-icon
-                color="white"
-              >mdi-logout</v-icon>
-             <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
-           </v-list-item-icon>
+         <!-- logout -->
+              <v-card
+              class="mt-1"
+              color="transparent"
+              width="100%"
+              height="48"
+              flat
+            >
+              <v-list-item
+                class="transparent white--text"
+                active-class="bg-active gray50--text"
+                :to="{ name: 'MemberLogin' }"
+                link
+              >
+                <v-list-item-icon>
+                  <v-icon
+                      color="white"
+                    >mdi-logout</v-icon>
 
-           <v-list-item-content v-if="opened">
-             <v-list-item-title> LogOut </v-list-item-title>
-           </v-list-item-content>
-         </v-list-item>
-       </v-card>
+                </v-list-item-icon>
+
+                <v-list-item-content v-if="opened">
+                  <v-list-item-title> LogOut </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card>
+
         </v-list>
-
-   
 
         <v-flex fill-height> </v-flex>
 

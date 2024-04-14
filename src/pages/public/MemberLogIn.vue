@@ -8,7 +8,7 @@
         <v-col cols="12" md="6">
      <h1 class="red--text font-h2">GospelGateway</h1>
 
-     <p class="mt-10 font-p white--text">Easy and Affordable <span class="text--red"> Case Management Software </span> for Your Church</p>
+     <h1 class="mt-10 font-h4 white--text">Easy and Affordable <span > Case Management Software </span> for Your Church</h1>
 
      <p class="mt-5 white--text font-p">Streamline your church's administrative tasks with our user-friendly case management software.
       How about "Transformative"? It conveys the idea that using GospelGateway can
