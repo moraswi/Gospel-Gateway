@@ -8,7 +8,7 @@
       </div>
       <v-spacer></v-spacer>
       <div>
-        <h1 class="font-h2">{{ topText }}</h1>
+        <h1 class="font-h4">{{ topText }}</h1>
         <p class="font-p">{{ date }}</p>
       </div>
     </v-layout>
