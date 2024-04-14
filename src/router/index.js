@@ -87,6 +87,13 @@ const routes = [
         component: () => import("@/views/private/member&roles/Member&Roles.vue"),
       },
 
+        // AdminServiceProgram
+        {
+          path: '/service-program',
+          name: 'AdminServiceProgram',
+          component: () => import("@/views/private/serviceprogram/ServiceProgram.vue"),
+        },
+
       // AdminOffering
       {
         path: '/offering',

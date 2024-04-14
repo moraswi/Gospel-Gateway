@@ -8,7 +8,7 @@
   <script>
   
   export default {
-    name: 'memberAndRolesPage',
+    name: 'MemberAndRolesPage',
   
     data: () => ({
 

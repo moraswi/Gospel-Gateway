@@ -21,7 +21,7 @@
 
         <!-- Main Menu List-->
         <v-list class="transparent mt-1">
-          
+
           <!-- Dashboard -->
           <v-card color="transparent" width="100%" height="48" flat>
             <v-list-item
@@ -135,7 +135,7 @@
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
-              :to="{ name: 'MemberLogin' }"
+              :to="{ name: 'AdminServiceProgram' }"
               link
             >
               <v-list-item-icon>
@@ -152,7 +152,7 @@
           </v-card>
 
           <!-- Add Events -->
-          <v-card
+          <!-- <v-card
             class="mt-1"
             color="transparent"
             width="100%"
@@ -176,7 +176,7 @@
                 <v-list-item-title> Add Events </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-          </v-card>
+          </v-card> -->
 
           <!-- Church Plan -->
             <v-card
