@@ -1,18 +1,21 @@
 <template>
     <v-container>
-      <custom-card top-text="100" bottom-text="People"/>
-     <h1 class="mt-16  text-red">dashboard</h1>
-     <v-btn :to="{name:'MemberLogin'}" >MemberLogin</v-btn>
+      <CustomCard top-text="100" bottom-text="People"/>
+
+      <EventsCard title="youth conferance" bottom-text="People" top-text="10h00" date="12/02/1221"/>
+ 
     </v-container>
   </template>
   
   <script>
   import CustomCard from '@/components/cards/SummaryCard.vue'
+  import EventsCard from '@/components/cards/EventsCard.vue'
   export default {
     name: 'DashboardPage',
 
     components: {
-    CustomCard
+    CustomCard,
+    EventsCard,
   },
   
     data: () => ({
