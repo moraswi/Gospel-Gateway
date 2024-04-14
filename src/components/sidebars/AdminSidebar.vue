@@ -24,46 +24,12 @@
         </v-layout> -->
 
         <!-- My Stokvel -->
-        <span v-if="opened" class="cap-3 ff-1 ml-4 white--text mt-7">
+        <h1 v-if="opened" class="white--text mt-7 font-h4">
          GospelGateway
-        </span>
+        </h1>
 
         <!-- WASCO -->
-        <v-card
-          v-if="opened"
-          class="card-wasco mt-4    justify-center
-          align-center text-center"
-          width="100%"
-          min-height="48"
-          flat
-       
-        >
-
-          <v-layout class="px-4" fill-height align-center>
-            <!-- badges -->
-            <!-- <v-img
-              src="@/assets/img/member/sidebar/badges.png"
-              max-width="24"
-              max-height="24"
-              contain
-            /> -->
-
-            <!-- WASCO -->
-            <!-- <span class="b-1 white--text ml-4">{{ tenantNameForMember }}</span> -->
-          </v-layout>
-        </v-card>
-
-        <v-card v-else class="bg-none" min-height="163" height="163" flat>
-          <v-layout align-center justify-center fill-height>
-            <!-- badges -->
-            <!-- <v-img
-              src="@/assets/img/member/sidebar/badges.png"
-              max-width="24"
-              max-height="24"
-              contain
-            /> -->
-          </v-layout>
-        </v-card>
+      
 
         <!-- Main Menu -->
         <span v-if="opened" class="cap-3 ff-1 ml-4 white--text mt-7">
@@ -82,10 +48,8 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="gray50"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"
+              >mdi-view-dashboard</v-icon>
                 <!-- <v-icon color="gray50"> $overviewIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -111,10 +75,35 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"            
+              >mdi-account-group</v-icon>
+                <!-- <v-icon color="gray50"> $myStokvelIcon </v-icon> -->
+              </v-list-item-icon>
+
+              <v-list-item-content v-if="opened">
+                <v-list-item-title> People </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+
+          <!-- Contributions -->
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
+            <v-list-item
+              class="transparent white--text"
+              active-class="bg-active gray50--text"
+              :to="{ name: 'MemberLogin' }"
+              link
+            >
+              <v-list-item-icon>
+                <v-icon
+                color="white"
+              >mdi-calendar-check</v-icon>
                 <!-- <v-icon color="gray50"> $myStokvelIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -140,10 +129,8 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"
+              >mdi-offer</v-icon>
                 <!-- <v-icon color="gray50"> $contributionsIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -169,10 +156,8 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"
+              >mdi-note-text</v-icon>
                 <!-- <v-icon color="gray50"> $savingsIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -198,10 +183,8 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"
+              >mdi-file-document-plus</v-icon>
                 <!-- <v-icon color="gray50"> $loansIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -227,10 +210,8 @@
             >
               <v-list-item-icon>
                 <v-icon
-                color="green-darken-2"
-                icon="mdi-domain"
-                size="large"
-              ></v-icon>
+                color="white"
+              >mdi-floor-plan</v-icon>
                 <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
               </v-list-item-icon>
 
@@ -255,11 +236,9 @@
            link
          >
            <v-list-item-icon>
-             <v-icon
-             color="green-darken-2"
-             icon="mdi-domain"
-             size="large"
-           ></v-icon>
+            <v-icon
+                color="white"
+              >mdi-logout</v-icon>
              <!-- <v-icon color="gray50"> $transactIcon </v-icon> -->
            </v-list-item-icon>
 
