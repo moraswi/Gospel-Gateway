@@ -1,6 +1,6 @@
 <template>
   <v-card class="custom-card px-7 py-0" width="100%">
-    <v-layout row>
+    <v-layout row align-center>
       <div>
         <v-icon color="grey" small>mdi-earth</v-icon>
         <h1 class="font-h4 mt-n1">{{ title }}</h1>
@@ -10,7 +10,7 @@
       <div class="text-right">
         <h4 class="font-p">{{ churchName }}</h4>
         <p class="font-p4  mt-n0">{{ topText }}</p>
-        <p class="font-p4 mt-n4">{{ date }}</p>
+        <p class="font-p4 mt-n3">{{ date }}</p>
       </div>
     </v-layout>
   </v-card>
