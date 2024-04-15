@@ -1,15 +1,16 @@
 <template>
-  <v-card class="custom-card px-7 py-3" width="100%">
+  <v-card class="custom-card px-7 py-0" width="100%">
     <v-layout row>
       <div>
-        <v-icon color="grey">mdi-earth</v-icon>
-        <h1 class="font-h4">{{ title }}</h1>
-        <p class="font-p">{{ bottomText }}</p>
+        <v-icon color="grey" small>mdi-earth</v-icon>
+        <h1 class="font-h4 mt-n1">{{ title }}</h1>
+        <p class="font-p mt-n1">{{ bottomText }}</p>
       </div>
       <v-spacer></v-spacer>
-      <div>
-        <h1 class="font-h4">{{ topText }}</h1>
-        <p class="font-p">{{ date }}</p>
+      <div class="text-right">
+        <h4 class="font-p">{{ churchName }}</h4>
+        <p class="font-p4  mt-n0">{{ topText }}</p>
+        <p class="font-p4 mt-n4">{{ date }}</p>
       </div>
     </v-layout>
   </v-card>
@@ -18,6 +19,10 @@
 <script>
 export default {
   props: {
+    churchName: {
+      type: String,
+      required: true
+    },
     topText: {
       type: String,
       required: true
