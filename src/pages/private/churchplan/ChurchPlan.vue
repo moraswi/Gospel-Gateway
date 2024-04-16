@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div class="px-md-4">
       <div class="rounded" style="background-color: #20505d;">
         <v-container>
         <h1 class="white--text">Events</h1>
@@ -14,7 +14,7 @@
       class="mt-7"
       >
     </v-data-table>
-    </v-container>
+    </div>
   </template>
   
   <script>

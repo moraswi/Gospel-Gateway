@@ -1,10 +1,10 @@
 <template>
-    <v-container>
+    <div class="px-md-4">
       <CustomCard top-text="100" bottom-text="People"/>
 
       <EventsCard title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
  
-    </v-container>
+    </div>
   </template>
   
   <script>

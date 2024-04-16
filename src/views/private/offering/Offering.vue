@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Offering from '@/pages/private/offering/Offering.vue'
+import Offering from '@/pages/private/offering/ChurchOffering'
 
 export default {
   name: 'EventsView',

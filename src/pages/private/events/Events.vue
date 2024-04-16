@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div class="px-md-4">
 
       <!-- Nav Bar -->
       <div class=" rounded pr-3" style="background-color: #20505d;">
@@ -19,7 +19,7 @@
       </v-row>
       
 
-    </v-container>
+    </div>
   </template>
   
   <script>
