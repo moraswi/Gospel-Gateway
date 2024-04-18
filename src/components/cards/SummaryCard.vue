@@ -1,5 +1,5 @@
 <template>
-    <v-card class="py-4" width="200" height="120" >
+    <v-card class="py-4" width="100%" height="120" >
         <v-layout class="text-center" column >
          <h1 class=" font-h2 justify-center align-center">{{ topText }}</h1>
          <p class="font-p justify-center">{{ bottomText }}</p>

@@ -2,10 +2,8 @@
 
 <template>
   <div class="px-md-4">
-    <div class="rounded" style="background-color: #20505d;">
-      <v-container>
+    <div class="rounded py-3 px-2" style="background-color: #20505d;">
       <h1 class="white--text">People</h1>
-    </v-container>
     </div>
 
     <v-data-table

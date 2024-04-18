@@ -1,8 +1,44 @@
 <template>
     <div class="px-md-4">
-      <CustomCard top-text="100" bottom-text="People"/>
+      <div class="rounded py-3 px-2" style="background-color: #20505d;">
+        <h1 class="white--text">Dashboard</h1>
+      </div>
+      <v-row class="mt-5">
+        <v-col cols="12" md="3">
+      <CustomCard top-text="10 000" bottom-text="People"/>
+        </v-col>
+        <v-col cols="12" md="3">
+          <CustomCard top-text="R 1 100000" bottom-text="Offering"/>
+            </v-col>
+            <v-col cols="12" md="3">
+              <CustomCard top-text="R 100" bottom-text="Spent"/>
+          </v-col>
+          <v-col cols="12" md="3">
+              <CustomCard top-text="0" bottom-text="Events"/>
+          </v-col>
+          <v-col cols="12" md="3">
+              <CustomCard top-text="15" bottom-text="Meetings"/>
+          </v-col>
+          <v-col cols="12" md="3">
+              <CustomCard top-text="10" bottom-text="Members & Roles"/>
+          </v-col>
+      </v-row>
 
-      <EventsCard title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+      <v-row>
+        <v-col cols="12" md="6">
+          <h1 class="font-h4">Events</h1>
+         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+        </v-col>
+
+        <v-col cols="12" md="6">
+          <h1 class="font-h4">Meetings</h1>
+          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+         </v-col>
+      </v-row>
  
     </div>
   </template>
@@ -23,3 +59,7 @@
     }),
   }
   </script>
+
+  <style lang="scss" scoped>
+  //
+  </style>
