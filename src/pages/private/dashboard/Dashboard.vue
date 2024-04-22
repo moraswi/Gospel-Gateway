@@ -16,15 +16,15 @@
           <v-col cols="12" md="3">
               <CustomCard top-text="0" bottom-text="Events"/>
           </v-col>
-          <v-col cols="12" md="3">
+          <!-- <v-col cols="12" md="3">
               <CustomCard top-text="15" bottom-text="Meetings"/>
           </v-col>
           <v-col cols="12" md="3">
               <CustomCard top-text="10" bottom-text="Members & Roles"/>
-          </v-col>
+          </v-col> -->
       </v-row>
 
-      <v-row>
+      <v-row class="mt-10">
         <v-col cols="12" md="6">
           <h1 class="font-h4">Events</h1>
          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
@@ -33,10 +33,19 @@
         </v-col>
 
         <v-col cols="12" md="6">
-          <h1 class="font-h4">Meetings</h1>
-          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
-          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
-          <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+          <h1 class="font-h4">Program</h1>
+          <v-card class="custom-card px-7 py-6 mt-2" width="100%">
+            <v-layout row align-center>
+              <div>
+                <h1 class="font-h4 mt-n1">member name</h1>
+              </div>
+              <v-spacer></v-spacer>
+              <div class="text-right">
+                <h4 class="font-p">preaching</h4>
+                <p class="font-p4  mt-1">12/12/2000</p>
+              </div>
+            </v-layout>
+          </v-card>
          </v-col>
       </v-row>
  
@@ -61,5 +70,7 @@
   </script>
 
   <style lang="scss" scoped>
-  //
+  .custom-card {
+    border-left: 6px solid orange; /* Adjust the thickness as needed */
+  }
   </style>

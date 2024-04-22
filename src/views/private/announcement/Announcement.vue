@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import MemberAndroles from '@/pages/private/member&roles/Member&Roles.vue'
+import MemberAndroles from '@/pages/private/announcement/Announcement'
 
 export default {
-  name: 'Member&RolesView',
+  name: 'AnnouncementView',
   components: {
     MemberAndroles
   }

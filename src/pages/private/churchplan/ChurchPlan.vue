@@ -25,15 +25,15 @@
 
       headers: [
       { text: 'Name', align: 'start', value: 'name' },
-      { text: 'Email', value: 'email' },
-      { text: 'Feedback', value: 'feedback' },
-      { text: 'Rating', value: 'rating' }
+      { text: 'Description', value: 'description' },
+      { text: 'Contact', value: 'contact' },
+      { text: 'Date', value: 'date' }
     ],
     formattedFeedback: [
-      { name: 'John Doe', email: 'john@example.com', feedback: 'Great product!', rating: 5 },
-      { name: 'Jane Smith', email: 'jane@example.com', feedback: 'Could be better.', rating: 3 },
-      { name: 'Bob Johnson', email: 'bob@example.com', feedback: 'Awesome features.', rating: 5 },
-      // Add more feedback items as needed
+      { name: 'John Doe', description: 'description of the event ', contact: '01123212', date: "12/21/1321" },
+      { name: 'Jane Smith', description: 'description', contact: 'jane@example.com', date: "12/21/1321"  },
+      { name: 'Bob Johnson', description: 'description', contact: '01321312', date: "12/21/1321"  },
+      // Add more contact items as needed
     ]
     }),
   }

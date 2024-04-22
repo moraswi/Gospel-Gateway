@@ -206,7 +206,7 @@
             </v-card>
 
               <!-- Members & Roles -->
-              <v-card
+             <v-card
               class="mt-1"
               color="transparent"
               width="100%"
@@ -216,21 +216,21 @@
               <v-list-item
                 class="transparent white--text"
                 active-class="bg-active gray50--text"
-                :to="{ name: 'AdminMemberAndRoles' }"
+                :to="{ name: 'Announcement' }"
                 link
               >
                 <v-list-item-icon>
                   <v-icon
                   color="white"
-                >mdi-account-multiple</v-icon>
+                >mdi-volume-medium</v-icon>
      
                 </v-list-item-icon>
   
                 <v-list-item-content v-if="opened">
-                  <v-list-item-title> Members & Roles </v-list-item-title>
+                  <v-list-item-title> Announcement </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-            </v-card>
+            </v-card> 
 
                  <!-- Refer a Friend -->
                  <v-card

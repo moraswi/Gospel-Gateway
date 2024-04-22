@@ -82,9 +82,9 @@ const routes = [
 
       // AdminMemberAndRoles
       {
-        path: '/member-and-roles',
-        name: 'AdminMemberAndRoles',
-        component: () => import("@/views/private/member&roles/Member&Roles.vue"),
+        path: '/announcement',
+        name: 'Announcement',
+        component: () => import("@/views/private/announcement/Announcement.vue"),
       },
 
         // AdminServiceProgram
