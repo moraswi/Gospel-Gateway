@@ -1,8 +1,9 @@
 <template>
     <div class="px-md-4">
-      <div class="rounded py-3 px-2" style="background-color: #20505d;">
-        <h1 class="white--text">Dashboard</h1>
-      </div>
+      <h1 class="">Dashboard</h1>
+      <!-- <div class="rounded py-3 px-2" style="background-color: #20505d;">
+       
+      </div> -->
       <v-row class="mt-5">
         <v-col cols="12" md="3">
       <CustomCard top-text="10 000" bottom-text="People"/>
@@ -11,11 +12,14 @@
           <CustomCard top-text="R 1 100000" bottom-text="Offering"/>
             </v-col>
             <v-col cols="12" md="3">
-              <CustomCard top-text="R 100" bottom-text="Spent"/>
+              <CustomCard top-text="100" bottom-text="Members"/>
           </v-col>
           <v-col cols="12" md="3">
               <CustomCard top-text="0" bottom-text="Events"/>
           </v-col>
+          <v-col cols="12" md="3">
+            <CustomCard top-text="0" bottom-text="Branches"/>
+        </v-col>
           <!-- <v-col cols="12" md="3">
               <CustomCard top-text="15" bottom-text="Meetings"/>
           </v-col>
@@ -27,9 +31,9 @@
       <v-row class="mt-10">
         <v-col cols="12" md="6">
           <h1 class="font-h4">Events</h1>
-         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
-         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
-         <EventsCard class="mt-5"  title="youth conferance" bottom-text="weekly" top-text="10h00 - 12h00" date="12/02/1221"/>
+          <v-card class="custom-card px-7 py-6 mt-2" width="100%" height="350">
+           
+          </v-card>
         </v-col>
 
         <v-col cols="12" md="6">
@@ -54,13 +58,13 @@
   
   <script>
   import CustomCard from '@/components/cards/SummaryCard.vue'
-  import EventsCard from '@/components/cards/EventsCard.vue'
+  // import EventsCard from '@/components/cards/EventsCard.vue'
   export default {
     name: 'DashboardPage',
 
     components: {
     CustomCard,
-    EventsCard,
+    // EventsCard,
   },
   
     data: () => ({
