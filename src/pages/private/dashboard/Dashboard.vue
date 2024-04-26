@@ -31,20 +31,13 @@
       <v-row class="mt-10">
         <v-col cols="12" md="6">
           <h1 class="font-h4">Events</h1>
-          <v-card class="custom-card px-3 py-6 mt-2" width="100%" height="350">
-            <div class="grey pa-2">
-           <h4>Assemblies of christ HOG</h4>
-           <label>Gauteng</label>
-          </div>
-          <div class="pa-2">
-            <h4>Assemblies of christ HOG</h4>
-            <label>Gauteng</label>
-           </div>
-           <div class="grey pa-2">
-            <h4>Assemblies of christ HOG</h4>
-            <label>Gauteng</label>
-           </div>
+          <v-card class="custom-card px-3 py-6 mt-2" width="100%" height="350" style="overflow-y: auto;">
+            <div v-for="(branch, index) in branches" :key="index" class="pa-2" :style="{ backgroundColor: index % 2 == 0 ? '#e6ebf1' : 'white' }">
+              <h4>{{ branch.branchName }}</h4>
+              <label>{{ branch.branchArea }}</label>
+            </div>
           </v-card>
+          
         </v-col>
 
         <v-col cols="12" md="6">
@@ -80,6 +73,32 @@
   
     data: () => ({
 
+      branches:[
+      {
+        branchName:"Branch Name",
+        branchArea:"Branch Area"
+      },
+      {
+        branchName:"Dihlopaneng",
+        branchArea:"Gauteng"
+      },
+      {
+        branchName:"Dihlopaneng",
+        branchArea:"Gauteng"
+      },
+      {
+        branchName:"Dihlopaneng",
+        branchArea:"Gauteng"
+      },
+      {
+        branchName:"Dihlopaneng",
+        branchArea:"Gauteng"
+      },
+      {
+        branchName:"Dihlopaneng",
+        branchArea:"Gauteng"
+      }
+      ]
     }),
   }
   </script>
