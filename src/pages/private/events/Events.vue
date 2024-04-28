@@ -4,9 +4,10 @@
       <!-- Nav Bar -->
       <!-- <div class=" rounded pr-3" style="background-color: #20505d;"> -->
         <v-layout align-center>
-        <v-container>
+        <div>
         <h1 class="font-h3">Events</h1>
-      </v-container>
+      </div>
+      <v-spacer></v-spacer>
       <v-btn class="green white--text" rounded>add event</v-btn>
     </v-layout>
       <!-- </div> -->

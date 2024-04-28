@@ -15,7 +15,7 @@
     >
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>Bookings</v-toolbar-title>
+        <v-toolbar-title>members and users</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
 
@@ -32,11 +32,11 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="btn btn-primary" @click="closeDelete"
+              <v-btn color="red white--text" @click="editItem(item)"
                 >Cancel</v-btn
               >
               <v-btn
-                color="btn btn-primary"
+                color="btn green white--text"
                 @click="editItem(item)"
                 >Subite</v-btn
               >

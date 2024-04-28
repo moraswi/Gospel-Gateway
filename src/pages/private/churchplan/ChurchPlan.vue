@@ -1,9 +1,9 @@
 <template>
     <div class="px-md-4">
 
-      <div class="rounded py-3 px-2" style="background-color: #20505d;">
-        <h1 class="white--text">Events</h1>
-      </div>
+      <!-- <div class="rounded py-3 px-2" style="background-color: #20505d;"> -->
+        <h1 class="font-h4">Year plan</h1>
+      <!-- </div> -->
 
       <v-data-table
       :headers="headers"
