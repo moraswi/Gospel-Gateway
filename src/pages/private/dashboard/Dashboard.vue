@@ -74,7 +74,7 @@
 
 <script>
 import CustomCard from "@/components/cards/SummaryCard.vue";
-import TheHeader from "@/components/headers/Header";
+import TheHeader from "@/components/headers/TheHeader";
 
 export default {
   name: "DashboardPage",

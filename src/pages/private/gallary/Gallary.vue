@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import TheHeader from "@/components/headers/Header";
+import TheHeader from "@/components/headers/TheHeader";
 
 export default {
   name: "GallaryPage",

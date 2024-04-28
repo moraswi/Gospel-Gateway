@@ -19,7 +19,7 @@
 
 <script>
 import EventsCard from "@/components/cards/EventsCard.vue";
-import TheHeader from "@/components/headers/Header";
+import TheHeader from "@/components/headers/TheHeader";
 
 export default {
   name: "EventsPage",

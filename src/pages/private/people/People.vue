@@ -1,6 +1,6 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Our users"> </TheHeader>
+    <TheHeader title="People"> </TheHeader>
 
     <v-data-table
       :headers="headers"
@@ -11,7 +11,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>members and users</v-toolbar-title>
+          <v-toolbar-title>member and users</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import TheHeader from "@/components/headers/Header";
+import TheHeader from "@/components/headers/TheHeader";
 
 export default {
   name: "PeoplePage",
