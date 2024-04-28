@@ -8,20 +8,14 @@
       max-height="800"
     >
       <v-layout column fill-height>
-
         <!-- GospelGateway -->
-        <h1 v-if="opened" class="white--text mt-7 font-h4">
-         GospelGateway
-        </h1>
+        <h1 v-if="opened" class="white--text mt-7 font-h4">GospelGateway</h1>
 
         <!-- Main Menu -->
-        <span v-if="opened" class="  ml-4 white--text mt-7">
-          Main Menu
-        </span>
+        <span v-if="opened" class="ml-4 white--text mt-7"> Main Menu </span>
 
         <!-- Main Menu List-->
         <v-list class="transparent mt-1">
-
           <!-- Dashboard -->
           <v-card color="transparent" width="100%" height="48" flat>
             <v-list-item
@@ -31,10 +25,7 @@
               link
             >
               <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-view-dashboard</v-icon>
-
+                <v-icon color="white">mdi-view-dashboard</v-icon>
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -43,14 +34,26 @@
             </v-list-item>
           </v-card>
 
+          <!-- Gallary -->
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+            <v-list-item
+              class="transparent white--text"
+              active-class="bg-active gray50--text"
+              :to="{ name: 'AdminGallary' }"
+              link
+            >
+              <v-list-item-icon>
+                <v-icon color="white">mdi-view-gallery</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content v-if="opened">
+                <v-list-item-title> Gallary </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+
           <!-- People -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -58,10 +61,7 @@
               link
             >
               <v-list-item-icon>
-                <v-icon
-                color="white"            
-              >mdi-account-group</v-icon>
-
+                <v-icon color="white">mdi-account-group</v-icon>
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -71,13 +71,7 @@
           </v-card>
 
           <!-- Events -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -85,10 +79,7 @@
               link
             >
               <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-calendar-check</v-icon>
-
+                <v-icon color="white">mdi-calendar-check</v-icon>
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -98,13 +89,7 @@
           </v-card>
 
           <!-- Offerring -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -112,10 +97,7 @@
               link
             >
               <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-offer</v-icon>
-
+                <v-icon color="white">mdi-offer</v-icon>
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -125,13 +107,7 @@
           </v-card>
 
           <!-- Service Program -->
-          <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -139,10 +115,7 @@
               link
             >
               <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-note-text</v-icon>
-
+                <v-icon color="white">mdi-note-text</v-icon>
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
@@ -179,61 +152,43 @@
           </v-card> -->
 
           <!-- Church Plan -->
-            <v-card
-              class="mt-1"
-              color="transparent"
-              width="100%"
-              height="48"
-              flat
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+            <v-list-item
+              class="transparent white--text"
+              active-class="bg-active gray50--text"
+              :to="{ name: 'AdminChurchPlan' }"
+              link
             >
-              <v-list-item
-                class="transparent white--text"
-                active-class="bg-active gray50--text"
-                :to="{ name: 'AdminChurchPlan' }"
-                link
-              >
-                <v-list-item-icon>
-                  <v-icon
-                  color="white"
-                >mdi-floor-plan</v-icon>
+              <v-list-item-icon>
+                <v-icon color="white">mdi-floor-plan</v-icon>
+              </v-list-item-icon>
 
-                </v-list-item-icon>
+              <v-list-item-content v-if="opened">
+                <v-list-item-title> Church Plan </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
 
-                <v-list-item-content v-if="opened">
-                  <v-list-item-title> Church Plan </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card>
-
-              <!-- Members & Roles -->
-             <v-card
-              class="mt-1"
-              color="transparent"
-              width="100%"
-              height="48"
-              flat
+          <!-- Members & Roles -->
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+            <v-list-item
+              class="transparent white--text"
+              active-class="bg-active gray50--text"
+              :to="{ name: 'Announcement' }"
+              link
             >
-              <v-list-item
-                class="transparent white--text"
-                active-class="bg-active gray50--text"
-                :to="{ name: 'Announcement' }"
-                link
-              >
-                <v-list-item-icon>
-                  <v-icon
-                  color="white"
-                >mdi-volume-medium</v-icon>
-     
-                </v-list-item-icon>
-  
-                <v-list-item-content v-if="opened">
-                  <v-list-item-title> Announcement </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card> 
+              <v-list-item-icon>
+                <v-icon color="white">mdi-volume-medium</v-icon>
+              </v-list-item-icon>
 
-                 <!-- Refer a Friend -->
-                 <v-card
+              <v-list-item-content v-if="opened">
+                <v-list-item-title> Announcement </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+
+          <!-- Refer a Friend -->
+          <!-- <v-card
                  class="mt-1"
                  color="transparent"
                  width="100%"
@@ -257,35 +212,25 @@
                      <v-list-item-title> Refer a Friend </v-list-item-title>
                    </v-list-item-content>
                  </v-list-item>
-               </v-card>
+               </v-card> -->
 
-         <!-- logout -->
-              <v-card
-              class="mt-1"
-              color="transparent"
-              width="100%"
-              height="48"
-              flat
+          <!-- logout -->
+          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+            <v-list-item
+              class="transparent white--text"
+              active-class="bg-active gray50--text"
+              :to="{ name: 'MemberLogin' }"
+              link
             >
-              <v-list-item
-                class="transparent white--text"
-                active-class="bg-active gray50--text"
-                :to="{ name: 'MemberLogin' }"
-                link
-              >
-                <v-list-item-icon>
-                  <v-icon
-                      color="white"
-                    >mdi-logout</v-icon>
+              <v-list-item-icon>
+                <v-icon color="white">mdi-logout</v-icon>
+              </v-list-item-icon>
 
-                </v-list-item-icon>
-
-                <v-list-item-content v-if="opened">
-                  <v-list-item-title> LogOut </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-card>
-
+              <v-list-item-content v-if="opened">
+                <v-list-item-title> LogOut </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
         </v-list>
 
         <v-flex fill-height> </v-flex>
@@ -301,7 +246,7 @@
               max-height="24"
               contain
             />
-          
+
             <v-img
               v-else
               src="@/assets/img/arrows/arrow-right-icon.png"
@@ -313,12 +258,10 @@
         </v-layout>
       </v-layout>
     </v-card>
-
   </div>
 </template>
 
 <script>
-
 export default {
   name: "GospelGatewayAdminSidebar",
 
@@ -331,20 +274,15 @@ export default {
   mounted() {},
 
   methods: {
-
-
     // logOut
     logOut() {
       this.$router.push({ name: "MemberLogin" });
     },
-
-
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .sidebar {
   background: linear-gradient(176.15deg, #1776ee -9.36%, #20505d 106.46%);
   border-radius: 16px;
@@ -358,7 +296,6 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
 }
-
 
 .menu-opener {
   background: rgba(255, 255, 255, 0.2);

@@ -107,6 +107,13 @@ const routes = [
         name: 'AdminPeople',
         component: () => import("@/views/private/people/People.vue"),
       },
+
+        // AdminPeople
+        {
+          path: '/gallary',
+          name: 'AdminGallary',
+          component: () => import("@/views/private/gallary/Gallary.vue"),
+        },
     ]
   },
 
