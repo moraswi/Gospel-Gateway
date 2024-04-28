@@ -1,6 +1,6 @@
 <template>
     <div class="px-md-4">
-      <h1 class="">Dashboard</h1>
+      <h1 class="font-h3">Dashboard</h1>
       <!-- <div class="rounded py-3 px-2" style="background-color: #20505d;">
        
       </div> -->
@@ -10,6 +10,9 @@
         </v-col>
         <v-col cols="12" md="3">
           <CustomCard top-text="R 1 100000" bottom-text="Offering"/>
+            </v-col>
+             <v-col cols="12" md="3">
+          <CustomCard top-text="R 1 000" bottom-text="Spent"/>
             </v-col>
             <v-col cols="12" md="3">
               <CustomCard top-text="100" bottom-text="Members"/>
@@ -30,7 +33,7 @@
 
       <v-row class="mt-10">
         <v-col cols="12" md="6">
-          <h1 class="font-h4">Events</h1>
+          <h1 class="font-h4">Branches</h1>
           <v-card class="custom-card px-3 py-6 mt-2" width="100%" height="350" style="overflow-y: auto;">
             <div v-for="(branch, index) in branches" :key="index" class="pa-2" :style="{ backgroundColor: index % 2 == 0 ? '#e6ebf1' : 'white' }">
               <h4>{{ branch.branchName }}</h4>
@@ -41,7 +44,7 @@
         </v-col>
 
         <v-col cols="12" md="6">
-          <h1 class="font-h4">Program</h1>
+          <h1 class="font-h4">Sunday Program</h1>
           <v-card class="custom-card px-7 py-6 mt-2" width="100%">
             <v-layout row align-center>
               <div>

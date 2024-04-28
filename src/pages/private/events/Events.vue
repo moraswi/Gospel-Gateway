@@ -2,14 +2,14 @@
     <div class="px-md-4">
 
       <!-- Nav Bar -->
-      <div class=" rounded pr-3" style="background-color: #20505d;">
+      <!-- <div class=" rounded pr-3" style="background-color: #20505d;"> -->
         <v-layout align-center>
         <v-container>
-        <h1 class="white--text">Events</h1>
+        <h1 class="font-h3">Events</h1>
       </v-container>
-      <v-btn>add event</v-btn>
+      <v-btn class="green white--text" rounded>add event</v-btn>
     </v-layout>
-      </div>
+      <!-- </div> -->
 
       <!-- EventCard -->
       <v-row class="mt-7">
