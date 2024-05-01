@@ -4,31 +4,34 @@
 
     <v-row class="mt-5">
       <v-col cols="12" md="2">
-        <CustomCard top-text="10 000" bottom-text="People" />
+        <StatisticsCard statistic="10 000" card-name="People" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="R 1 100000" bottom-text="Offering" />
+        <StatisticsCard statistic="R 1 100000" card-name="Offering" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="R 1 000" bottom-text="Spent" />
+        <StatisticsCard statistic="R 1 000" card-name="Spent" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="100" bottom-text="Members" />
+        <StatisticsCard statistic="100" card-name="Members" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="0" bottom-text="Events" />
+        <StatisticsCard statistic="0" card-name="Events" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="0" bottom-text="Branches" />
+        <StatisticsCard statistic="0" card-name="Branches" />
       </v-col>
       <v-col cols="12" md="2">
-        <CustomCard top-text="3" bottom-text="Announcements" />
+        <StatisticsCard statistic="3" card-name="Announcements" />
+      </v-col>
+      <v-col cols="12" md="2">
+        <StatisticsCard statistic="23" card-name="Videos" />
       </v-col>
       <!-- <v-col cols="12" md="3">
-              <CustomCard top-text="15" bottom-text="Meetings"/>
+              <StatisticsCard statistic="15" card-name="Meetings"/>
           </v-col>
           <v-col cols="12" md="3">
-              <CustomCard top-text="10" bottom-text="Members & Roles"/>
+              <StatisticsCard statistic="10" card-name="Members & Roles"/>
           </v-col> -->
     </v-row>
 
@@ -73,14 +76,14 @@
 </template>
 
 <script>
-import CustomCard from "@/components/cards/SummaryCard.vue";
+import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
 
 export default {
   name: "DashboardPage",
 
   components: {
-    CustomCard,
+    StatisticsCard,
     TheHeader,
   },
 

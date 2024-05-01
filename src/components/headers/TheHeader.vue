@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="main-card py-4 px-2">
+    <v-card class="main-card py-5 px-2">
       <h1 class="font-h4">{{ title }}</h1>
     </v-card>
   </div>

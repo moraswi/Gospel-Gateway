@@ -7,8 +7,8 @@
           <v-icon size="medium">mdi-plus</v-icon></v-btn
         >
       </v-layout>
-      <h1 class="font-h2 justify-center align-center">{{ topText }}</h1>
-      <p class="font-p justify-center">{{ bottomText }}</p>
+      <h1 class="font-h2 justify-center align-center">{{ statistic }}</h1>
+      <p class="font-p justify-center">{{ cardName }}</p>
     </v-layout>
   </v-card>
 </template>
@@ -16,16 +16,14 @@
 <script>
 export default {
   props: {
-    topText: {
+    statistic: {
       type: String,
       required: true,
     },
-    bottomText: {
+    cardName: {
       type: String,
       required: true,
     },
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

@@ -3,14 +3,13 @@
     <v-layout row align-center>
       <div>
         <v-icon color="grey" small>mdi-earth</v-icon>
-        <h1 class="font-h4 mt-n1">{{ title }}</h1>
-        <p class="font-p mt-n1">{{ bottomText }}</p>
+        <h1 class="font-h4 mt-n1">{{ eventName }}</h1>
+        <p class="font-p mt-n1">{{ timeframe }}</p>
       </div>
       <v-spacer></v-spacer>
       <div class="text-right">
         <h4 class="font-p">{{ churchName }}</h4>
-        <p class="font-p4  mt-n0">{{ topText }}</p>
-        <p class="font-p4 mt-n3">{{ date }}</p>
+        <p class="font-p4 mt-1">{{ eventDate }}</p>
       </div>
     </v-layout>
   </v-card>
@@ -21,25 +20,22 @@ export default {
   props: {
     churchName: {
       type: String,
-      required: true
+      required: true,
     },
-    topText: {
+
+    timeframe: {
       type: String,
-      required: true
+      required: true,
     },
-    bottomText: {
+    eventName: {
       type: String,
-      required: true
+      required: true,
     },
-    title: {
+    eventDate: {
       type: String,
-      required: true
+      required: true,
     },
-    date: {
-      type: String,
-      required: true
-    }
-  }
+  },
 };
 </script>
 
