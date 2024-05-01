@@ -16,7 +16,7 @@
       <!-- Step 1 -->
       <!-- <StatisticsPeopleDialog v-show="investmentProcessing.investmentDialogStep == 1" /> -->
       <!-- <StatisticsPeopleDialog /> -->
-      <StatisticsOfferingDialog />
+      <!-- <StatisticsOfferingDialog /> -->
     </v-dialog>
   </div>
 </template>
@@ -24,8 +24,8 @@
 <script>
 import { mapMutations, mapState } from "vuex";
 
-import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
-import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
+// import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
+// import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
 
 export default {
   name: "AllianceuiInvestmentDialog",
@@ -37,8 +37,8 @@ export default {
   },
 
   components: {
-    StatisticsPeopleDialog,
-    StatisticsOfferingDialog,
+    // StatisticsPeopleDialog,
+    // StatisticsOfferingDialog,
   },
 
   computed: {
