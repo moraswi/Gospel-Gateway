@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Member" class="mt-10 mt-md-0">
+    <MainDialogContent title="Offering" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -9,32 +9,20 @@
           flat
         >
           <v-form class="py-1">
-            <v-text-field class="" label="Full Name" outlined></v-text-field>
+            <v-text-field class="" label="Amount" outlined></v-text-field>
 
-            <v-text-field class="" label="Email" outlined></v-text-field>
+            <v-text-field class="" label="Date" outlined></v-text-field>
 
-            <v-text-field class="" label="Password" outlined></v-text-field>
-
-            <v-select
-              label="Church"
-              outlined
-              :items="['Church 1', 'Church 2', 'Church 3']"
-            ></v-select>
-
-            <v-select label="Gender" outlined :items="['Male', 'Female']"></v-select>
-
-            <v-text-field class="mt-0" label="Phone number" outlined></v-text-field>
+            <v-text-field class="" label="Description" outlined></v-text-field>
           </v-form>
         </v-card>
       </template>
 
       <!-- Bottom -->
       <template v-slot:bottom>
-        <!-- Cancel And Next -->
         <v-layout align-center>
           <!--desktop Cancel  -->
           <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
-            <!-- Cancel -->
             <v-btn
               @click="cancel()"
               class="px-4 rounded-lg"
@@ -43,16 +31,12 @@
               elevation="0"
               outlined
             >
-              <h5 class="h5 black600--text text-transform-none">
-                <!-- Cancel -->
-                Cancel
-              </h5>
+              <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
           </v-card>
 
-          <!--desktop next  -->
+          <!--desktop submit  -->
           <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
-            <!-- next -->
             <v-btn
               @click="submit()"
               class="black rounded-lg"
@@ -66,6 +50,7 @@
 
           <!-- mobile -->
           <v-card class="hidden-sm-and-up" width="100%" flat>
+            <!-- mobile cancel -->
             <v-btn
               class="rounded-lg"
               width="100%"
@@ -77,7 +62,7 @@
               <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
 
-            <!-- Next -->
+            <!-- mobile submit -->
             <v-btn
               @click="submit()"
               class="rounded-lg mt-3"
@@ -99,7 +84,7 @@
 import MainDialogContent from "@/components/dialogs/MainDialogContent.vue";
 
 export default {
-  name: "StatisticsPeopleDialog",
+  name: "StatisticsOfferingDialog",
 
   components: {
     MainDialogContent,

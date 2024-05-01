@@ -73,12 +73,12 @@
       </v-col>
     </v-row>
 
-    <StatisticsDialog />
+    <DasboardMainDialog />
   </div>
 </template>
 
 <script>
-import StatisticsDialog from "@/pages/private/dashboard/dialogs/StatisticsDialog.vue";
+import DasboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
 
@@ -86,7 +86,7 @@ export default {
   name: "DashboardPage",
 
   components: {
-    StatisticsDialog,
+    DasboardMainDialog,
     StatisticsCard,
     TheHeader,
   },

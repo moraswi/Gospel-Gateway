@@ -1,7 +1,7 @@
 <template>
-  <v-card class="grey">
+  <v-card class="grey rounded-lg">
     <!-- Content -->
-    <v-card class="transparent br-16 px-0 px-sm-0 py-sm-0" width="100%" flat>
+    <v-card class="transparent br-16 px-3 px-sm-9 pb-sm-5 pt-sm-2" width="100%" flat>
       <!-- Title -->
       <h1
         class="ff-1 fsn fw-800 fs-18 fs-sm-24 fs-xl-28 lh-22 lh-sm-28 lh-xl-34 black500--text mt-7 mt-sm-5 mt-xl-10"

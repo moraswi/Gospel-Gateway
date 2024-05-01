@@ -15,7 +15,8 @@
     >
       <!-- Step 1 -->
       <!-- <StatisticsPeopleDialog v-show="investmentProcessing.investmentDialogStep == 1" /> -->
-      <StatisticsPeopleDialog />
+      <!-- <StatisticsPeopleDialog /> -->
+      <StatisticsOfferingDialog />
     </v-dialog>
   </div>
 </template>
@@ -24,8 +25,7 @@
 import { mapMutations, mapState } from "vuex";
 
 import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
-
-// import TheAdminMobileHeader from "@/components/shared/headers/TheAdminMobileHeader.vue";
+import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
 
 export default {
   name: "AllianceuiInvestmentDialog",
@@ -37,8 +37,8 @@ export default {
   },
 
   components: {
-    // TheAdminMobileHeader,
     StatisticsPeopleDialog,
+    StatisticsOfferingDialog,
   },
 
   computed: {
