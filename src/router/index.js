@@ -1,24 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
-
-// const routes = [
-//   {
-//     path: '/',
-//     name: 'home',
-//     component: HomeView
-//   },
-//   {
-//     path: '/about',
-//     name: 'about',
-//     // route level code-splitting
-//     // this generates a separate chunk (about.[hash].js) for this route
-//     // which is lazy-loaded when the route is visited.
-//     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-//   }
-// ]
 
 const routes = [
   // default
@@ -56,70 +39,67 @@ const routes = [
   // Admin
   {
     path: '/admin/',
-    component: () => import("@/layouts/admin"),
+    component: () => import("@/layouts/admin.vue"),
 
     children: [
       // AdminDashboard
       {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'AdminDashboard',
         component: () => import("@/views/private/dashboard/DashboardView.vue"),
       },
 
        // AdminChurchPlan
        {
-        path: '/church-plan',
+        path: 'church-plan',
         name: 'AdminChurchPlan',
         component: () => import("@/views/private/churchplan/ChurchPlan.vue"),
       },
 
        // AdminEvents
        {
-        path: '/events',
+        path: 'events',
         name: 'AdminEvents',
         component: () => import("@/views/private/events/Events.vue"),
       },
 
       // AdminMemberAndRoles
       {
-        path: '/announcement',
+        path: 'announcement',
         name: 'Announcement',
         component: () => import("@/views/private/announcement/Announcement.vue"),
       },
 
         // AdminServiceProgram
         {
-          path: '/service-program',
+          path: 'service-program',
           name: 'AdminServiceProgram',
           component: () => import("@/views/private/serviceprogram/ServiceProgram.vue"),
         },
 
       // AdminOffering
       {
-        path: '/offering',
+        path: 'offering',
         name: 'AdminOffering',
         component: () => import("@/views/private/offering/Offering.vue"),
       },
 
        // AdminPeople
        {
-        path: '/people',
+        path: 'people',
         name: 'AdminPeople',
         component: () => import("@/views/private/people/People.vue"),
       },
 
         // AdminPeople
         {
-          path: '/gallary',
+          path: 'gallary',
           name: 'AdminGallary',
           component: () => import("@/views/private/gallary/Gallary.vue"),
         },
     ]
   },
-
-  // private pages
  
-
   // Catch-all route
   {
     path: '/:catchAll(.*)',
@@ -130,7 +110,7 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
 export default router
