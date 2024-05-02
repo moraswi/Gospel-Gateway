@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Offering" class="mt-10 mt-md-0">
+    <MainDialogContent title="Announcement" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card

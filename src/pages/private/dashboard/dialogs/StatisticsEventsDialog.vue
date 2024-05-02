@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Offering" class="mt-10 mt-md-0">
+    <MainDialogContent title="Event" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -11,7 +11,7 @@
           <v-form class="py-1">
             <v-text-field class="" label="Event Name" outlined></v-text-field>
             <v-select
-              label="Event happen"
+              label="Event Happen"
               outlined
               :items="['Daily', 'Weekly', 'Monthly', 'Yearly']"
             ></v-select>

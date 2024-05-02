@@ -17,6 +17,11 @@
       <!-- <StatisticsPeopleDialog v-show="investmentProcessing.investmentDialogStep == 1" /> -->
       <!-- <StatisticsPeopleDialog /> -->
       <!-- <StatisticsOfferingDialog /> -->
+      <!-- <StatisticsAnnouncementDialog /> -->
+      <!-- <StatisticsBranchDialog /> -->
+      <!-- <StatisticsEventsDialog /> -->
+      <!-- <StatisticsSpentDialog /> -->
+      <!-- <StatisticsVideoDialog /> -->
     </v-dialog>
   </div>
 </template>
@@ -26,19 +31,29 @@ import { mapMutations, mapState } from "vuex";
 
 // import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
 // import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
+// import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
+// import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
+// import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
+// import StatisticsSpentDialog from "@/pages/private/dashboard/dialogs/StatisticsSpentDialog.vue";
+// import StatisticsVideoDialog from "@/pages/private/dashboard/dialogs/StatisticsVideoDialog.vue";
 
 export default {
   name: "AllianceuiInvestmentDialog",
 
   data() {
     return {
-      dialog: true,
+      dialog: false,
     };
   },
 
   components: {
     // StatisticsPeopleDialog,
     // StatisticsOfferingDialog,
+    // StatisticsAnnouncementDialog,
+    // StatisticsBranchDialog,
+    // StatisticsEventsDialog,
+    // StatisticsSpentDialog,
+    // StatisticsVideoDialog,
   },
 
   computed: {

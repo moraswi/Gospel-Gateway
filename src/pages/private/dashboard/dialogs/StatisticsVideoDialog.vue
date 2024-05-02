@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Offering" class="mt-10 mt-md-0">
+    <MainDialogContent title="Video Link" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -9,7 +9,7 @@
           flat
         >
           <v-form class="py-1">
-            <v-text-field class="" label="Url" outlined></v-text-field>
+            <v-text-field class="" label="URL" outlined></v-text-field>
           </v-form>
         </v-card>
       </template>
