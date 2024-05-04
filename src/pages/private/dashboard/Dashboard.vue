@@ -5,29 +5,34 @@
     <!-- StatisticsCard -->
     <v-row class="mt-5">
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="10 000" card-name="People" @click="openAddPeopleDialog" />
+        <StatisticsCard statistic="10 000" card-name="People" :showDeleteButton="true" :showEditButton="true" :showAddButton="true"  @click="handlePeopleButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 100000" card-name="Offering" @click="openAddOfferingDialog" />
+        <StatisticsCard statistic="R 1 100000" card-name="Offering" :showDeleteButton="true" :showEditButton="true" :showAddButton="true"  @click="openAddOfferingDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 000" card-name="Spent" @click="openAddSpentDialog" />
+        <StatisticsCard statistic="R 1 000" card-name="Spent" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddSpentDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="100" card-name="Members" @click="openAddPeopleDialog" />
+        <StatisticsCard statistic="100" card-name="Members" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddPeopleDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Events" @click="openAddEventsDialog" />
+        <StatisticsCard statistic="0" card-name="Events" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddEventsDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Branches" @click="openAddBranchesDialog" />
+        <StatisticsCard statistic="0" card-name="Branches" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddBranchesDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="3" card-name="Announcements" @click="openAddAnnouncementDialog" />
+        <StatisticsCard statistic="3" card-name="Announcements" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddAnnouncementDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="23" card-name="Videos" @click="openAddVideoDialog" />
+        <StatisticsCard statistic="23" card-name="Videos" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddVideoDialog" />
       </v-col>
+
+   
+
+     
+
       <!-- <v-col cols="12" md="3">
               <StatisticsCard statistic="15" card-name="Meetings"/>
           </v-col>
@@ -138,6 +143,21 @@ export default {
     cancel() {
       // this.setShowDeclinedDialog(false);
       // this.setShowDeclinedMobileDialog(false);
+    },
+
+    handlePeopleButtonClick(action) {
+      switch(action) {
+        case 'delete':
+          this.openAddPeopleDialog();
+          break;
+        case 'edit':
+          this.openAddPeopleDialog();
+          break;
+        case 'add':
+          this.openAddPeopleDialog();
+          break;
+        // Add more cases if needed
+      }
     },
 
     openAddPeopleDialog(){
