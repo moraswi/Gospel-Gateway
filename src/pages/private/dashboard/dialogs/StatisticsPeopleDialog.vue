@@ -65,7 +65,7 @@
           </v-card>
 
           <!-- mobile -->
-          <v-card class="hidden-sm-and-up" width="100%" flat>
+          <v-card class="hidden-sm-and-up transparent" width="100%" flat>
             <v-btn
               class="rounded-lg"
               width="100%"
@@ -80,7 +80,7 @@
             <!-- submit -->
             <v-btn
               @click="submitPeople()"
-              class="rounded-lg mt-3"
+              class="black rounded-lg mt-3"
               width="100%"
               height="52"
               elevation="0"
