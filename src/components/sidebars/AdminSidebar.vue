@@ -2,7 +2,7 @@
   <div>
     <v-card
       :class="opened ? 'pa-2 pa-lg-4' : 'pa-3'"
-      class="sidebar"
+      class="sidebar hidden-sm-and-down"
       min-height="800"
       height="800"
       max-height="800"
@@ -258,12 +258,23 @@
         </v-layout>
       </v-layout>
     </v-card>
+
+    <!-- Mobile -->
+    <!-- <div class="hidden-md-and-up">
+      <AdminMobileSidebar/>
+    </div> -->
   </div>
 </template>
 
 <script>
+// import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
+
 export default {
   name: "GospelGatewayAdminSidebar",
+
+  components: {
+    // AdminMobileSidebar
+  },
 
   data() {
     return {

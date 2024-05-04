@@ -1,7 +1,7 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Dashboard"> </TheHeader>
-
+    <!-- <TheHeader title="Dashboard"> </TheHeader> -->
+    <TheMemberMobileHeader/>
     <!-- StatisticsCard -->
     <v-row class="mt-5">
       <v-col cols="12" xl="2" md="3">
@@ -74,13 +74,14 @@
       </v-col>
     </v-row>
 
-    <DasboardMainDialog />
+    <DashboardMainDialog />
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
-import DasboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
+import TheMemberMobileHeader from "@/components/headers/TheMobileHeader.vue";
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
 
@@ -88,7 +89,8 @@ export default {
   name: "DashboardPage",
 
   components: {
-    DasboardMainDialog,
+    DashboardMainDialog,
+    TheMemberMobileHeader,
     StatisticsCard,
     TheHeader,
   },

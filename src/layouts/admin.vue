@@ -38,47 +38,23 @@
 
 <script>
 import AdminSidebar from "@/components/sidebars/AdminSidebar.vue";
-// import GetAQuoteDialog from "@/components/shared/dialogs/get-a-quote/GetAQuoteDialog.vue";
 
 export default {
   name: 'GospelGatewayAdmin',
 
     components: {
-    AdminSidebar,
-    // GetAQuoteDialog,
+    AdminSidebar
   },
 
-  data: () => ({
-
-  }),
-
-    // computed: {
-    // maxHeight
-    // maxHeight() {
-    //   switch (this.$vuetify.breakpoint.name) {
-    //     case "xs":
-    //       return "1000000";
-    //     default:
-    //       return "1117";
-    //   }
-    // },
-
-    // isMobileLayout
-  //   isMobileLayout() {
-  //     return this.$vuetify.breakpoint.mdAndDown;
-  //   },
-  // },
+  computed:{
+        // isMobileLayout
+        isMobileLayout() {
+      return this.$vuetify.breakpoint.mdAndDown;
+    },
+  }
 
 }
 </script>
-
-<!-- <style lang="scss" scoped>
-
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-</style> -->
 
 
 
