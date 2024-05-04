@@ -3,7 +3,7 @@
     <v-layout class="text-center" column>
       <v-layout class="px-2">
         <v-spacer></v-spacer>
-        <v-btn fab width="25" height="25" depressed>
+        <v-btn fab width="25" height="25" depressed @click="handleClick">
           <v-icon size="medium">mdi-plus</v-icon></v-btn
         >
       </v-layout>
@@ -25,5 +25,11 @@ export default {
       required: true,
     },
   },
+
+  methods:{
+    handleClick(){
+      this.$emit('click');
+    }
+  }
 };
 </script>

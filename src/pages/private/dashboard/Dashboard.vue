@@ -2,9 +2,10 @@
   <div class="px-md-4">
     <TheHeader title="Dashboard"> </TheHeader>
 
+    <!-- StatisticsCard -->
     <v-row class="mt-5">
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="10 000" card-name="People" />
+        <StatisticsCard statistic="10 000" card-name="People" @click="openAddPeopleDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
         <StatisticsCard statistic="R 1 100000" card-name="Offering" />
@@ -92,6 +93,7 @@ export default {
   },
 
   data: () => ({
+  
     branches: [
       {
         branchName: "Branch Name",
@@ -125,6 +127,11 @@ export default {
       // this.setShowDeclinedDialog(false);
       // this.setShowDeclinedMobileDialog(false);
     },
+
+    openAddPeopleDialog(){
+     
+      console.log('openAddPeopleDialog clicked');
+    }
   },
 };
 </script>
