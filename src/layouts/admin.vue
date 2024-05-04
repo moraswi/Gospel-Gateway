@@ -8,7 +8,7 @@
     <!--  -->
     <v-container class="mt-0 pt-0" fluid>
       <!-- Desktop -->
-      <v-layout v-if="!isMobileLayout">
+      <v-layout>
          <AdminSidebar class="hidden-sm-and-down" /> 
 
         <v-card
@@ -23,13 +23,13 @@
         </v-card>
       </v-layout> 
 
-      <v-layout v-else>
+      <!-- <v-layout v-else>
         <v-card class="ma-0 pa-0" color="transparent" width="100%" flat>
           <v-layout column>
             <router-view />
           </v-layout>
         </v-card>
-      </v-layout>
+      </v-layout> -->
 
      <!-- <GetAQuoteDialog /> -->
     </v-container>

@@ -1,40 +1,51 @@
-const administration = {
+const dashboard = {
   namespaced: true,
 
   state: {
-    showPeopleDialog: false,
-    showPeopleMobileDialog: false,
+    // showStatisticsDialog
+    showStatisticsDialog: false,
+    showStatisticsMobileDialog: false,
+    dashboardStep: 1,
   },
 
   mutations: {
 
-    setShowPeopleDialog(state, payload) {
-      state.showPeopleDialog = payload;
+    setShowStatisticsDialog(state, payload) {
+      state.showStatisticsDialog = payload;
     },
 
-    setShowPeopleMobileDialog(state, payload) {
-      state.showPeopleMobileDialog = payload;
+    setShowStatisticsMobileDialog(state, payload) {
+      state.showStatisticsMobileDialog = payload;
+    },
+
+    setDashboardStep(state, payload){
+      state.dashboardStep = payload
     },
 
     // resetState
     resetState(state) { 
-      state.showPeopleDialog = false;
-      state.showPeopleMobileDialog = false;
+      state.showStatisticsDialog = false;
+      state.showStatisticsMobileDialog = false;
+      state.dashboardStep = 1;
+
     },
   },
 
   actions: {},
 
   getters: {
-    // dialog
-    getShowPeopleDialog(state) {
-      return state.showPeopleDialog;
+    getShowStatisticsDialog(state) {
+      return state.showStatisticsDialog;
     },
 
-    getShowPeopleMobileDialog(state) {
-      return state.showPeopleMobileDialog;
+    getShowStatisticsMobileDialog(state) {
+      return state.showStatisticsMobileDialog;
     },
+
+    getDashboardStep(state){
+      return state.dashboardStep;
+    }
   },
 };
 
-export default administration;
+export default dashboard;

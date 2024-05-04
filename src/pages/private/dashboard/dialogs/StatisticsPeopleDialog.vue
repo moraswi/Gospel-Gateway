@@ -36,7 +36,7 @@
           <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
             <!-- Cancel -->
             <v-btn
-              @click="cancel()"
+              @click="closeAddPeopleDialog()"
               class="px-4 rounded-lg"
               width="100%"
               height="56"
@@ -50,11 +50,11 @@
             </v-btn>
           </v-card>
 
-          <!--desktop next  -->
+          <!--desktop submit  -->
           <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
-            <!-- next -->
+            <!-- submit -->
             <v-btn
-              @click="submit()"
+              @click="submitPeople()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -72,14 +72,14 @@
               height="52"
               elevation="0"
               block
-              @click="cancel()"
+              @click="closeAddPeopleDialog()"
             >
               <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
 
-            <!-- Next -->
+            <!-- submit -->
             <v-btn
-              @click="submit()"
+              @click="submitPeople()"
               class="rounded-lg mt-3"
               width="100%"
               height="52"
@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import MainDialogContent from "@/components/dialogs/MainDialogContent.vue";
 
 export default {
@@ -108,6 +109,28 @@ export default {
   data() {
     return {};
   },
+
+  methods:{
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
+      
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    closeAddPeopleDialog(){
+     this.setShowStatisticsDialog(false);
+    },
+
+    submitPeople(){
+      // Remove text-field details
+      setTimeout(() => {
+        this.resetState();
+      }, 1000);
+     this.setShowStatisticsDialog(false);
+    }
+  }
 };
 </script>
 

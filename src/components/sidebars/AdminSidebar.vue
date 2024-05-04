@@ -101,7 +101,7 @@
               </v-list-item-icon>
 
               <v-list-item-content v-if="opened">
-                <v-list-item-title> Offerring </v-list-item-title>
+                <v-list-item-title> Offering </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-card>

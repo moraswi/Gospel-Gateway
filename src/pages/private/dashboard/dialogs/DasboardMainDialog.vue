@@ -5,7 +5,7 @@
     <!-- v-model="investmentProcessing.showInvestmentDialog" -->
 
     <v-dialog
-      v-model="dialog"
+      v-model="dashboard.showStatisticsDialog"
       class="br-16 bs-none"
       max-width="600px"
       overlay-color="black600"
@@ -13,15 +13,13 @@
       content-class="elevation-0"
       persistent
     >
-      <!-- Step 1 -->
-      <!-- <StatisticsPeopleDialog v-show="investmentProcessing.investmentDialogStep == 1" /> -->
-      <!-- <StatisticsPeopleDialog /> -->
-      <!-- <StatisticsOfferingDialog /> -->
-      <!-- <StatisticsAnnouncementDialog /> -->
-      <!-- <StatisticsBranchDialog /> -->
-      <!-- <StatisticsEventsDialog /> -->
-      <!-- <StatisticsSpentDialog /> -->
-      <!-- <StatisticsVideoDialog /> -->
+      <StatisticsPeopleDialog v-show="dashboard.dashboardStep == 1"/>
+      <StatisticsOfferingDialog v-show="dashboard.dashboardStep == 2"/>
+      <StatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 3"/>
+      <StatisticsBranchDialog v-show="dashboard.dashboardStep == 4"/>
+      <StatisticsEventsDialog v-show="dashboard.dashboardStep == 5"/>
+      <StatisticsSpentDialog v-show="dashboard.dashboardStep == 6"/>
+      <StatisticsVideoDialog v-show="dashboard.dashboardStep == 7"/>
     </v-dialog>
   </div>
 </template>
@@ -29,16 +27,16 @@
 <script>
 import { mapMutations, mapState } from "vuex";
 
-// import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
-// import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
-// import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
-// import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
-// import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
-// import StatisticsSpentDialog from "@/pages/private/dashboard/dialogs/StatisticsSpentDialog.vue";
-// import StatisticsVideoDialog from "@/pages/private/dashboard/dialogs/StatisticsVideoDialog.vue";
+import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
+import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
+import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
+import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
+import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
+import StatisticsSpentDialog from "@/pages/private/dashboard/dialogs/StatisticsSpentDialog.vue";
+import StatisticsVideoDialog from "@/pages/private/dashboard/dialogs/StatisticsVideoDialog.vue";
 
 export default {
-  name: "AllianceuiInvestmentDialog",
+  name: "DashboardMainDialog",
 
   data() {
     return {
@@ -47,62 +45,41 @@ export default {
   },
 
   components: {
-    // StatisticsPeopleDialog,
-    // StatisticsOfferingDialog,
-    // StatisticsAnnouncementDialog,
-    // StatisticsBranchDialog,
-    // StatisticsEventsDialog,
-    // StatisticsSpentDialog,
-    // StatisticsVideoDialog,
+    StatisticsPeopleDialog,
+    StatisticsOfferingDialog,
+    StatisticsAnnouncementDialog,
+    StatisticsBranchDialog,
+    StatisticsEventsDialog,
+    StatisticsSpentDialog,
+    StatisticsVideoDialog,
   },
 
   computed: {
-    ...mapState({ investmentProcessing: "investmentProcessing" }),
+    ...mapState({ dashboard: "dashboard" }),
 
-    // showInvestmentDialog
-    showInvestmentDialog() {
+    showStatisticsDialog(){
       return (
-        this.investmentProcessing.showInvestmentDialog &&
+        this.dashboard.showStatisticsDialog &&
         this.$vuetify.breakpoint.name != "xs"
-      );
-    },
-
-    // showMobileAlertDialogStep2
-    // showMobileAlertDialogStep2() {
-    //   return (
-    //     this.investmentProcessing.investmentDialogStep == 2 &&
-    //     this.$vuetify.breakpoint.name == "xs"
-    //   );
-    // },
-
-    // showMobileSuccessDialogStep6
-    // showMobileSuccessDialogStep6() {
-    //   return (
-    //     this.investmentProcessing.investmentDialogStep == 6 &&
-    //     this.$vuetify.breakpoint.name == "xs"
-    //   );
-    // },
+      )
+    }
   },
 
   watch: {
-    // showInvestmentDialog
-    "investmentProcessing.showInvestmentDialog"(val) {
-      this.setShowInvestmentDialog(val);
-    },
   },
 
   mounted() {},
 
   methods: {
     ...mapMutations({
-      // setShowInvestmentDialog
-      setShowInvestmentDialog: "investmentProcessing/setShowInvestmentDialog",
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
 
-      // setShowInvestmentMobileDialog
-      setShowInvestmentMobileDialog: "investmentProcessing/setShowInvestmentMobileDialog",
+      // setShowPeopleMobileDialog
+      setShowPeopleMobileDialog: "dashboard/setShowPeopleMobileDialog",
 
       // resetState
-      resetState: "investmentProcessing/resetState",
+      resetState: "dashboard/resetState",
     }),
 
     close() {
@@ -110,7 +87,7 @@ export default {
       setTimeout(() => {
         this.resetState();
       }, 1000);
-      this.setShowInvestmentMobileDialog(false);
+      this.setShowStatisticsDialog(false);
     },
   },
 };

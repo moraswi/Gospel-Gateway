@@ -27,7 +27,7 @@
           <!--desktop Cancel  -->
           <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
             <v-btn
-              @click="cancel()"
+              @click="closeAddEventDialog()"
               class="px-4 rounded-lg"
               width="100%"
               height="56"
@@ -41,7 +41,7 @@
           <!--desktop submit  -->
           <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
             <v-btn
-              @click="submit()"
+              @click="submitEvent()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -60,14 +60,14 @@
               height="52"
               elevation="0"
               block
-              @click="cancel()"
+              @click="closeAddEventDialog()"
             >
               <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
 
             <!-- mobile submit -->
             <v-btn
-              @click="submit()"
+              @click="submitEvent()"
               class="rounded-lg mt-3"
               width="100%"
               height="52"
@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import MainDialogContent from "@/components/dialogs/MainDialogContent.vue";
 
 export default {
@@ -96,6 +97,28 @@ export default {
   data() {
     return {};
   },
+
+  methods:{
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
+      
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    closeAddEventDialog(){
+     this.setShowStatisticsDialog(false);
+    },
+
+    submitEvent(){
+      // Remove text-field details
+      setTimeout(() => {
+        this.resetState();
+      }, 1000);
+     this.setShowStatisticsDialog(false);
+    }
+  }
 };
 </script>
 

@@ -22,7 +22,7 @@
           <!--desktop Cancel  -->
           <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
             <v-btn
-              @click="cancel()"
+              @click="closeAddBrancheDialog()"
               class="px-4 rounded-lg"
               width="100%"
               height="56"
@@ -36,40 +36,40 @@
           <!--desktop submit  -->
           <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
             <v-btn
-              @click="submit()"
+              @click="submitBranche()"
               class="black rounded-lg"
               width="100%"
               height="56"
               elevation="0"
             >
-              <h5 class="h5 white--text text-transform-none">submit</h5>
+              <h5 class="h5 white--text text-transform-none">Submit</h5>
             </v-btn>
           </v-card>
 
           <!-- mobile -->
           <v-card class="hidden-sm-and-up" width="100%" flat>
-            <!-- mobile cancel -->
+            <!-- mobile Cancel -->
             <v-btn
               class="rounded-lg"
               width="100%"
               height="52"
               elevation="0"
               block
-              @click="cancel()"
+              @click="closeAddBrancheDialog()"
             >
               <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
 
             <!-- mobile submit -->
             <v-btn
-              @click="submit()"
+              @click="submitBranche()"
               class="rounded-lg mt-3"
               width="100%"
               height="52"
               elevation="0"
               block
             >
-              <h5 class="h5 white--text text-transform-none">submit</h5>
+              <h5 class="h5 white--text text-transform-none">Submit</h5>
             </v-btn>
           </v-card>
         </v-layout>
@@ -79,6 +79,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 import MainDialogContent from "@/components/dialogs/MainDialogContent.vue";
 
 export default {
@@ -91,6 +93,28 @@ export default {
   data() {
     return {};
   },
+
+  methods:{
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
+      
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    closeAddBrancheDialog(){
+     this.setShowStatisticsDialog(false);
+    },
+
+    submitBranche(){
+      // Remove text-field details
+      setTimeout(() => {
+        this.resetState();
+      }, 1000);
+     this.setShowStatisticsDialog(false);
+    }
+  }
 };
 </script>
 

@@ -8,25 +8,25 @@
         <StatisticsCard statistic="10 000" card-name="People" @click="openAddPeopleDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 100000" card-name="Offering" />
+        <StatisticsCard statistic="R 1 100000" card-name="Offering" @click="openAddOfferingDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 000" card-name="Spent" />
+        <StatisticsCard statistic="R 1 000" card-name="Spent" @click="openAddSpentDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="100" card-name="Members" />
+        <StatisticsCard statistic="100" card-name="Members" @click="openAddPeopleDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Events" />
+        <StatisticsCard statistic="0" card-name="Events" @click="openAddEventsDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Branches" />
+        <StatisticsCard statistic="0" card-name="Branches" @click="openAddBranchesDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="3" card-name="Announcements" />
+        <StatisticsCard statistic="3" card-name="Announcements" @click="openAddAnnouncementDialog" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="23" card-name="Videos" />
+        <StatisticsCard statistic="23" card-name="Videos" @click="openAddVideoDialog" />
       </v-col>
       <!-- <v-col cols="12" md="3">
               <StatisticsCard statistic="15" card-name="Meetings"/>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import DasboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
@@ -123,14 +124,44 @@ export default {
   }),
 
   methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
     cancel() {
       // this.setShowDeclinedDialog(false);
       // this.setShowDeclinedMobileDialog(false);
     },
 
     openAddPeopleDialog(){
-     
-      console.log('openAddPeopleDialog clicked');
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddOfferingDialog(){
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddSpentDialog(){
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddEventsDialog(){
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddBranchesDialog(){
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddAnnouncementDialog(){
+     this.setShowStatisticsDialog(true);
+    },
+
+    openAddVideoDialog(){
+     this.setShowStatisticsDialog(true);
     }
   },
 };
