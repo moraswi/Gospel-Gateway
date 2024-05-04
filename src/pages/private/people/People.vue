@@ -27,8 +27,8 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="red white--text" @click="editItem()">Cancel</v-btn>
-                <v-btn color="btn green white--text" @click="editItem()">Subite</v-btn>
+                <v-btn color="red white--text" @click="editPeopleDetails()">Cancel</v-btn>
+                <v-btn color="btn green white--text" @click="editPeopleDetails()">Subite</v-btn>
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
@@ -51,7 +51,7 @@
       </template>
 
       <template v-slot:[`item.action`]="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon small class="mr-2" @click="editPeopleDetails(item)"> mdi-pencil </v-icon>
       </template>
     </v-data-table>
   </div>
@@ -243,7 +243,7 @@ export default {
   }),
 
   methods: {
-    editItem() {
+    editPeopleDetails() {
       // this.dialog = true;
       this.dialog = !this.dialog;
     },

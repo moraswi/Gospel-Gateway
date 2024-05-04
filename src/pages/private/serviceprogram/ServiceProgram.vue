@@ -9,6 +9,65 @@
       items-per-page="15"
       class="mt-7"
     >
+
+    <template v-slot:top>
+        <v-toolbar flat>
+          <v-toolbar-title>Service Program</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-spacer></v-spacer>
+
+          <!-- edit dialog -->
+          <v-dialog v-model="editServiceProgramDialog" max-width="500px">
+            <v-card class="pa-4">
+              <h1 class="font-h4">Edit Service Program</h1>
+              <v-text-field class=" mt-5" label="Member Name" outlined></v-text-field>
+
+              <v-text-field class="" label="Date" outlined></v-text-field>
+
+              <v-text-field class="" label="Branch Name" outlined></v-text-field>
+
+              <v-text-field class="" label="Description" outlined></v-text-field>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="red white--text" @click="editServiceProgram()">Cancel</v-btn>
+                <v-btn color="btn green white--text" @click="editServiceProgram()">Subite</v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
+          <!-- delete dialog -->
+          <v-dialog v-model="deleteServiceProgramDialog" max-width="500px">
+            <v-card class="pa-4">
+              <h1 class="font-h4">Delete Service Program</h1>
+              <v-text-field class=" mt-5" label="Amount" outlined></v-text-field>
+
+              <v-text-field class="" label="Date" outlined></v-text-field>
+
+              <v-text-field class="" label="Description" outlined></v-text-field>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="red white--text" @click="deleteServiceProgram()">Cancel</v-btn>
+                <v-btn color="btn green white--text" @click="deleteServiceProgram()">Subite</v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-toolbar>
+      </template>
+
+      
+
+    <!-- edit action button -->
+    <template v-slot:[`item.action`]="{ item }">
+        <v-icon small class="mr-2" @click="editServiceProgram(item)"> mdi-pencil </v-icon>
+        <v-icon small class="mr-2" @click="deleteServiceProgram(item)"> mdi-delete </v-icon>
+
+      </template>
+      <!-- <template v-slot:[`item.action`]="{ item }">
+      </template> -->
     </v-data-table>
   </div>
 </template>
@@ -24,11 +83,15 @@ export default {
   },
 
   data: () => ({
+    editServiceProgramDialog: false,
+    deleteServiceProgramDialog: false,
     headers: [
       { text: "Member name", align: "start", value: "membername" },
       { text: "Description", value: "description" },
       { text: "Branch name", value: "branchname" },
       { text: "Date", value: "date" },
+      { text: "Action", value: "action" },
+
     ],
     formattedFeedback: [
       {
@@ -36,22 +99,36 @@ export default {
         description: "description of the event ",
         branchname: "01123212",
         date: "12/21/1321",
+        action: "icon"
       },
       {
         membername: "Jane Smith",
         description: "description",
         branchname: "jane@example.com",
         date: "12/21/1321",
+        action: "icon"
       },
       {
         membername: "Bob Johnson",
         description: "description",
         branchname: "01321312",
         date: "12/21/1321",
+        action: "icon",
+
       },
       // Add more branchname items as needed
     ],
   }),
+
+  methods:{
+    editServiceProgram() {
+      this.editServiceProgramDialog = !this.editServiceProgramDialog;
+    },
+
+    deleteServiceProgram() {
+      this.deleteServiceProgramDialog = !this.deleteServiceProgramDialog;
+    },
+  }
 };
 </script>
 <style lang="scss" scoped>

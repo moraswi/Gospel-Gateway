@@ -14,11 +14,37 @@
       items-per-page="13"
       class="mt-1 mt-md-7"
     >
+
+    <template v-slot:top>
+        <v-toolbar flat>
+          <v-toolbar-title>member and users</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-spacer></v-spacer>
+
+          <v-dialog v-model="editOfferingDialog" max-width="500px">
+            <v-card class="pa-4">
+              <h1 class="font-h4">Edit Offering</h1>
+              <v-text-field class=" mt-5" label="Amount" outlined></v-text-field>
+
+              <v-text-field class="" label="Date" outlined></v-text-field>
+
+              <v-text-field class="" label="Description" outlined></v-text-field>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="red white--text" @click="editOffering()">Cancel</v-btn>
+                <v-btn color="btn green white--text" @click="editOffering()">Subite</v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-toolbar>
+      </template>
       <!-- card or cash -->
       <template v-slot:[`item.type`]="{ item }">
         <v-chip
           v-if="item.type === 'Add offerring'"
-          class="ma-2"
+          class="ma-"
           color="green"
           text-color="white"
         >
@@ -26,6 +52,11 @@
         </v-chip>
 
         <v-chip v-else class="ma-2" color="red" text-color="white"> Spent </v-chip>
+      </template>
+
+    <!-- edit action button -->
+      <template v-slot:[`item.action`]="{ item }">
+        <v-icon small class="mr-2" @click="editOffering(item)"> mdi-pencil </v-icon>
       </template>
     </v-data-table>
   </div>
@@ -42,35 +73,47 @@ export default {
   },
 
   data: () => ({
+    editOfferingDialog: false,
+
     headers: [
-      { text: "Date", align: "start", value: "date" },
+      { text: "Date Offered/Spent", align: "start", value: "date" },
       { text: "Description", value: "email" },
       { text: "Type", value: "type" },
+      { text: "Created At", value: "createdat" },
+      { text: "Updated At", value: "updatedat" },
       { text: "Amount", value: "amount" },
+      { text: "Action", value: "action" },
     ],
     formattedFeedback: [
-      { date: "12/02/1221", email: "description", type: "Add offerring", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Add offerring", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Add offerring", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Add offerring", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Add offerring", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Add offerring", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Add offerring", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1231", email: "description", type: "Spent", amount: 10 },
-      { date: "12/02/1221", email: "description", type: "Spent", amount: 10 },
-      { date: "02/12/1221", email: "description", type: "Spent", amount: 10 },
+      { date: "12/02/1221", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon", },
+      { date: "02/12/1221", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Add offerring",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1231", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "12/02/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
+      { date: "02/12/1221", email: "description", type: "Spent",createdat: "12/02/1221", updatedat: "12/02/1221", amount: 10,  action: "icon" },
     ],
   }),
+
+  methods:{
+    editOffering() {
+      // this.dialog = true;
+      this.editOfferingDialog = !this.editOfferingDialog;
+    },
+  }
 };
 </script>
 
