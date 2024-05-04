@@ -95,7 +95,7 @@ export default {
     ...mapMutations({
       // setShowStatisticsDialog
       setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+
       // resetState
       resetState: "dashboard/resetState",
     }),

@@ -15,10 +15,10 @@
     >
       <StatisticsPeopleDialog v-show="dashboard.dashboardStep == 1"/>
       <StatisticsOfferingDialog v-show="dashboard.dashboardStep == 2"/>
-      <StatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 3"/>
-      <StatisticsBranchDialog v-show="dashboard.dashboardStep == 4"/>
-      <StatisticsEventsDialog v-show="dashboard.dashboardStep == 5"/>
-      <StatisticsSpentDialog v-show="dashboard.dashboardStep == 6"/>
+      <StatisticsSpentDialog v-show="dashboard.dashboardStep == 3"/>
+      <StatisticsEventsDialog v-show="dashboard.dashboardStep == 4"/>
+      <StatisticsBranchDialog v-show="dashboard.dashboardStep == 5"/>
+      <StatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6"/>
       <StatisticsVideoDialog v-show="dashboard.dashboardStep == 7"/>
     </v-dialog>
   </div>
@@ -29,10 +29,10 @@ import { mapMutations, mapState } from "vuex";
 
 import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
 import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
-import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
-import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
-import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
 import StatisticsSpentDialog from "@/pages/private/dashboard/dialogs/StatisticsSpentDialog.vue";
+import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
+import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
+import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
 import StatisticsVideoDialog from "@/pages/private/dashboard/dialogs/StatisticsVideoDialog.vue";
 
 export default {
@@ -47,10 +47,10 @@ export default {
   components: {
     StatisticsPeopleDialog,
     StatisticsOfferingDialog,
-    StatisticsAnnouncementDialog,
-    StatisticsBranchDialog,
-    StatisticsEventsDialog,
     StatisticsSpentDialog,
+    StatisticsEventsDialog,
+    StatisticsBranchDialog,
+    StatisticsAnnouncementDialog,
     StatisticsVideoDialog,
   },
 

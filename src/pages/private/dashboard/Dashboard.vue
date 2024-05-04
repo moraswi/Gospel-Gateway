@@ -127,6 +127,8 @@ export default {
     ...mapMutations({
       // setShowStatisticsDialog
       setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
+      // setDashboardStep
+      setDashboardStep:"dashboard/setDashboardStep",
 
       // resetState
       resetState: "dashboard/resetState",
@@ -137,30 +139,37 @@ export default {
     },
 
     openAddPeopleDialog(){
-     this.setShowStatisticsDialog(true);
+      this.setDashboardStep(1)
+      this.setShowStatisticsDialog(true);
     },
 
     openAddOfferingDialog(){
+      this.setDashboardStep(2)
      this.setShowStatisticsDialog(true);
     },
 
     openAddSpentDialog(){
+      this.setDashboardStep(3)
      this.setShowStatisticsDialog(true);
     },
 
     openAddEventsDialog(){
+      this.setDashboardStep(4)
      this.setShowStatisticsDialog(true);
     },
 
     openAddBranchesDialog(){
+      this.setDashboardStep(5)
      this.setShowStatisticsDialog(true);
     },
 
     openAddAnnouncementDialog(){
+      this.setDashboardStep(6)
      this.setShowStatisticsDialog(true);
     },
 
     openAddVideoDialog(){
+      this.setDashboardStep(7)
      this.setShowStatisticsDialog(true);
     }
   },
