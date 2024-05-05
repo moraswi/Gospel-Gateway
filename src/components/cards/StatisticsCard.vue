@@ -1,7 +1,8 @@
 <template>
   <v-card class="py-2" width="100%" height="120">
     <v-layout class="text-center" column>
-      <v-layout class="px-2">
+    
+        <v-layout class="px-2">
         <v-spacer></v-spacer>
         <!-- Delete Button -->
         <v-btn v-if="showDeleteButton" class="transparent" fab width="25" height="25" depressed @click="handleClick('delete')">
@@ -16,6 +17,7 @@
           <v-icon size="medium">mdi-plus</v-icon>
         </v-btn>
       </v-layout>
+
       <h1 class="font-h2 justify-center align-center">{{ statistic }}</h1>
       <p class="font-p justify-center">{{ cardName }}</p>
     </v-layout>

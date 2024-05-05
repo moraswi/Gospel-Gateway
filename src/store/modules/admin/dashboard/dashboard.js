@@ -2,9 +2,15 @@ const dashboard = {
   namespaced: true,
 
   state: {
-    // showStatisticsDialog
+    // showStatisticsDialog add
     showStatisticsDialog: false,
-    showStatisticsMobileDialog: false,
+
+    // showStatisticsDialog add
+    showStatisticsEditDialog: false,
+
+    // showStatisticsDialog add
+    showStatisticsDeleteDialog: false,
+
     dashboardStep: 1,
   },
 
@@ -14,10 +20,14 @@ const dashboard = {
       state.showStatisticsDialog = payload;
     },
 
-    setShowStatisticsMobileDialog(state, payload) {
-      state.showStatisticsMobileDialog = payload;
+    setShowStatisticsEditDialog(state, payload) {
+      state.showStatisticsEditDialog = payload;
     },
 
+    setShowStatisticsDeleteDialog(state, payload) {
+      state.showStatisticsDeleteDialog = payload;
+    },
+    
     setDashboardStep(state, payload){
       state.dashboardStep = payload
     },
@@ -25,9 +35,9 @@ const dashboard = {
     // resetState
     resetState(state) { 
       state.showStatisticsDialog = false;
-      state.showStatisticsMobileDialog = false;
+      state.showStatisticsEditDialog = false;
+      state.showStatisticsDeleteDialog = false;
       state.dashboardStep = 1;
-
     },
   },
 
@@ -38,8 +48,12 @@ const dashboard = {
       return state.showStatisticsDialog;
     },
 
-    getShowStatisticsMobileDialog(state) {
-      return state.showStatisticsMobileDialog;
+    getShowStatisticsEditDialog(state) {
+      return state.showStatisticsEditDialog;
+    },
+
+    getShowStatisticsDeleteDialog(state) {
+      return state.showStatisticsDeleteDialog;
     },
 
     getDashboardStep(state){

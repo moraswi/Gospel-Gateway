@@ -5,28 +5,28 @@
     <!-- StatisticsCard -->
     <v-row class="mt-5">
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="10 000" card-name="People" :showDeleteButton="true" :showEditButton="true" :showAddButton="true"  @click="handlePeopleButtonClick" />
+        <StatisticsCard statistic="10 000" card-name="People" :showDeleteButton="false" :showEditButton="false" :showAddButton="true"  @click="handlePeopleButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 100000" card-name="Offering" :showDeleteButton="true" :showEditButton="true" :showAddButton="true"  @click="openAddOfferingDialog" />
+        <StatisticsCard statistic="R 1 100000" card-name="Offering" :showDeleteButton="false" :showEditButton="true" :showAddButton="true"  @click="handleOfferingButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="R 1 000" card-name="Spent" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddSpentDialog" />
+        <StatisticsCard statistic="R 1 000" card-name="Spent" :showDeleteButton="false" :showEditButton="true" :showAddButton="true" @click="handleOfferingButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="100" card-name="Members" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddPeopleDialog" />
+        <StatisticsCard statistic="100" card-name="Members" :showDeleteButton="false" :showEditButton="false" :showAddButton="true" @click="handlePeopleButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Events" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddEventsDialog" />
+        <StatisticsCard statistic="0" card-name="Events" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="handleEventsButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="0" card-name="Branches" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddBranchesDialog" />
+        <StatisticsCard statistic="0" card-name="Branches" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="handleBranchesButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="3" card-name="Announcements" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddAnnouncementDialog" />
+        <StatisticsCard statistic="3" card-name="Announcements" :showDeleteButton="true" :showEditButton="false" :showAddButton="true" @click="handleAnnouncementButtonClick" />
       </v-col>
       <v-col cols="12" xl="2" md="3">
-        <StatisticsCard statistic="23" card-name="Videos" :showDeleteButton="true" :showEditButton="true" :showAddButton="true" @click="openAddVideoDialog" />
+        <StatisticsCard statistic="23" card-name="Videos" :showDeleteButton="true" :showEditButton="false" :showAddButton="true" @click="handleVideoButtonClick" />
       </v-col>
 
    
@@ -147,14 +147,80 @@ export default {
 
     handlePeopleButtonClick(action) {
       switch(action) {
-        case 'delete':
-          this.openAddPeopleDialog();
-          break;
-        case 'edit':
-          this.openAddPeopleDialog();
-          break;
         case 'add':
           this.openAddPeopleDialog();
+          break;
+        // Add more cases if needed
+      }
+    },
+
+    handleOfferingButtonClick(action) {
+      switch(action) {
+        case 'edit':
+          this.openAddOfferingDialog();
+          break;
+        case 'add':
+          this.openAddOfferingDialog();
+          break;
+        // Add more cases if needed
+      }
+    },
+
+    handleEventsButtonClick(action) {
+      switch(action) {
+        case 'delete':
+          this.openAddEventsDialog();
+          break;
+        case 'edit':
+          this.openAddEventsDialog();
+          break;
+        case 'add':
+          this.openAddEventsDialog();
+          break;
+        // Add more cases if needed
+      }
+    },
+
+    handleBranchesButtonClick(action) {
+      switch(action) {
+        case 'delete':
+          this.openAddBranchesDialog();
+          break;
+        case 'edit':
+          this.openAddBranchesDialog();
+          break;
+        case 'add':
+          this.openAddBranchesDialog();
+          break;
+        // Add more cases if needed
+      }
+    },
+
+    handleAnnouncementButtonClick(action) {
+      switch(action) {
+        case 'delete':
+          this.openAddAnnouncementDialog();
+          break;
+        case 'edit':
+          this.openAddAnnouncementDialog();
+          break;
+        case 'add':
+          this.openAddAnnouncementDialog();
+          break;
+        // Add more cases if needed
+      }
+    },
+
+    handleVideoButtonClick(action) {
+      switch(action) {
+        case 'delete':
+          this.openAddVideoDialog();
+          break;
+        case 'edit':
+          this.openAddVideoDialog();
+          break;
+        case 'add':
+          this.openAddVideoDialog();
           break;
         // Add more cases if needed
       }
