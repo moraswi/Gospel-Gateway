@@ -8,7 +8,8 @@
           :max-height="maxContentHeight"
           flat
         >
-       <p>Are you sure you want to delete this item? This action cannot be undone</p>
+       <p>Are you sure you want to delete this item? This action cannot be undone. verify your action by entering item ID</p>
+       <v-text-field class="mt-1" label="Announcement Id" outlined></v-text-field>
         </v-card>
       </template>
 

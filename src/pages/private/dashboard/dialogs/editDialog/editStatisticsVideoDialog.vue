@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Video Link" class="mt-10 mt-md-0">
+    <MainDialogContent title="Edit Item" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -9,6 +9,10 @@
           flat
         >
           <v-form class="py-1">
+       <p>Are you sure you want to edit this item? verify your action by entering item ID</p>
+
+            <v-text-field class="mt-2" label="Video Id" outlined></v-text-field>
+
             <v-text-field class="" label="URL" outlined></v-text-field>
           </v-form>
         </v-card>
