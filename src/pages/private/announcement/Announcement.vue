@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div class="px-md-4">
     <TheHeader title="Service program"> </TheHeader>
 
     <v-row class="mt-3">
@@ -65,7 +65,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
