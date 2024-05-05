@@ -13,13 +13,26 @@
       content-class="elevation-0"
       persistent
     >
-      <StatisticsPeopleDialog v-show="dashboard.dashboardStep == 1"/>
-      <StatisticsOfferingDialog v-show="dashboard.dashboardStep == 2"/>
-      <StatisticsSpentDialog v-show="dashboard.dashboardStep == 3"/>
-      <StatisticsEventsDialog v-show="dashboard.dashboardStep == 4"/>
-      <StatisticsBranchDialog v-show="dashboard.dashboardStep == 5"/>
-      <StatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6"/>
-      <StatisticsVideoDialog v-show="dashboard.dashboardStep == 7"/>
+    <!-- add dialog -->
+      <addStatisticsPeopleDialog v-show="dashboard.dashboardStep == 1"/>
+      <addStatisticsOfferingDialog v-show="dashboard.dashboardStep == 2"/>
+      <addStatisticsSpentDialog v-show="dashboard.dashboardStep == 3"/>
+      <addStatisticsEventsDialog v-show="dashboard.dashboardStep == 4"/>
+      <addStatisticsBranchDialog v-show="dashboard.dashboardStep == 5"/>
+      <addStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6"/>
+      <addStatisticsVideoDialog v-show="dashboard.dashboardStep == 7"/>
+
+      <!-- edit dialog -->
+      <editStatisticsBranchDialog v-show="dashboard.dashboardStep == 8"/>
+      <editStatisticsEventsDialog v-show="dashboard.dashboardStep == 9"/>
+      <editStatisticsOfferingDialog v-show="dashboard.dashboardStep == 10"/>
+      <editStatisticsVideoDialog v-show="dashboard.dashboardStep == 11"/>
+
+      <!-- edit dialog -->
+      <deleteStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 12"/>
+      <deleteStatisticsBranchDialog v-show="dashboard.dashboardStep == 13"/>
+      <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14"/>
+      <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15"/>
     </v-dialog>
   </div>
 </template>
@@ -27,13 +40,26 @@
 <script>
 import { mapMutations, mapState } from "vuex";
 
-import StatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/StatisticsPeopleDialog.vue";
-import StatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/StatisticsOfferingDialog.vue";
-import StatisticsSpentDialog from "@/pages/private/dashboard/dialogs/StatisticsSpentDialog.vue";
-import StatisticsEventsDialog from "@/pages/private/dashboard/dialogs/StatisticsEventsDialog.vue";
-import StatisticsBranchDialog from "@/pages/private/dashboard/dialogs/StatisticsBranchDialog.vue";
-import StatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/StatisticsAnnouncementDialog.vue";
-import StatisticsVideoDialog from "@/pages/private/dashboard/dialogs/StatisticsVideoDialog.vue";
+// add dialogs
+import addStatisticsPeopleDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsPeopleDialog.vue";
+import addStatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsOfferingDialog.vue";
+import addStatisticsSpentDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsSpentDialog.vue";
+import addStatisticsEventsDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsEventsDialog.vue";
+import addStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsBranchDialog.vue";
+import addStatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsAnnouncementDialog.vue";
+import addStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsVideoDialog.vue";
+
+// edit dialogs
+import editStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsBranchDialog.vue";
+import editStatisticsEventsDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsEventsDialog.vue";
+import editStatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsOfferingDialog.vue";
+import editStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsVideoDialog.vue";
+
+// delete dialog
+import deleteStatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/deleteDialog/deleteStatisticsAnnouncementDialog.vue";
+import deleteStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/deleteDialog/deleteStatisticsBranchDialog.vue";
+import deleteStatisticsEventsDialog from "@/pages/private/dashboard/dialogs/deleteDialog/deleteStatisticsEventsDialog.vue";
+import deleteStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/deleteDialog/deleteStatisticsVideoDialog.vue";
 
 export default {
   name: "DashboardMainDialog",
@@ -45,13 +71,27 @@ export default {
   },
 
   components: {
-    StatisticsPeopleDialog,
-    StatisticsOfferingDialog,
-    StatisticsSpentDialog,
-    StatisticsEventsDialog,
-    StatisticsBranchDialog,
-    StatisticsAnnouncementDialog,
-    StatisticsVideoDialog,
+
+    // add dialog
+    addStatisticsPeopleDialog,
+    addStatisticsOfferingDialog,
+    addStatisticsSpentDialog,
+    addStatisticsEventsDialog,
+    addStatisticsBranchDialog,
+    addStatisticsAnnouncementDialog,
+    addStatisticsVideoDialog,
+
+    // edit dialog
+    editStatisticsBranchDialog,
+    editStatisticsEventsDialog,
+    editStatisticsOfferingDialog,
+    editStatisticsVideoDialog,
+
+    // delete dialog
+    deleteStatisticsAnnouncementDialog,
+    deleteStatisticsBranchDialog,
+    deleteStatisticsEventsDialog,
+    deleteStatisticsVideoDialog,
   },
 
   computed: {
