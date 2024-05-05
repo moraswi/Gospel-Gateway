@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Video Link" class="mt-10 mt-md-0">
+    <MainDialogContent title="Delete Item" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -8,9 +8,7 @@
           :max-height="maxContentHeight"
           flat
         >
-          <v-form class="py-1">
-            <v-text-field class="" label="URL" outlined></v-text-field>
-          </v-form>
+       <p>Are you sure you want to delete this item? This action cannot be undone</p>
         </v-card>
       </template>
 

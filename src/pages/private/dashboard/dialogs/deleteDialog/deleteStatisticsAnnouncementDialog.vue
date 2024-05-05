@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainDialogContent title="Announcement" class="mt-10 mt-md-0">
+    <MainDialogContent title="Delete Item" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card
@@ -8,7 +8,7 @@
           :max-height="maxContentHeight"
           flat
         >
-       <p>are you sure you want to delete </p>
+       <p>Are you sure you want to delete this item? This action cannot be undone</p>
         </v-card>
       </template>
 
