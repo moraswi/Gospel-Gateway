@@ -11,9 +11,10 @@ const announcement = {
   },
 
   actions: {
-    async addAnnouncement({ commit }) {
+    // addAnnouncementReq
+    async addAnnouncementReq({ commit }) {
       // startLoading
-      commit("app/startLoading", null, { root: true });
+      //commit("app/startLoading", null, { root: true });
       try {
         const announcement = await apiService.addAnnouncement();
 
@@ -22,7 +23,7 @@ const announcement = {
         console.log(error);
       } finally {
         // stopLoading
-        commit("app/stopLoading", null, { root: true });
+        //  commit("app/stopLoading", null, { root: true });
       }
     },
   },

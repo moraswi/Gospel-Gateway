@@ -2,6 +2,7 @@ import httpService from "./httpService";
 
 const apiService = {
   // >>>>>>>>>>>HTTPSERVICE.POST>>>>>>>>>>HTTPSERVICE.POST<<<<<<<<<<<<<<HTTPSERVICE.POST<<<<<<<<<<<<<<<<
+
   // logIn
   logIn(data) {
     return httpService.post(`login`, data);
