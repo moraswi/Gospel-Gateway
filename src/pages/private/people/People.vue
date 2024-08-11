@@ -14,7 +14,8 @@
           <v-toolbar-title>member and users</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-btn class="btn orange white--text" depressed>export</v-btn>
+          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+          <v-btn class="btn green white--text" depressed>Add Member</v-btn>
           <v-dialog v-model="dialog" max-width="500px">
             <v-card class="pa-4">
               <h1 class="font-h4">Edit a user</h1>
