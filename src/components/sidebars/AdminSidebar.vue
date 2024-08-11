@@ -1,15 +1,14 @@
 <template>
   <div>
     <v-card
-      :class="opened ? 'pa-2 pa-lg-4' : 'pa-3'"
-      class="sidebar hidden-sm-and-down"
+      class="sidebar hidden-sm-and-down pa-3"
       min-height="800"
       height="800"
       max-height="800"
     >
       <v-layout column fill-height>
         <!-- GospelGateway -->
-        <h1 v-if="opened" class="white--text mt-7 font-h4">GospelGateway</h1>
+        <h1 v-if="opened" class="white--text mt-7 font-h4">Gospel Gateway</h1>
 
         <!-- Main Menu -->
         <span v-if="opened" class="ml-4 white--text mt-7"> Main Menu </span>
@@ -35,7 +34,13 @@
           </v-card>
 
           <!-- Gallary -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <!-- <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -50,10 +55,16 @@
                 <v-list-item-title> Gallary </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-          </v-card>
+          </v-card> -->
 
           <!-- People -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -71,7 +82,13 @@
           </v-card>
 
           <!-- Events -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -89,7 +106,13 @@
           </v-card>
 
           <!-- Offerring -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -107,7 +130,13 @@
           </v-card>
 
           <!-- Service Program -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -152,7 +181,13 @@
           </v-card> -->
 
           <!-- Church Plan -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -170,7 +205,13 @@
           </v-card>
 
           <!-- Members & Roles -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -215,7 +256,13 @@
                </v-card> -->
 
           <!-- logout -->
-          <v-card class="mt-1" color="transparent" width="100%" height="48" flat>
+          <v-card
+            class="mt-1"
+            color="transparent"
+            width="100%"
+            height="48"
+            flat
+          >
             <v-list-item
               class="transparent white--text"
               active-class="bg-active gray50--text"
@@ -232,30 +279,6 @@
             </v-list-item>
           </v-card>
         </v-list>
-
-        <v-flex fill-height> </v-flex>
-
-        <!-- menu-opener -->
-        <v-layout class="mt-6 mb-9 mr-n2 mr-lg-n4" align-end justify-end>
-          <div class="menu-opener pointer" @click="opened = !opened">
-            <!-- Icon -->
-            <v-img
-              v-if="opened"
-              src="@/assets/img/arrows/arrow-left-icon.png"
-              max-width="24"
-              max-height="24"
-              contain
-            />
-
-            <v-img
-              v-else
-              src="@/assets/img/arrows/arrow-right-icon.png"
-              max-width="24"
-              max-height="24"
-              contain
-            />
-          </div>
-        </v-layout>
       </v-layout>
     </v-card>
 
@@ -295,27 +318,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
-  background: linear-gradient(176.15deg, #1776ee -9.36%, #20505d 106.46%);
-  border-radius: 16px;
-}
-
-.bg {
-  border-radius: 8px;
-}
-
-.bg-active {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-}
-
-.menu-opener {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 100px 0px 0px 100px;
-
-  padding-top: 12px;
-  padding-right: 18px;
-  padding-bottom: 12px;
-  padding-left: 14px;
-  max-width: 58px;
+  background-color: #20505d;
+  border-radius: 10px;
 }
 </style>

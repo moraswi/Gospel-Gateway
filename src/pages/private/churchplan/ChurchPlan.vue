@@ -1,6 +1,6 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Church plan"> </TheHeader>
+    <TheHeader title="Church plan" color="red"> </TheHeader>
 
     <v-data-table
       :headers="headers"
@@ -9,6 +9,25 @@
       items-per-page="15"
       class="mt-7"
     >
+      <template v-slot:[`item.action`]="{ item }">
+        <v-icon
+          small
+          class="mr-2"
+          color="orange"
+          @click="editPeopleDetails(item)"
+        >
+          mdi-pencil
+        </v-icon>
+
+        <v-icon
+          small
+          class="mr-2"
+          color="red"
+          @click="deleteServiceProgram(item)"
+        >
+          mdi-delete
+        </v-icon>
+      </template>
     </v-data-table>
   </div>
 </template>
@@ -29,6 +48,7 @@ export default {
       { text: "Description", value: "description" },
       { text: "Contact", value: "contact" },
       { text: "Date", value: "date" },
+      { text: "Action", value: "action" },
     ],
     formattedFeedback: [
       {

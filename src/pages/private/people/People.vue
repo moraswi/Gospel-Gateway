@@ -7,14 +7,14 @@
       :items="formattedFeedback"
       item-key="name"
       items-per-page="13"
-      class="mt-7"
+      class="mt-7 table-elevated"
     >
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>member and users</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-
+          <v-btn class="btn orange white--text" depressed>export</v-btn>
           <v-dialog v-model="dialog" max-width="500px">
             <v-card class="pa-4">
               <h1 class="font-h4">Edit a user</h1>
@@ -27,8 +27,14 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="red white--text" @click="editPeopleDetails()">Cancel</v-btn>
-                <v-btn color="btn green white--text" @click="editPeopleDetails()">Subite</v-btn>
+                <v-btn color="red white--text" @click="editPeopleDetails()"
+                  >Cancel</v-btn
+                >
+                <v-btn
+                  color="btn green white--text"
+                  @click="editPeopleDetails()"
+                  >Subite</v-btn
+                >
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
@@ -51,7 +57,23 @@
       </template>
 
       <template v-slot:[`item.action`]="{ item }">
-        <v-icon small class="mr-2" @click="editPeopleDetails(item)"> mdi-pencil </v-icon>
+        <v-icon
+          small
+          class="mr-2"
+          color="orange"
+          @click="editPeopleDetails(item)"
+        >
+          mdi-pencil
+        </v-icon>
+
+        <v-icon
+          small
+          class="mr-2"
+          color="red"
+          @click="deleteServiceProgram(item)"
+        >
+          mdi-delete
+        </v-icon>
       </template>
     </v-data-table>
   </div>
@@ -252,5 +274,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//
+.table-elevated {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 </style>

@@ -2,6 +2,7 @@
 @import "~vuetify/src/styles/styles.sass";
 
 @import "typography/Typography.scss";
+@import "typography/Colors.scss";
 // @import "typography/font_weight";
 
 @media only screen and (min-width: map-get($grid-breakpoints, "xl")) {
