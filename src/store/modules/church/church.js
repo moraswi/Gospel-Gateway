@@ -3,11 +3,19 @@ import apiService from "@/http/apiService";
 const church = {
   namespaced: true,
 
-  state: {},
+  state: {
+    churches: [],
+  },
 
   mutations: {
+    setChurch(state, data) {
+      state.churches = data;
+    },
+
     // resetState
-    resetState(state) {},
+    resetState(state) {
+      state.churches = [];
+    },
   },
 
   actions: {
@@ -20,9 +28,24 @@ const church = {
         console.log(error);
       }
     },
+
+    // getAllChurchesReq
+    async getAllChurchesReq({ commit }) {
+      try {
+        const response = await apiService.getAllChurches();
+        commit("setChurch", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
-  getters: {},
+  getters: {
+    getAllChurches(state) {
+      return state.churches;
+    },
+  },
 };
 
 export default church;

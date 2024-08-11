@@ -3,11 +3,18 @@ import apiService from "@/http/apiService";
 const announcement = {
   namespaced: true,
 
-  state: {},
+  state: {
+    getAnnouncements: [],
+  },
 
   mutations: {
+    setAnnouncements(state, data) {
+      state.getAnnouncements = data;
+    },
     // resetState
-    resetState(state) {},
+    resetState(state) {
+      state.getAnnouncements = [];
+    },
   },
 
   actions: {
@@ -20,9 +27,24 @@ const announcement = {
         console.log(error);
       }
     },
+
+    // getAnnouncementByChurchIdReq
+    async getAnnouncementByChurchIdReq({ commit }, churchId) {
+      try {
+        const response = await apiService.getAnnouncementByChurchId(churchId);
+        commit("setAnnouncements", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
-  getters: {},
+  getters: {
+    getAnnouncementByChurchIdReq(state) {
+      return state.getAnnouncements;
+    },
+  },
 };
 
 export default announcement;
