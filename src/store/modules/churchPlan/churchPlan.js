@@ -1,3 +1,5 @@
+import apiService from "@/http/apiService";
+
 const churchPlan = {
   namespaced: true,
 
@@ -8,7 +10,17 @@ const churchPlan = {
     resetState(state) {},
   },
 
-  actions: {},
+  actions: {
+    // addChurchPlanReq
+    async addChurchPlanReq(data) {
+      try {
+        const response = await apiService.addChurchPlan(data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 
   getters: {},
 };

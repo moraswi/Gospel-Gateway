@@ -12,18 +12,12 @@ const announcement = {
 
   actions: {
     // addAnnouncementReq
-    async addAnnouncementReq({ commit }) {
-      // startLoading
-      //commit("app/startLoading", null, { root: true });
+    async addAnnouncementReq(data) {
       try {
-        const announcement = await apiService.addAnnouncement();
-
-        return announcement;
+        const response = await apiService.addAnnouncement(data);
+        return response;
       } catch (error) {
         console.log(error);
-      } finally {
-        // stopLoading
-        //  commit("app/stopLoading", null, { root: true });
       }
     },
   },

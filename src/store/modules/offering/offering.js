@@ -1,3 +1,5 @@
+import apiService from "@/http/apiService";
+
 const offering = {
   namespaced: true,
 
@@ -8,7 +10,17 @@ const offering = {
     resetState(state) {},
   },
 
-  actions: {},
+  actions: {
+    // addOfferingReq
+    async addOfferingReq(data) {
+      try {
+        const response = await apiService.addOffering(data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 
   getters: {},
 };

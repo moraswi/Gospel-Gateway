@@ -1,3 +1,5 @@
+import apiService from "@/http/apiService";
+
 const church = {
   namespaced: true,
 
@@ -8,7 +10,17 @@ const church = {
     resetState(state) {},
   },
 
-  actions: {},
+  actions: {
+    // addChurchReq
+    async addChurchReq(data) {
+      try {
+        const response = await apiService.addChurch(data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 
   getters: {},
 };
