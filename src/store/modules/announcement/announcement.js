@@ -1,3 +1,5 @@
+import apiService from "@/http/apiService";
+
 const announcement = {
   namespaced: true,
 
@@ -8,7 +10,22 @@ const announcement = {
     resetState(state) {},
   },
 
-  actions: {},
+  actions: {
+    async addAnnouncement({ commit }) {
+      // startLoading
+      commit("app/startLoading", null, { root: true });
+      try {
+        const announcement = await apiService.addAnnouncement();
+
+        return announcement;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        // stopLoading
+        commit("app/stopLoading", null, { root: true });
+      }
+    },
+  },
 
   getters: {},
 };

@@ -163,3 +163,4 @@ const apiService = {
     return httpService.delete(`delete-announcement/${id}`);
   },
 };
+export default apiService;

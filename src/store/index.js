@@ -7,7 +7,7 @@ import churchPlan from "./modules/churchPlan/churchPlan.js";
 import offering from "./modules/offering/offering.js";
 import user from "./modules/user/user.js";
 import announcement from "./modules/announcement/announcement.js";
-// import headers from "./modules/admin/headers/headers.js";
+import app from "./modules/app.js";
 
 Vue.use(Vuex);
 
@@ -28,5 +28,6 @@ export default new Vuex.Store({
     offering,
     user,
     announcement,
+    app,
   },
 });

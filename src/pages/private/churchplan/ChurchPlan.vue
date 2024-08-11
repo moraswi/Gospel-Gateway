@@ -29,6 +29,11 @@
         </v-icon>
       </template>
     </v-data-table>
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -43,6 +48,8 @@ export default {
   },
 
   data: () => ({
+    overlay: false,
+
     headers: [
       { text: "Name", align: "start", value: "name" },
       { text: "Description", value: "description" },

@@ -107,6 +107,11 @@
       <!-- <template v-slot:[`item.action`]="{ item }">
       </template> -->
     </v-data-table>
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -121,6 +126,8 @@ export default {
   },
 
   data: () => ({
+    overlay: false,
+
     editServiceProgramDialog: false,
     deleteServiceProgramDialog: false,
     headers: [

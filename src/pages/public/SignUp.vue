@@ -13,9 +13,10 @@
             <span class="red--text"> registering today!</span>
           </h1>
           <p class="mt-5 font-p">
-            Registering as a member gives you access to church announcements, upcoming
-            events, service schedules, and more, ensuring you never miss out on important
-            information or opportunities to engage with your community.
+            Registering as a member gives you access to church announcements,
+            upcoming events, service schedules, and more, ensuring you never
+            miss out on important information or opportunities to engage with
+            your community.
           </p>
 
           <v-text-field class="mt-10" label="Full Name" outlined></v-text-field>
@@ -30,9 +31,17 @@
             :items="['Church 1', 'Church 2', 'Church 3']"
           ></v-select>
 
-          <v-select label="Gender" outlined :items="['Male', 'Female']"></v-select>
+          <v-select
+            label="Gender"
+            outlined
+            :items="['Male', 'Female']"
+          ></v-select>
 
-          <v-text-field class="mt-0" label="Phone number" outlined></v-text-field>
+          <v-text-field
+            class="mt-0"
+            label="Phone number"
+            outlined
+          ></v-text-field>
 
           <v-btn
             class="white--text"
@@ -44,6 +53,11 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -51,7 +65,9 @@
 export default {
   name: "SignUpPage",
 
-  data: () => ({}),
+  data: () => ({
+    overlay: false,
+  }),
 };
 </script>
 

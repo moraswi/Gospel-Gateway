@@ -132,6 +132,11 @@
     </v-row>
 
     <DashboardMainDialog />
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -153,6 +158,8 @@ export default {
   },
 
   data: () => ({
+    overlay: false,
+
     branches: [
       {
         branchName: "Branch Name",

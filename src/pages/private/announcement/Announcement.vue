@@ -14,10 +14,11 @@
             <div class="text-left">
               <h4 class="font-p">Lorem Ipsum</h4>
               <p class="font-p4 mt-1">
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book. It has survived
+                not only five centuries
               </p>
             </div>
           </v-layout>
@@ -34,10 +35,11 @@
             <div class="text-left">
               <h4 class="font-p">Lorem Ipsum</h4>
               <p class="font-p4 mt-1">
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book. It has survived
+                not only five centuries
               </p>
             </div>
           </v-layout>
@@ -54,10 +56,11 @@
             <div class="text-left">
               <h4 class="font-p">Lorem Ipsum</h4>
               <p class="font-p4 mt-1">
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book. It has survived
+                not only five centuries
               </p>
               <h4 class="font-p">moledi@gmail.com</h4>
             </div>
@@ -65,6 +68,11 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -79,6 +87,8 @@ export default {
     TheHeader,
   },
 
-  data: () => ({}),
+  data: () => ({
+    overlay: false,
+  }),
 };
 </script>

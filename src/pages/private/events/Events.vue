@@ -4,7 +4,13 @@
 
     <!-- EventCard -->
     <v-row class="mt-7">
-      <v-col v-for="(event, index) in events" :key="index" class="mt-5" cols="12" md="6">
+      <v-col
+        v-for="(event, index) in events"
+        :key="index"
+        class="mt-5"
+        cols="12"
+        md="6"
+      >
         <EventsCard
           :eventName="event.eventName"
           :timeframe="event.timeframe"
@@ -13,6 +19,11 @@
         />
       </v-col>
     </v-row>
+
+    <!-- overlay -->
+    <v-overlay :value="overlay" z-index="1000">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -29,6 +40,8 @@ export default {
   },
 
   data: () => ({
+    overlay: false,
+
     events: [
       {
         eventName: "Youth Conference",
