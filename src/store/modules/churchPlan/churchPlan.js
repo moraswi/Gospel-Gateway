@@ -20,7 +20,7 @@ const churchPlan = {
 
   actions: {
     // addChurchPlanReq
-    async addChurchPlanReq(data) {
+    async addChurchPlanReq({}, data) {
       try {
         const response = await apiService.addChurchPlan(data);
         return response;

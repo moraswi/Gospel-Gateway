@@ -48,8 +48,13 @@
             :to="{ name: 'MemberLogin' }"
             style="background-color: red"
             block
-            >Signup</v-btn
+            depressed
+            >Register</v-btn
           >
+          <p class="mt-5 font-p">
+            Unlock exclusive church updates byYou already have account?
+            <span class="red--text"> LogIn</span>
+          </p>
         </v-col>
       </v-row>
     </v-container>

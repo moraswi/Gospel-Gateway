@@ -39,6 +39,7 @@
               :to="{ name: 'AdminDashboard' }"
               style="background-color: red"
               block
+              depressed
               >Login</v-btn
             >
             <p class="mt-5 font-p white--text">
@@ -188,7 +189,9 @@
 export default {
   name: "LogInPage",
 
-  data: () => ({}),
+  data: () => ({
+    overlay: false,
+  }),
 };
 </script>
 

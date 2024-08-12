@@ -19,7 +19,7 @@ const announcement = {
 
   actions: {
     // addAnnouncementReq
-    async addAnnouncementReq(data) {
+    async addAnnouncementReq({}, data) {
       try {
         const response = await apiService.addAnnouncement(data);
         return response;

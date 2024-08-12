@@ -5,6 +5,7 @@ const user = {
 
   state: {
     logIn: JSON.parse(localStorage.getItem("logIn")) || {},
+    getAllUsers: [],
   },
 
   mutations: {
@@ -12,6 +13,10 @@ const user = {
     setLogin(state, data) {
       state.logIn = data;
       localStorage.setItem("logIn", JSON.stringify(data));
+    },
+
+    setAllUsers(state, data) {
+      state.getAllUsers = data;
     },
 
     // resetState
@@ -43,11 +48,28 @@ const user = {
         console.log(error);
       }
     },
+
+    // getAllUsersReq
+    async getAllUsersReq({ commit }) {
+      try {
+        const response = await apiService.getAllUsers();
+        commit("setAllUsers", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {
+    // getUserDetails
     getUserDetails(state) {
       return state.logIn;
+    },
+
+    // getAllUsers
+    getAllUsersReq(state) {
+      return state.getAllUsers;
     },
   },
 };

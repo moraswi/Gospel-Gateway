@@ -19,7 +19,7 @@ const event = {
 
   actions: {
     // addEventReq
-    async addEventReq(data) {
+    async addEventReq({}, data) {
       try {
         const response = await apiService.addEvent(data);
         return response;

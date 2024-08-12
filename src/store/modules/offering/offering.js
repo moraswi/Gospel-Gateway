@@ -3,16 +3,25 @@ import apiService from "@/http/apiService";
 const offering = {
   namespaced: true,
 
-  state: {},
+  state: {
+    getOfferingByBranchId: [],
+  },
 
   mutations: {
+    // setOffering
+    setOffering(state, data) {
+      state.getOfferingByBranchId = data;
+    },
+
     // resetState
-    resetState(state) {},
+    resetState(state) {
+      state.getOfferingByBranchId = [];
+    },
   },
 
   actions: {
     // addOfferingReq
-    async addOfferingReq(data) {
+    async addOfferingReq({}, data) {
       try {
         const response = await apiService.addOffering(data);
         return response;
@@ -20,9 +29,25 @@ const offering = {
         console.log(error);
       }
     },
+
+    // getOfferingByBranchIdReq
+    async getOfferingByBranchIdReq({ commit }, branchId) {
+      try {
+        const response = await apiService.getOfferingByBranchId(branchId);
+        commit("setOffering", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
-  getters: {},
+  getters: {
+    // getOfferingByBranchId
+    getOfferingByBranchId(state) {
+      return state.getOfferingByBranchId;
+    },
+  },
 };
 
 export default offering;
