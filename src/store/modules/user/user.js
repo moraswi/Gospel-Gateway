@@ -59,6 +59,16 @@ const user = {
         console.log(error);
       }
     },
+
+    // deleteUserReq
+    async deleteUserReq({}, userId) {
+      try {
+        const response = await apiService.deleteUser(userId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

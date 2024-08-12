@@ -40,6 +40,16 @@ const offering = {
         console.log(error);
       }
     },
+
+    // deleteOfferingReq
+    async deleteOfferingReq({}, offeringId) {
+      try {
+        const response = await apiService.deleteOffering(offeringId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

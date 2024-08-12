@@ -39,6 +39,16 @@ const churchPlan = {
         console.log(error);
       }
     },
+
+    // deleteChurchPlanReq
+    async deleteChurchPlanReq({}, churchPlanId) {
+      try {
+        const response = await apiService.deleteChurchPlan(churchPlanId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

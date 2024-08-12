@@ -38,6 +38,16 @@ const announcement = {
         console.log(error);
       }
     },
+
+    // deleteAnnouncementReq
+    async deleteAnnouncementReq({}, announcementId) {
+      try {
+        const response = await apiService.deleteAnnouncement(announcementId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

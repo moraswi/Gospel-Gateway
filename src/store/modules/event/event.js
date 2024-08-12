@@ -38,6 +38,16 @@ const event = {
         console.log(error);
       }
     },
+
+    // deleteEventReq
+    async deleteEventReq({}, eventId) {
+      try {
+        const response = await apiService.deleteEvent(eventId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

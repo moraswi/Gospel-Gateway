@@ -58,6 +58,16 @@ const branch = {
         console.log(error);
       }
     },
+
+    // deleteBranchReq
+    async deleteBranchReq({}, branchId) {
+      try {
+        const response = await apiService.deleteBranch(branchId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {

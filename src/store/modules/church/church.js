@@ -39,6 +39,16 @@ const church = {
         console.log(error);
       }
     },
+
+    // deleteChurchReq
+    async deleteChurchReq({}, churchId) {
+      try {
+        const response = await apiService.deleteChurch(churchId);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   getters: {
