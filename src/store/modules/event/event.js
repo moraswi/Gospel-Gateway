@@ -3,11 +3,18 @@ import apiService from "@/http/apiService";
 const event = {
   namespaced: true,
 
-  state: {},
+  state: {
+    getEventByChurchId: [],
+  },
 
   mutations: {
+    setEvent(state, data) {
+      state.getEventByChurchId = data;
+    },
     // resetState
-    resetState(state) {},
+    resetState(state) {
+      state.getEventByChurchId = [];
+    },
   },
 
   actions: {
@@ -20,9 +27,24 @@ const event = {
         console.log(error);
       }
     },
+
+    // getEventByChurchIdReq
+    async getEventByChurchIdReq({ commit }, churchId) {
+      try {
+        const response = await apiService.getEventByChurchId(churchId);
+        commit("setEvent", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
-  getters: {},
+  getters: {
+    getEventByChurchIdReq(state) {
+      return state.getEventByChurchId;
+    },
+  },
 };
 
 export default event;

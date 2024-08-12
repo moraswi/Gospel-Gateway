@@ -26,7 +26,7 @@ const user = {
       try {
         const response = await apiService.logIn(data);
         // const token = response.data.token;
-        localStorage.setItem("token", token);
+        // localStorage.setItem("token", token);
         commit("setLogin", response.data);
         return response;
       } catch (error) {
