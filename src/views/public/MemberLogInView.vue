@@ -1,16 +1,18 @@
 <template>
-  <div >
+  <div>
     <LogIn />
   </div>
 </template>
 
 <script>
-import LogIn from '@/pages/public/MemberLogIn'
+import LogIn from "@/pages/public/MemberLogIn";
 
 export default {
-  name: 'LogInView',
+  name: "LogInView",
   components: {
-    LogIn
-  }
-}
+    LogIn,
+  },
+};
 </script>
+
+<style lang="scss" scoped></style>

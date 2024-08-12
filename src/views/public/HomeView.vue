@@ -1,16 +1,18 @@
 <template>
-  <div >
+  <div>
     <Home />
   </div>
 </template>
 
 <script>
-import Home from '@/pages/public/Home'
+import Home from "@/pages/public/Home";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
-    Home
-  }
-}
+    Home,
+  },
+};
 </script>
+
+<style lang="scss" scoped></style>

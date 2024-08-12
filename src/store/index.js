@@ -1,14 +1,33 @@
-import { createStore } from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import dashboard from "./modules/dashboard/dashboard.js";
+import event from "./modules/event/event.js";
+import church from "./modules/church/church.js";
+import churchPlan from "./modules/churchPlan/churchPlan.js";
+import offering from "./modules/offering/offering.js";
+import user from "./modules/user/user.js";
+import announcement from "./modules/announcement/announcement.js";
+import app from "./modules/app.js";
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  state: {},
+
+  getters: {},
+
+  mutations: {},
+
+  actions: {},
+
   modules: {
-  }
-})
+    dashboard,
+    event,
+    church,
+    churchPlan,
+    offering,
+    user,
+    announcement,
+    app,
+  },
+});

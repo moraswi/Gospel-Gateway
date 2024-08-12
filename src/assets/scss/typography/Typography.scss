@@ -1,0 +1,77 @@
+/* @import "~vuetify/src/styles/settings/_variables.scss";
+@import "~vuetify/src/styles/styles.sass";
+
+@media only screen and (min-width: map-get($grid-breakpoints, "xl")) {
+  .container {
+    max-width: 1400px !important;
+  }
+} */
+
+.font-h1{
+ font-size: 50px;
+ line-height: 45px;
+ font-family: 'Open Sans', sans-serif;
+}
+.font-h2{
+  font-size: 40px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 45px;
+}
+.font-h3{
+  font-size: 30px;
+  line-height: 38px;
+  font-family: 'Open Sans', sans-serif;
+}
+.font-h4{
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  // line-height: 45px;
+}
+.font-p{
+  font-size: 15px;
+  line-height: 23px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.font-p4{
+  font-size: 12px;
+  line-height: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+@media screen and (max-width: 768px) {
+  .font-h1{
+    font-size: 40px;
+   }
+   .font-h2{
+     font-size: 30px;
+   }
+   .font-h3{
+     font-size: 25px;
+   }
+   .font-h4{
+     font-size: 20px;
+   }
+   .font-p{
+     font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 425px) {
+  /* .font-h1{
+    font-size: 60px;
+   }
+   .font-h2{
+     font-size: 50px;
+   }
+   .font-h3{
+     font-size: 40px;
+   }
+   .font-h4{
+     font-size: 30px;
+   } */
+   /* .font-p{
+     font-size: 15px;
+   } */
+}

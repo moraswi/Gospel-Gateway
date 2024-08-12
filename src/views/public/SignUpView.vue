@@ -1,16 +1,18 @@
 <template>
-  <div >
+  <div>
     <SignUp />
   </div>
 </template>
 
 <script>
-import SignUp from '@/pages/public/SignUp'
+import SignUp from "@/pages/public/SignUp";
 
 export default {
-  name: 'SignUpView',
+  name: "SignUpView",
   components: {
-    SignUp
-  }
-}
+    SignUp,
+  },
+};
 </script>
+
+<style lang="scss" scoped></style>
