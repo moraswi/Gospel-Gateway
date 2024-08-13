@@ -5,11 +5,18 @@ const church = {
 
   state: {
     churches: [],
+    updateChurch: {},
   },
 
   mutations: {
+    // setChurch
     setChurch(state, data) {
       state.churches = data;
+    },
+
+    // setUpdateChurch
+    setUpdateChurch(state, data) {
+      state.updateChurch = data;
     },
 
     // resetState
@@ -40,6 +47,17 @@ const church = {
       }
     },
 
+    // updateChurchReq
+    async updateChurchReq({ commit }, data) {
+      try {
+        const response = await apiService.updateChurch(data);
+        commit("setUpdateChurch", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteChurchReq
     async deleteChurchReq({}, churchId) {
       try {
@@ -52,8 +70,14 @@ const church = {
   },
 
   getters: {
+    // getAllChurches
     getAllChurches(state) {
       return state.churches;
+    },
+
+    // updateChurch
+    updateChurch(state) {
+      return state.updateChurch;
     },
   },
 };
