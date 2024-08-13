@@ -5,15 +5,24 @@ const event = {
 
   state: {
     getEventByChurchId: [],
+    updateEvent: {},
   },
 
   mutations: {
+    // setEvent
     setEvent(state, data) {
       state.getEventByChurchId = data;
     },
+
+    // setUpdateEvent
+    setUpdateEvent(state, data) {
+      state.updateEvent = data;
+    },
+
     // resetState
     resetState(state) {
       state.getEventByChurchId = [];
+      state.updateEvent = {};
     },
   },
 
@@ -39,6 +48,17 @@ const event = {
       }
     },
 
+    // updateEventReq
+    async updateEventReq({ commit }, data) {
+      try {
+        const response = await apiService.updateEvent(data);
+        commit("setUpdateEvent", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteEventReq
     async deleteEventReq({}, eventId) {
       try {
@@ -51,8 +71,14 @@ const event = {
   },
 
   getters: {
+    // getEventByChurchIdReq
     getEventByChurchIdReq(state) {
       return state.getEventByChurchId;
+    },
+
+    // updateEvent
+    updateEvent(state) {
+      return state.updateEvent;
     },
   },
 };
