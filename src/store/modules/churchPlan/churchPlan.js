@@ -5,11 +5,18 @@ const churchPlan = {
 
   state: {
     getChurchPlanByBranchId: [],
+    updateChurchPlan: {},
   },
 
   mutations: {
+    // setChurchPlan
     setChurchPlan(state, data) {
       state.getChurchPlanByBranchId = data;
+    },
+
+    // setUpdateChurchPlan
+    setUpdateChurchPlan(state, data) {
+      state.updateChurchPlan = data;
     },
 
     // resetState
@@ -40,6 +47,17 @@ const churchPlan = {
       }
     },
 
+    // updateChurchPlanReq
+    async updateChurchPlanReq({ commit }, data) {
+      try {
+        const response = await apiService.updateChurchPlan(data);
+        commit("setUpdateChurchPlan", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteChurchPlanReq
     async deleteChurchPlanReq({}, churchPlanId) {
       try {
@@ -55,6 +73,11 @@ const churchPlan = {
     // getChurchPlanByBranchId
     getChurchPlanByBranchId(state) {
       return state.getChurchPlanByBranchId;
+    },
+
+    // updateChurchPlan
+    updateChurchPlan(state) {
+      return state.updateChurchPlan;
     },
   },
 };
