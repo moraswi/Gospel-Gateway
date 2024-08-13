@@ -75,8 +75,8 @@ const church = {
       return state.churches;
     },
 
-    // updateChurch
-    updateChurch(state) {
+    // getUpdateChurch
+    getUpdateChurch(state) {
       return state.updateChurch;
     },
   },

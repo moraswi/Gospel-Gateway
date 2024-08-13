@@ -98,8 +98,8 @@ const branch = {
       return state.branchByChurchId;
     },
 
-    // updateBranch
-    updateBranch(state) {
+    // getUpdateBranch
+    getUpdateBranch(state) {
       return state.updateBranch;
     },
   },

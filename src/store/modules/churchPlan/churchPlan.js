@@ -75,8 +75,8 @@ const churchPlan = {
       return state.getChurchPlanByBranchId;
     },
 
-    // updateChurchPlan
-    updateChurchPlan(state) {
+    // getUpdateChurchPlan
+    getUpdateChurchPlan(state) {
       return state.updateChurchPlan;
     },
   },

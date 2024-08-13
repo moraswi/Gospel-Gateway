@@ -76,8 +76,8 @@ const event = {
       return state.getEventByChurchId;
     },
 
-    // updateEvent
-    updateEvent(state) {
+    // getUpdateEvent
+    getUpdateEvent(state) {
       return state.updateEvent;
     },
   },

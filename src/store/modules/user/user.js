@@ -6,6 +6,7 @@ const user = {
   state: {
     logIn: JSON.parse(localStorage.getItem("logIn")) || {},
     getAllUsers: [],
+    updateUser: {},
   },
 
   mutations: {
@@ -15,13 +16,21 @@ const user = {
       localStorage.setItem("logIn", JSON.stringify(data));
     },
 
+    // setAllUsers
     setAllUsers(state, data) {
       state.getAllUsers = data;
+    },
+
+    // setUpdateUser
+    setUpdateUser(state, data) {
+      state.updateUser = data;
     },
 
     // resetState
     resetState(state) {
       state.logIn = {};
+      state.getAllUsers = [];
+      state.updateUser = {};
     },
   },
 
@@ -60,6 +69,17 @@ const user = {
       }
     },
 
+    // updateUserReq
+    async updateUserReq({ commit }, data) {
+      try {
+        const response = await apiService.updateUser(data);
+        commit("setUpdateUser", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteUserReq
     async deleteUserReq({}, userId) {
       try {
@@ -80,6 +100,11 @@ const user = {
     // getAllUsers
     getAllUsersReq(state) {
       return state.getAllUsers;
+    },
+
+    // getUpdateUserReq
+    getUpdateUserReq(state) {
+      return state.updateUser;
     },
   },
 };

@@ -5,12 +5,18 @@ const offering = {
 
   state: {
     getOfferingByBranchId: [],
+    updateOffering: {},
   },
 
   mutations: {
     // setOffering
     setOffering(state, data) {
       state.getOfferingByBranchId = data;
+    },
+
+    // setUpdateOffering
+    setUpdateOffering(state, data) {
+      state.updateOffering = data;
     },
 
     // resetState
@@ -41,6 +47,17 @@ const offering = {
       }
     },
 
+    // updateOfferingReq
+    async updateOfferingReq({ commit }, data) {
+      try {
+        const response = await apiService.updateOffering(data);
+        commit("setUpdateOffering", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteOfferingReq
     async deleteOfferingReq({}, offeringId) {
       try {
@@ -56,6 +73,11 @@ const offering = {
     // getOfferingByBranchId
     getOfferingByBranchId(state) {
       return state.getOfferingByBranchId;
+    },
+
+    // getUpdateOffering
+    getUpdateOffering(state) {
+      return state.updateOffering;
     },
   },
 };

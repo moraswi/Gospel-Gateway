@@ -75,8 +75,8 @@ const announcement = {
       return state.getAnnouncements;
     },
 
-    // updateAnnouncement
-    updateAnnouncement(state) {
+    // getUpdateAnnouncement
+    getUpdateAnnouncement(state) {
       return state.updateAnnouncement;
     },
   },
