@@ -6,6 +6,7 @@ const branch = {
   state: {
     branchByBranchId: [],
     branchByChurchId: [],
+    updateBranch: {},
   },
 
   mutations: {
@@ -17,6 +18,11 @@ const branch = {
     // setBranchByChurchId
     setBranchByChurchId(state, data) {
       state.branchByChurchId = data;
+    },
+
+    // setUpdateBranch
+    setUpdateBranch(state, data) {
+      state.updateBranch = data;
     },
 
     // resetState
@@ -59,6 +65,17 @@ const branch = {
       }
     },
 
+    // updateBranchReq
+    async updateBranchReq({ commit }, data) {
+      try {
+        const response = await apiService.updateBranch(data);
+        commit("setUpdateBranch", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteBranchReq
     async deleteBranchReq({}, branchId) {
       try {
@@ -79,6 +96,11 @@ const branch = {
     // getBranchByChurchId
     getBranchByChurchIdReq(state) {
       return state.branchByChurchId;
+    },
+
+    // updateBranch
+    updateBranch(state) {
+      return state.updateBranch;
     },
   },
 };
