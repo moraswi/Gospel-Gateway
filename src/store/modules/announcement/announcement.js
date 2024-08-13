@@ -5,12 +5,20 @@ const announcement = {
 
   state: {
     getAnnouncements: [],
+    updateAnnouncement: {},
   },
 
   mutations: {
+    // setAnnouncements
     setAnnouncements(state, data) {
       state.getAnnouncements = data;
     },
+
+    // setUpdateAnnouncement
+    setUpdateAnnouncement(state, data) {
+      state.updateAnnouncement = data;
+    },
+
     // resetState
     resetState(state) {
       state.getAnnouncements = [];
@@ -39,6 +47,17 @@ const announcement = {
       }
     },
 
+    // updateAnnouncementReq
+    async updateAnnouncementReq({ commit }, data) {
+      try {
+        const response = await apiService.updateAnnouncement(data);
+        commit("setUpdateAnnouncement", response.data);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     // deleteAnnouncementReq
     async deleteAnnouncementReq({}, announcementId) {
       try {
@@ -51,8 +70,14 @@ const announcement = {
   },
 
   getters: {
-    getAnnouncementByChurchIdReq(state) {
+    // getAnnouncementByChurchId
+    getAnnouncementByChurchId(state) {
       return state.getAnnouncements;
+    },
+
+    // updateAnnouncement
+    updateAnnouncement(state) {
+      return state.updateAnnouncement;
     },
   },
 };
