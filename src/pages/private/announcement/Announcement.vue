@@ -57,6 +57,7 @@ export default {
   },
 
   computed: {
+    // getChurchPlanByBranchId
     getChurchPlanByBranchId() {
       return this.$store.getters["announcement/getAnnouncementByChurchId"];
     },

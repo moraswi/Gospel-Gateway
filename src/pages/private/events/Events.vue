@@ -5,7 +5,7 @@
     <!-- EventCard -->
     <v-row class="mt-7">
       <v-col
-        v-for="(event, index) in events"
+        v-for="(event, index) in getEventByChurchId"
         :key="index"
         class="mt-5"
         cols="12"
@@ -13,9 +13,9 @@
       >
         <EventsCard
           :eventName="event.eventName"
-          :timeframe="event.timeframe"
-          :churchName="event.churchName"
-          :eventDate="event.eventDate"
+          :timeframe="event.recurrence"
+          :churchName="event.branchName"
+          :eventDate="event.endDate"
         />
       </v-col>
     </v-row>
@@ -122,5 +122,16 @@ export default {
       },
     ],
   }),
+
+  async created() {
+    await Promise.all([this.$store.dispatch("event/getEventByChurchIdReq", 1)]);
+  },
+
+  computed: {
+    // getEventByChurchId
+    getEventByChurchId() {
+      return this.$store.getters["event/getEventByChurchId"];
+    },
+  },
 };
 </script>

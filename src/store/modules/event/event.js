@@ -71,8 +71,8 @@ const event = {
   },
 
   getters: {
-    // getEventByChurchIdReq
-    getEventByChurchIdReq(state) {
+    // getEventByChurchId
+    getEventByChurchId(state) {
       return state.getEventByChurchId;
     },
 
