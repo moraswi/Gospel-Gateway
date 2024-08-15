@@ -11,7 +11,7 @@
 
     <v-data-table
       :headers="headers"
-      :items="formattedFeedback"
+      :items="matGetOfferingByBranchId"
       item-key="date"
       items-per-page="13"
       class="mt-1 mt-md-7"
@@ -53,8 +53,7 @@
       <!-- card or cash -->
       <template v-slot:[`item.type`]="{ item }">
         <v-chip
-          v-if="item.type === 'Add offerring'"
-          class="ma-"
+          v-if="item.type === 'Offering'"
           color="green"
           text-color="white"
         >
@@ -98,7 +97,7 @@ export default {
 
     headers: [
       { text: "Date Offered/Spent", align: "start", value: "date" },
-      { text: "Description", value: "email" },
+      { text: "Description", value: "description" },
       { text: "Type", value: "type" },
       { text: "Created At", value: "createdat" },
       { text: "Updated At", value: "updatedat" },
@@ -108,179 +107,8 @@ export default {
     formattedFeedback: [
       {
         date: "12/02/1221",
-        email: "description",
+        description: "description",
         type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1231",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "12/02/1221",
-        email: "description",
-        type: "Spent",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-      {
-        date: "02/12/1221",
-        email: "description",
-        type: "Spent",
         createdat: "12/02/1221",
         updatedat: "12/02/1221",
         amount: 10,
@@ -288,6 +116,31 @@ export default {
       },
     ],
   }),
+
+  async created() {
+    await Promise.all([
+      this.$store.dispatch("offering/getOfferingByBranchIdReq", 1),
+    ]);
+  },
+
+  computed: {
+    // getOfferingByBranchId
+    getOfferingByBranchId() {
+      return this.$store.getters["offering/getOfferingByBranchId"];
+    },
+
+    matGetOfferingByBranchId() {
+      return this.getOfferingByBranchId.map((offering) => ({
+        date: offering.date,
+        description: "description",
+        type: offering.transactionType,
+        createdat: offering.createdat,
+        updatedat: offering.updatedat,
+        amount: offering.amount,
+        action: "icon",
+      }));
+    },
+  },
 
   methods: {
     editOffering() {
