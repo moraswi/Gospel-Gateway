@@ -94,7 +94,7 @@ const branch = {
     },
 
     // getBranchByChurchId
-    getBranchByChurchIdReq(state) {
+    getBranchByChurchId(state) {
       return state.branchByChurchId;
     },
 

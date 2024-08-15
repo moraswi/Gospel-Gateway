@@ -103,13 +103,13 @@
           style="overflow-y: auto"
         >
           <div
-            v-for="(branch, index) in branches"
+            v-for="(branch, index) in getBranchByChurchId"
             :key="index"
             class="pa-2"
             :style="{ backgroundColor: index % 2 == 0 ? '#e6ebf1' : 'white' }"
           >
-            <h4>{{ branch.branchName }}</h4>
-            <label>{{ branch.branchArea }}</label>
+            <h4>{{ branch.name }}</h4>
+            <label>{{ branch.location }}</label>
           </div>
         </v-card>
       </v-col>
@@ -165,28 +165,20 @@ export default {
         branchName: "Branch Name",
         branchArea: "Branch Area",
       },
-      {
-        branchName: "Dihlopaneng",
-        branchArea: "Gauteng",
-      },
-      {
-        branchName: "Dihlopaneng",
-        branchArea: "Gauteng",
-      },
-      {
-        branchName: "Dihlopaneng",
-        branchArea: "Gauteng",
-      },
-      {
-        branchName: "Dihlopaneng",
-        branchArea: "Gauteng",
-      },
-      {
-        branchName: "Dihlopaneng",
-        branchArea: "Gauteng",
-      },
     ],
   }),
+
+  async created() {
+    await Promise.all([
+      this.$store.dispatch("branch/getBranchByChurchIdReq", 1),
+    ]);
+  },
+
+  computed: {
+    getBranchByChurchId() {
+      return this.$store.getters["branch/getBranchByChurchId"];
+    },
+  },
 
   methods: {
     ...mapMutations({
