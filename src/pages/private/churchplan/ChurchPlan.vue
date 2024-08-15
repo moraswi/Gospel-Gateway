@@ -4,8 +4,8 @@
 
     <v-data-table
       :headers="headers"
-      :items="formattedFeedback"
-      item-key="name"
+      :items="mapGetChurchPlanByBranchId"
+      item-key="title"
       items-per-page="15"
       class="mt-7"
     >
@@ -41,7 +41,7 @@
 import TheHeader from "@/components/headers/TheHeader";
 
 export default {
-  name: "ChurchPlanPage",
+  title: "ChurchPlanPage",
 
   components: {
     TheHeader,
@@ -51,7 +51,7 @@ export default {
     overlay: false,
 
     headers: [
-      { text: "Name", align: "start", value: "name" },
+      { text: "Title", align: "start", value: "title" },
       { text: "Description", value: "description" },
       { text: "Contact", value: "contact" },
       { text: "Date", value: "date" },
@@ -59,25 +59,33 @@ export default {
     ],
     formattedFeedback: [
       {
-        name: "John Doe",
+        title: "John Doe",
         description: "description of the event ",
         contact: "01123212",
         date: "12/21/1321",
       },
-      {
-        name: "Jane Smith",
-        description: "description",
-        contact: "jane@example.com",
-        date: "12/21/1321",
-      },
-      {
-        name: "Bob Johnson",
-        description: "description",
-        contact: "01321312",
-        date: "12/21/1321",
-      },
-      // Add more contact items as needed
     ],
   }),
+
+  async created() {
+    await Promise.all([
+      this.$store.dispatch("churchPlan/getChurchPlanByBranchIdReq", 1),
+    ]);
+  },
+
+  computed: {
+    getChurchPlanByBranchId() {
+      return this.$store.getters["churchPlan/getChurchPlanByBranchId"];
+    },
+
+    mapGetChurchPlanByBranchId() {
+      return this.getChurchPlanByBranchId.map((churchPlan) => ({
+        date: churchPlan.date,
+        title: churchPlan.title,
+        description: churchPlan.description,
+        contact: churchPlan.contact,
+      }));
+    },
+  },
 };
 </script>
