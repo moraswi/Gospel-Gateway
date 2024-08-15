@@ -163,6 +163,24 @@ export default {
     ],
   }),
 
+  async created() {
+    this.overlay = true;
+    await Promise.all([this.$store.dispatch("event/getEventByChurchIdReq", 1)])
+      .then(() => {
+        this.overlay = false;
+      })
+      .catch(() => {
+        this.overlay = false;
+      });
+  },
+
+  computed: {
+    // getEventByChurchId
+    getEventByChurchId() {
+      return this.$store.getters["event/getEventByChurchId"];
+    },
+  },
+
   methods: {
     editServiceProgram() {
       this.editServiceProgramDialog = !this.editServiceProgramDialog;

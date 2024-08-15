@@ -26,9 +26,21 @@
           <v-text-field class="" label="Password" outlined></v-text-field>
 
           <v-select
+            v-model="selectedChurch"
             label="Church"
             outlined
-            :items="['Church 1', 'Church 2', 'Church 3']"
+            :items="getAllChurches"
+            item-value="id"
+            item-text="churchName"
+          ></v-select>
+
+          <v-select
+            label="Branch"
+            outlined
+            :items="getBranchByChurchId"
+            item-value="id"
+            item-text="name"
+            :disabled="getBranchByChurchId.length === 0"
           ></v-select>
 
           <v-select
@@ -72,13 +84,50 @@ export default {
 
   data: () => ({
     overlay: false,
+    selectedChurch: null,
+    selectedBranch: null,
   }),
+
+  async created() {
+    this.overlay = true;
+    await Promise.all([this.$store.dispatch("church/getAllChurchesReq")])
+      .then(() => {
+        this.overlay = false;
+      })
+      .catch(() => {
+        this.overlay = false;
+      });
+  },
+
+  watch: {
+    async selectedChurch(newChurchId) {
+      if (newChurchId) {
+        this.overlay = true;
+        await this.$store
+          .dispatch("branch/getBranchByChurchIdReq", newChurchId)
+          .then(() => {
+            this.overlay = false;
+          })
+          .catch(() => {
+            this.overlay = false;
+          });
+      }
+    },
+  },
+
+  computed: {
+    // getAllChurches
+    getAllChurches() {
+      return this.$store.getters["church/getAllChurches"];
+    },
+
+    // getBranchByChurchId
+    getBranchByChurchId() {
+      return this.$store.getters["branch/getBranchByChurchId"];
+    },
+  },
 };
 </script>
-
-<!-- <style>
-@import "@/assets/css/Styles.css";
-</style> -->
 
 <style lang="scss" scoped>
 //

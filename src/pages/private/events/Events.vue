@@ -41,90 +41,18 @@ export default {
 
   data: () => ({
     overlay: false,
-
-    events: [
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-
-        eventDate: "12/02/1221 - 12/02/1221",
-      },
-      {
-        eventName: "Men Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Ester Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-
-        eventDate: "12/02/1221 - 12/02/1221",
-      },
-      {
-        eventName: "Men Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Ester Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 - 12/02/1221",
-      },
-      {
-        eventName: "Men Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Ester Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-      {
-        eventName: "Youth Conference",
-        timeframe: "weekly",
-        churchName: "Assemblies",
-        eventDate: "12/02/1221 -12/02/1221",
-      },
-    ],
   }),
 
   async created() {
-    await Promise.all([this.$store.dispatch("event/getEventByChurchIdReq", 1)]);
+    this.overlay = true;
+
+    await Promise.all([this.$store.dispatch("event/getEventByChurchIdReq", 1)])
+      .then(() => {
+        this.overlay = false;
+      })
+      .catch(() => {
+        this.overlay = false;
+      });
   },
 
   computed: {

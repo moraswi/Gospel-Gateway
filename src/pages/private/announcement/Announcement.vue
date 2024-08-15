@@ -51,9 +51,16 @@ export default {
   }),
 
   async created() {
+    this.overlay = true;
     await Promise.all([
       this.$store.dispatch("announcement/getAnnouncementByChurchIdReq", 1),
-    ]);
+    ])
+      .then(() => {
+        this.overlay = false;
+      })
+      .catch(() => {
+        this.overlay = false;
+      });
   },
 
   computed: {
