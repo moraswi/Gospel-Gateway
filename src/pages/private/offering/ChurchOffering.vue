@@ -121,7 +121,10 @@ export default {
     this.overlay = true;
 
     await Promise.all([
-      this.$store.dispatch("offering/getOfferingByBranchIdReq", 1),
+      this.$store.dispatch(
+        "offering/getOfferingByBranchIdReq",
+        this.getUserDetails.branchId
+      ),
     ])
       .then(() => {
         this.overlay = false;
@@ -132,11 +135,17 @@ export default {
   },
 
   computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+
     // getOfferingByBranchId
     getOfferingByBranchId() {
       return this.$store.getters["offering/getOfferingByBranchId"];
     },
 
+    // matGetOfferingByBranchId
     matGetOfferingByBranchId() {
       return this.getOfferingByBranchId.map((offering) => ({
         date: offering.date,

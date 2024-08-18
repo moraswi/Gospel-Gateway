@@ -46,7 +46,12 @@ export default {
   async created() {
     this.overlay = true;
 
-    await Promise.all([this.$store.dispatch("event/getEventByChurchIdReq", 1)])
+    await Promise.all([
+      this.$store.dispatch(
+        "event/getEventByChurchIdReq",
+        this.getUserDetails.churchId
+      ),
+    ])
       .then(() => {
         this.overlay = false;
       })
@@ -59,6 +64,11 @@ export default {
     // getEventByChurchId
     getEventByChurchId() {
       return this.$store.getters["event/getEventByChurchId"];
+    },
+
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
     },
   },
 };

@@ -159,7 +159,7 @@ export default {
 
   data: () => ({
     overlay: false,
-
+    churchId: 0,
     branches: [
       {
         branchName: "Branch Name",
@@ -172,7 +172,10 @@ export default {
     this.overlay = true;
 
     await Promise.all([
-      this.$store.dispatch("branch/getBranchByChurchIdReq", 1),
+      this.$store.dispatch(
+        "branch/getBranchByChurchIdReq",
+        this.getUserDetails.churchId
+      ),
     ])
       .then(() => {
         this.overlay = false;
@@ -183,8 +186,14 @@ export default {
   },
 
   computed: {
+    // getBranchByChurchId
     getBranchByChurchId() {
       return this.$store.getters["branch/getBranchByChurchId"];
+    },
+
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
     },
   },
 

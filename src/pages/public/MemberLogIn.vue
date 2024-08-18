@@ -26,17 +26,24 @@
               Give us call: <span class="red--text"> +27 78 432 2343</span>
             </h3>
 
+            <!-- Email -->
             <v-text-field
+              v-model="email"
               class="mt-5 pa-0"
               label="Email"
               outlined
             ></v-text-field>
 
-            <v-text-field label="Password" outlined></v-text-field>
+            <!-- Password -->
+            <v-text-field
+              v-model="password"
+              label="Password"
+              outlined
+            ></v-text-field>
 
             <v-btn
               class="white--text"
-              :to="{ name: 'AdminDashboard' }"
+              @click="logInReq"
               style="background-color: red"
               block
               depressed
@@ -191,7 +198,56 @@ export default {
 
   data: () => ({
     overlay: false,
+    email: "",
+    password: "",
   }),
+
+  methods: {
+    // logInReq
+    async logInReq() {
+      try {
+        this.overlay = true;
+
+        const data = {
+          userName: this.email,
+          password: this.password,
+        };
+        console.log(data);
+
+        // response
+        const response = await this.$store.dispatch("user/logInReq", data);
+        console.log(response);
+        if (response.status == 200) {
+          // AdminDashboard
+          this.$router.push({ name: "AdminDashboard" });
+
+          this.$swal({
+            toast: true,
+            position: "top-end",
+            icon: "success",
+            title: "Successfully logged in!",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+        this.$swal({
+          toast: true,
+          position: "top-end",
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+        console.log(error);
+      } finally {
+        this.overlay = false;
+      }
+    },
+  },
 };
 </script>
 

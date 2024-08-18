@@ -71,7 +71,10 @@ export default {
     this.overlay = true;
 
     await Promise.all([
-      this.$store.dispatch("churchPlan/getChurchPlanByBranchIdReq", 1),
+      this.$store.dispatch(
+        "churchPlan/getChurchPlanByBranchIdReq",
+        this.getUserDetails.branchId
+      ),
     ])
       .then(() => {
         this.overlay = false;
@@ -82,10 +85,17 @@ export default {
   },
 
   computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+
+    // getChurchPlanByBranchId
     getChurchPlanByBranchId() {
       return this.$store.getters["churchPlan/getChurchPlanByBranchId"];
     },
 
+    // mapGetChurchPlanByBranchId
     mapGetChurchPlanByBranchId() {
       return this.getChurchPlanByBranchId.map((churchPlan) => ({
         date: churchPlan.date,
