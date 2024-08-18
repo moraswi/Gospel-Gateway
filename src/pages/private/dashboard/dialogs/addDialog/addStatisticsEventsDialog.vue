@@ -3,11 +3,7 @@
     <MainDialogContent title="Event" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
-        <v-card
-          class="transparent overflow-auto br-12"
-          :max-height="maxContentHeight"
-          flat
-        >
+        <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
             <v-text-field class="" label="Event Name" outlined></v-text-field>
             <v-select
@@ -15,7 +11,11 @@
               outlined
               :items="['Daily', 'Weekly', 'Monthly', 'Yearly']"
             ></v-select>
-            <v-text-field class="" label="Starting Date" outlined></v-text-field>
+            <v-text-field
+              class=""
+              label="Starting Date"
+              outlined
+            ></v-text-field>
             <v-text-field class="" label="Ending Date" outlined></v-text-field>
           </v-form>
         </v-card>
@@ -25,7 +25,12 @@
       <template v-slot:bottom>
         <v-layout align-center>
           <!--desktop Cancel  -->
-          <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="mr-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="closeAddEventDialog()"
               class="px-4 rounded-lg"
@@ -39,7 +44,12 @@
           </v-card>
 
           <!--desktop submit  -->
-          <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="ml-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="submitEvent()"
               class="black rounded-lg"
@@ -98,27 +108,34 @@ export default {
     return {};
   },
 
-  methods:{
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
     ...mapMutations({
       // setShowStatisticsDialog
-      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    closeAddEventDialog(){
-     this.setShowStatisticsDialog(false);
+    closeAddEventDialog() {
+      this.setShowStatisticsDialog(false);
     },
 
-    submitEvent(){
+    submitEvent() {
       // Remove text-field details
       setTimeout(() => {
         this.resetState();
       }, 1000);
-     this.setShowStatisticsDialog(false);
-    }
-  }
+      this.setShowStatisticsDialog(false);
+    },
+  },
 };
 </script>
 

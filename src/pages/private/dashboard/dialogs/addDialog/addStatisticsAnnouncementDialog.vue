@@ -3,15 +3,33 @@
     <MainDialogContent title="Announcement" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
-        <v-card
-          class="transparent overflow-auto br-12"
-          :max-height="maxContentHeight"
-          flat
-        >
+        <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
-            <v-text-field class="" label="Title" outlined></v-text-field>
+            <!-- Title -->
+            <v-text-field v-model="title" label="Title" outlined></v-text-field>
 
-            <v-text-field class="" label="Content" outlined></v-text-field>
+            <!-- Content -->
+            <v-text-field
+              v-model="Content"
+              label="Content"
+              outlined
+            ></v-text-field>
+
+            <!-- Content Valid Until -->
+            <v-text-field
+              v-model="validUntil"
+              label="Content Valid Until"
+              outlined
+              type="date"
+            ></v-text-field>
+
+            <!-- Content -->
+            <v-text-field
+              v-model="contact"
+              label="Contact"
+              outlined
+              type="number"
+            ></v-text-field>
           </v-form>
         </v-card>
       </template>
@@ -20,7 +38,12 @@
       <template v-slot:bottom>
         <v-layout align-center>
           <!--desktop Cancel  -->
-          <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="mr-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="closeAddAnnouncementDialog()"
               class="px-4 rounded-lg"
@@ -34,9 +57,14 @@
           </v-card>
 
           <!--desktop submit  -->
-          <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="ml-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
-              @click="submitAnnouncement()"
+              @click="addAnnouncementReq()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -62,7 +90,7 @@
 
             <!-- mobile submit -->
             <v-btn
-              @click="submitAnnouncement()"
+              @click="addAnnouncementReq()"
               class="black rounded-lg mt-3"
               width="100%"
               height="52"
@@ -91,30 +119,90 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      title: "",
+      Content: "",
+      churchId: 0,
+      contact: "",
+      validUntil: "",
+    };
   },
 
-  methods:{
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
     ...mapMutations({
       // setShowStatisticsDialog
-      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    closeAddAnnouncementDialog(){
-     this.setShowStatisticsDialog(false);
+    closeAddAnnouncementDialog() {
+      this.setShowStatisticsDialog(false);
     },
 
-    submitAnnouncement(){
-      // Remove text-field details
-      setTimeout(() => {
-        this.resetState();
-      }, 1000);
-     this.setShowStatisticsDialog(false);
-    }
-  }
+    // addAnnouncementReq
+    async addAnnouncementReq() {
+      try {
+        this.overlay = true;
+
+        const data = {
+          title: this.title,
+          description: this.Content,
+          churchId: this.getUserDetails.churchId,
+          contact: this.contact,
+          validUntil: this.validUntil,
+        };
+
+        // response
+        const response = await this.$store.dispatch(
+          "announcement/addAnnouncementReq",
+          data
+        );
+
+        if (response.status == 200) {
+          this.$store.dispatch(
+            "announcement/getAnnouncementByChurchIdReq",
+            this.getUserDetails.churchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        // Remove text-field details
+        setTimeout(() => {
+          this.resetState();
+        }, 1000);
+
+        //close dialog
+        this.setShowStatisticsDialog(false);
+
+        this.overlay = false;
+      }
+    },
+  },
 };
 </script>
 

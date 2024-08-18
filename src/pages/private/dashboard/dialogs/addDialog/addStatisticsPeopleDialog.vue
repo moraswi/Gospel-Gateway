@@ -3,11 +3,7 @@
     <MainDialogContent title="Member" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
-        <v-card
-          class="transparent overflow-auto br-12"
-          :max-height="maxContentHeight"
-          flat
-        >
+        <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
             <v-text-field class="" label="Full Name" outlined></v-text-field>
 
@@ -21,9 +17,17 @@
               :items="['Church 1', 'Church 2', 'Church 3']"
             ></v-select>
 
-            <v-select label="Gender" outlined :items="['Male', 'Female']"></v-select>
+            <v-select
+              label="Gender"
+              outlined
+              :items="['Male', 'Female']"
+            ></v-select>
 
-            <v-text-field class="mt-0" label="Phone number" outlined></v-text-field>
+            <v-text-field
+              class="mt-0"
+              label="Phone number"
+              outlined
+            ></v-text-field>
           </v-form>
         </v-card>
       </template>
@@ -33,7 +37,12 @@
         <!-- Cancel And Next -->
         <v-layout align-center>
           <!--desktop Cancel  -->
-          <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="mr-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <!-- Cancel -->
             <v-btn
               @click="closeAddPeopleDialog()"
@@ -51,7 +60,12 @@
           </v-card>
 
           <!--desktop submit  -->
-          <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="ml-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <!-- submit -->
             <v-btn
               @click="submitPeople()"
@@ -110,27 +124,34 @@ export default {
     return {};
   },
 
-  methods:{
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
     ...mapMutations({
       // setShowStatisticsDialog
-      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    closeAddPeopleDialog(){
-     this.setShowStatisticsDialog(false);
+    closeAddPeopleDialog() {
+      this.setShowStatisticsDialog(false);
     },
 
-    submitPeople(){
+    submitPeople() {
       // Remove text-field details
       setTimeout(() => {
         this.resetState();
       }, 1000);
-     this.setShowStatisticsDialog(false);
-    }
-  }
+      this.setShowStatisticsDialog(false);
+    },
+  },
 };
 </script>
 

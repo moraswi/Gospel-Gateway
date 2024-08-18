@@ -51,11 +51,10 @@ export default {
   }),
 
   async created() {
-    this.overlay = true;
     await Promise.all([
       this.$store.dispatch(
         "announcement/getAnnouncementByChurchIdReq",
-        this.getUserDetails.churchId
+        this.getUserDetails.branchId
       ),
     ])
       .then(() => {

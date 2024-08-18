@@ -172,10 +172,7 @@ export default {
     this.overlay = true;
 
     await Promise.all([
-      this.$store.dispatch(
-        "branch/getBranchByChurchIdReq",
-        this.getUserDetails.churchId
-      ),
+      this.$store.dispatch("branch/getBranchByChurchIdReq", 1),
     ])
       .then(() => {
         this.overlay = false;
