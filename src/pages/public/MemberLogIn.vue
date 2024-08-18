@@ -230,19 +230,27 @@ export default {
             timer: 3000,
             timerProgressBar: true,
           });
+        } else {
+          this.$swal({
+            toast: true,
+            position: "top-end",
+            icon: "error",
+            title: "check your details!",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
         }
       } catch (error) {
-        console.log(error);
         this.$swal({
           toast: true,
           position: "top-end",
           icon: "error",
-          title: error,
+          title: "Something went wrong!",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
         });
-        console.log(error);
       } finally {
         this.overlay = false;
       }
