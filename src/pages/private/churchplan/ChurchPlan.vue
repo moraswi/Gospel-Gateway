@@ -2,6 +2,50 @@
   <div class="px-md-4">
     <TheHeader title="Church plan" color="red"> </TheHeader>
 
+    <v-toolbar flat class="mt-10">
+      <v-toolbar-title>Church plan</v-toolbar-title>
+      <v-divider class="mx-4" inset vertical></v-divider>
+      <v-spacer></v-spacer>
+
+      <!-- export -->
+      <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+
+      <!-- Add -->
+      <v-btn
+        class="green"
+        fab
+        width="35"
+        height="35"
+        depressed
+        @click="handleClick('add')"
+      >
+        <v-icon size="medium" color="white">mdi-plus</v-icon>
+      </v-btn>
+
+      <!-- dialog -->
+      <v-dialog v-model="editOfferingDialog" max-width="500px">
+        <v-card class="pa-4">
+          <h1 class="font-h4">Edit Offering</h1>
+          <v-text-field class="mt-5" label="Amount" outlined></v-text-field>
+
+          <v-text-field class="" label="Date" outlined></v-text-field>
+
+          <v-text-field class="" label="Description" outlined></v-text-field>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red white--text" @click="editOffering()"
+              >Cancel</v-btn
+            >
+            <v-btn color="btn green white--text" @click="editOffering()"
+              >Subite</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-toolbar>
+
     <v-data-table
       :headers="headers"
       :items="mapGetChurchPlanByBranchId"

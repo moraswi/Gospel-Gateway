@@ -11,10 +11,26 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
+          <!-- Service Program -->
           <v-toolbar-title>Service Program</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
+
+          <!-- export -->
           <v-btn class="btn orange white--text" depressed>export</v-btn>
+
+          <!-- Add -->
+          <v-btn
+            class="green"
+            fab
+            width="35"
+            height="35"
+            depressed
+            @click="handleClick('add')"
+          >
+            <v-icon size="medium" color="white">mdi-plus</v-icon>
+          </v-btn>
+
           <!-- edit dialog -->
           <v-dialog v-model="editServiceProgramDialog" max-width="500px">
             <v-card class="pa-4">

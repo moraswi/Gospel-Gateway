@@ -1,9 +1,21 @@
 <template>
   <div class="px-md-4">
     <TheHeader title="Events"> </TheHeader>
-
+    <v-layout class="mt-2">
+      <v-spacer></v-spacer>
+      <v-btn
+        class="green mt-5"
+        fab
+        width="35"
+        height="35"
+        depressed
+        @click="handleClick('add')"
+      >
+        <v-icon size="medium" color="white">mdi-plus</v-icon>
+      </v-btn>
+    </v-layout>
     <!-- EventCard -->
-    <v-row class="mt-7">
+    <v-row class="mt-1">
       <v-col
         v-for="(event, index) in getEventByChurchId"
         :key="index"

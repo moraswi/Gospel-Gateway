@@ -1,8 +1,20 @@
 <template>
   <div class="px-md-4">
     <TheHeader title="Service program"> </TheHeader>
-
-    <v-row class="mt-3">
+    <v-layout>
+      <v-spacer></v-spacer>
+      <v-btn
+        class="green mt-5"
+        fab
+        width="35"
+        height="35"
+        depressed
+        @click="handleClick('add')"
+      >
+        <v-icon size="medium" color="white">mdi-plus</v-icon>
+      </v-btn>
+    </v-layout>
+    <v-row class="mt-2">
       <v-col
         v-for="(branch, index) in getChurchPlanByBranchId"
         :key="index"

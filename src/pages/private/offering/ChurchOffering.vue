@@ -2,12 +2,12 @@
   <div class="px-md-4">
     <TheHeader title="Church offering"> </TheHeader>
 
-    <v-layout class="mt-3 hidden-sm-and-up" align-center>
+    <!-- <v-layout class="mt-3 hidden-sm-and-up" align-center>
       <v-btn class="mr-2 red white--text" height="25" rounded>spend</v-btn>
       <v-btn class="mr-2 green white--text" height="25" rounded
         >add offering</v-btn
       >
-    </v-layout>
+    </v-layout> -->
 
     <v-data-table
       :headers="headers"
@@ -21,8 +21,23 @@
           <v-toolbar-title>Offering</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-btn class="btn orange white--text" depressed>export</v-btn>
 
+          <!-- export -->
+          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+
+          <!-- Add -->
+          <v-btn
+            class="green"
+            fab
+            width="35"
+            height="35"
+            depressed
+            @click="handleClick('add')"
+          >
+            <v-icon size="medium" color="white">mdi-plus</v-icon>
+          </v-btn>
+
+          <!-- dialog -->
           <v-dialog v-model="editOfferingDialog" max-width="500px">
             <v-card class="pa-4">
               <h1 class="font-h4">Edit Offering</h1>
