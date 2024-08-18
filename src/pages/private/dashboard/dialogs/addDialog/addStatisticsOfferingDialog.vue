@@ -5,11 +5,36 @@
       <template v-slot:main>
         <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
-            <v-text-field class="" label="Amount" outlined></v-text-field>
+            <!-- Amount -->
+            <v-text-field
+              v-model="amount"
+              label="Amount"
+              outlined
+              type="number"
+            ></v-text-field>
 
-            <v-text-field class="" label="Date" outlined></v-text-field>
+            <v-text-field
+              v-model="date"
+              label="Date"
+              type="date"
+              outlined
+            ></v-text-field>
 
-            <v-text-field class="" label="Description" outlined></v-text-field>
+            <!-- v-model="transactionType" -->
+            <v-select
+              v-model="transactionType"
+              label="Transaction Type"
+              outlined
+              :items="['Offering', 'Spent']"
+            ></v-select>
+
+            <!-- description -->
+            <v-text-field
+              v-model="description"
+              class=""
+              label="Description"
+              outlined
+            ></v-text-field>
           </v-form>
         </v-card>
       </template>
@@ -44,7 +69,7 @@
             flat
           >
             <v-btn
-              @click="submitOffering()"
+              @click="addOfferingReq()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -70,7 +95,7 @@
 
             <!-- mobile submit -->
             <v-btn
-              @click="submitOffering()"
+              @click="addOfferingReq()"
               class="black rounded-lg mt-3"
               width="100%"
               height="52"
@@ -98,7 +123,12 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      amount: 0,
+      date: "",
+      description: "",
+      transactionType: "",
+    };
   },
 
   computed: {
@@ -121,12 +151,54 @@ export default {
       this.setShowStatisticsDialog(false);
     },
 
-    submitOffering() {
-      // Remove text-field details
-      setTimeout(() => {
-        this.resetState();
-      }, 1000);
-      this.setShowStatisticsDialog(false);
+    // addOfferingReq
+    async addOfferingReq() {
+      try {
+        this.overlay = true;
+        const data = {
+          branchId: this.getUserDetails.branchId,
+          amount: this.amount,
+          date: this.date,
+          description: this.description,
+          transactionType: this.transactionType,
+        };
+
+        // response
+        const response = await this.$store.dispatch(
+          "offering/addOfferingReq",
+          data
+        );
+
+        if (response.status == 200) {
+          this.$swal.fire({
+            icon: "success",
+            title: "Successful!",
+            showConfirmButton: true,
+          });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        // Remove text-field details
+        setTimeout(() => {
+          this.resetState();
+        }, 1000);
+
+        // setShowStatisticsDialog
+        this.setShowStatisticsDialog(false);
+
+        this.overlay = false;
+      }
     },
   },
 };

@@ -138,6 +138,7 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
+    // closeAddBrancheDialog
     closeAddBrancheDialog() {
       this.setShowStatisticsDialog(false);
     },

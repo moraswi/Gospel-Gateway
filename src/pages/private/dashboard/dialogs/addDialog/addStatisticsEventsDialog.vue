@@ -5,18 +5,50 @@
       <template v-slot:main>
         <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
-            <v-text-field class="" label="Event Name" outlined></v-text-field>
-            <v-select
-              label="Event Happen"
-              outlined
-              :items="['Daily', 'Weekly', 'Monthly', 'Yearly']"
-            ></v-select>
+            <!-- eventName -->
             <v-text-field
-              class=""
-              label="Starting Date"
+              v-model="eventName"
+              label="Event Name"
               outlined
             ></v-text-field>
-            <v-text-field class="" label="Ending Date" outlined></v-text-field>
+
+            <!-- branchName -->
+            <v-text-field
+              v-model="eventName"
+              label="Branch Name"
+              outlined
+            ></v-text-field>
+
+            <!-- recurrence -->
+            <v-select
+              v-model="recurrence"
+              label="Recurrence"
+              outlined
+              :items="[
+                'Daily',
+                'Weekly',
+                'Monthly',
+                'quarterly',
+                'Yearly',
+                'Other',
+              ]"
+            ></v-select>
+
+            <!-- startDate -->
+            <v-text-field
+              v-model="startDate"
+              label="Starting Date"
+              type="date"
+              outlined
+            ></v-text-field>
+
+            <!-- endDate -->
+            <v-text-field
+              v-model="endDate"
+              label="Ending Date"
+              type="date"
+              outlined
+            ></v-text-field>
           </v-form>
         </v-card>
       </template>
@@ -51,7 +83,7 @@
             flat
           >
             <v-btn
-              @click="submitEvent()"
+              @click="addEventReq()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -77,7 +109,7 @@
 
             <!-- mobile submit -->
             <v-btn
-              @click="submitEvent()"
+              @click="addEventReq()"
               class="black rounded-lg mt-3"
               width="100%"
               height="52"
@@ -105,7 +137,13 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      startDate: "",
+      endDate: "",
+      eventName: "",
+      recurrence: "",
+      branchName: "",
+    };
   },
 
   computed: {
@@ -128,12 +166,52 @@ export default {
       this.setShowStatisticsDialog(false);
     },
 
-    submitEvent() {
-      // Remove text-field details
-      setTimeout(() => {
-        this.resetState();
-      }, 1000);
-      this.setShowStatisticsDialog(false);
+    // addEventReq
+    async addEventReq() {
+      try {
+        this.overlay = true;
+        const data = {
+          churchId: this.getUserDetails.branchId,
+          startDate: this.startDate,
+          endDate: this.endDate,
+          eventName: this.eventName,
+          recurrence: this.recurrence,
+          branchName: this.branchName,
+        };
+
+        // response
+        const response = await this.$store.dispatch("event/addEventReq", data);
+
+        if (response.status == 200) {
+          this.$swal.fire({
+            icon: "success",
+            title: "Successful!",
+            showConfirmButton: true,
+          });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        // Remove text-field details
+        setTimeout(() => {
+          this.resetState();
+        }, 1000);
+
+        // setShowStatisticsDialog
+        this.setShowStatisticsDialog(false);
+
+        this.overlay = false;
+      }
     },
   },
 };

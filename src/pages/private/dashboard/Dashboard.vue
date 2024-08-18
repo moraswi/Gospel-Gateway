@@ -2,96 +2,90 @@
   <div class="px-md-4">
     <!-- <TheHeader title="Dashboard"> </TheHeader> -->
     <TheMemberMobileHeader />
-    <!-- StatisticsCard -->
-    <v-row class="mt-5">
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="10 000"
-          card-name="People"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handlePeopleButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="R 1 100000"
-          card-name="Offering"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleOfferingButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="R 1 000"
-          card-name="Spent"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleOfferingButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="100"
-          card-name="Members"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handlePeopleButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="0"
-          card-name="Events"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleEventsButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="0"
-          card-name="Branches"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleBranchesButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="3"
-          card-name="Announcements"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleAnnouncementButtonClick"
-        />
-      </v-col>
-      <v-col cols="12" xl="2" md="3">
-        <StatisticsCard
-          statistic="23"
-          card-name="Videos"
-          :showDeleteButton="false"
-          :showEditButton="false"
-          :showAddButton="true"
-          @click="handleVideoButtonClick"
-        />
-      </v-col>
 
-      <!-- <v-col cols="12" md="3">
-              <StatisticsCard statistic="15" card-name="Meetings"/>
+    <HeaderMainCard class="hidden-sm-and-down">
+      <v-layout column fill-height>
+        <h2 class="white--text">
+          Hi {{ getUserDetails.firstName }} {{ getUserDetails.lastName }}
+        </h2>
+
+        <!-- Enjoy GospelGateway service -->
+        <h4 class="white--text mt-2">Enjoy GospelGateway service.</h4>
+        <!-- </v-flex> -->
+        <v-row class="mt-5">
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="10 000"
+              card-name="People"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="false"
+              @click="handlePeopleButtonClick"
+            />
           </v-col>
-          <v-col cols="12" md="3">
-              <StatisticsCard statistic="10" card-name="Members & Roles"/>
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="R 1 100000"
+              card-name="Offering"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="true"
+              @click="handleOfferingButtonClick"
+            />
+          </v-col>
+          <!-- <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="R 1 000"
+              card-name="Spent"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="true"
+              @click="handleOfferingButtonClick"
+            />
           </v-col> -->
-    </v-row>
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="100"
+              card-name="Members"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="false"
+              @click="handlePeopleButtonClick"
+            />
+          </v-col>
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="0"
+              card-name="Events"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="true"
+              @click="handleEventsButtonClick"
+            />
+          </v-col>
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="0"
+              card-name="Branches"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="true"
+              @click="handleBranchesButtonClick"
+            />
+          </v-col>
+          <v-col cols="12" xl="2" md="3">
+            <StatisticsCard
+              statistic="3"
+              card-name="Announcements"
+              :showDeleteButton="false"
+              :showEditButton="false"
+              :showAddButton="true"
+              @click="handleAnnouncementButtonClick"
+            />
+          </v-col>
+        </v-row>
+      </v-layout>
+    </HeaderMainCard>
 
     <v-row class="mt-10">
       <v-col cols="12" md="6">
@@ -146,6 +140,7 @@ import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainD
 import TheMemberMobileHeader from "@/components/headers/TheMobileHeader.vue";
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
+import HeaderMainCard from "@/components/cards/HeaderMainCard.vue";
 
 export default {
   name: "DashboardPage",
@@ -155,6 +150,7 @@ export default {
     TheMemberMobileHeader,
     StatisticsCard,
     TheHeader,
+    HeaderMainCard,
   },
 
   data: () => ({
