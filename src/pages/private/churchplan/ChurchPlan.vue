@@ -17,7 +17,7 @@
         width="35"
         height="35"
         depressed
-        @click="handleClick('add')"
+        @click="openAddChurchPlanDialog"
       >
         <v-icon size="medium" color="white">mdi-plus</v-icon>
       </v-btn>
@@ -74,6 +74,8 @@
       </template>
     </v-data-table>
 
+    <DashboardMainDialog />
+
     <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -82,13 +84,16 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 
 export default {
   title: "ChurchPlanPage",
 
   components: {
     TheHeader,
+    DashboardMainDialog,
   },
 
   data: () => ({
@@ -147,6 +152,23 @@ export default {
         description: churchPlan.description,
         contact: churchPlan.contact,
       }));
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+      // setDashboardStep
+      setDashboardStep: "dashboard/setDashboardStep",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    openAddChurchPlanDialog() {
+      this.setDashboardStep(12);
+      this.setShowStatisticsDialog(true);
     },
   },
 };

@@ -13,26 +13,26 @@
       content-class="elevation-0"
       persistent
     >
-    <!-- add dialog -->
-      <addStatisticsPeopleDialog v-show="dashboard.dashboardStep == 1"/>
-      <addStatisticsOfferingDialog v-show="dashboard.dashboardStep == 2"/>
-      <addStatisticsSpentDialog v-show="dashboard.dashboardStep == 3"/>
-      <addStatisticsEventsDialog v-show="dashboard.dashboardStep == 4"/>
-      <addStatisticsBranchDialog v-show="dashboard.dashboardStep == 5"/>
-      <addStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6"/>
-      <addStatisticsVideoDialog v-show="dashboard.dashboardStep == 7"/>
+      <!-- add dialog -->
+      <addStatisticsPeopleDialog v-show="dashboard.dashboardStep == 1" />
+      <addStatisticsOfferingDialog v-show="dashboard.dashboardStep == 2" />
+      <addStatisticsSpentDialog v-show="dashboard.dashboardStep == 3" />
+      <addStatisticsEventsDialog v-show="dashboard.dashboardStep == 4" />
+      <addStatisticsBranchDialog v-show="dashboard.dashboardStep == 5" />
+      <addStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6" />
+      <addStatisticsVideoDialog v-show="dashboard.dashboardStep == 7" />
 
       <!-- edit dialog -->
-      <editStatisticsBranchDialog v-show="dashboard.dashboardStep == 8"/>
-      <editStatisticsEventsDialog v-show="dashboard.dashboardStep == 9"/>
-      <editStatisticsOfferingDialog v-show="dashboard.dashboardStep == 10"/>
-      <editStatisticsVideoDialog v-show="dashboard.dashboardStep == 11"/>
+      <editStatisticsBranchDialog v-show="dashboard.dashboardStep == 8" />
+      <editStatisticsEventsDialog v-show="dashboard.dashboardStep == 9" />
+      <editStatisticsOfferingDialog v-show="dashboard.dashboardStep == 10" />
+      <editStatisticsVideoDialog v-show="dashboard.dashboardStep == 11" />
 
       <!-- edit dialog -->
-      <deleteStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 12"/>
-      <deleteStatisticsBranchDialog v-show="dashboard.dashboardStep == 13"/>
-      <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14"/>
-      <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15"/>
+      <addChurchPlan v-show="dashboard.dashboardStep == 12" />
+      <deleteStatisticsBranchDialog v-show="dashboard.dashboardStep == 13" />
+      <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14" />
+      <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15" />
     </v-dialog>
   </div>
 </template>
@@ -48,6 +48,7 @@ import addStatisticsEventsDialog from "@/pages/private/dashboard/dialogs/addDial
 import addStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsBranchDialog.vue";
 import addStatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsAnnouncementDialog.vue";
 import addStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsVideoDialog.vue";
+import addChurchPlan from "@/pages/private/dashboard/dialogs/addDialog/addChurchPlan.vue";
 
 // edit dialogs
 import editStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsBranchDialog.vue";
@@ -71,7 +72,6 @@ export default {
   },
 
   components: {
-
     // add dialog
     addStatisticsPeopleDialog,
     addStatisticsOfferingDialog,
@@ -80,6 +80,7 @@ export default {
     addStatisticsBranchDialog,
     addStatisticsAnnouncementDialog,
     addStatisticsVideoDialog,
+    addChurchPlan,
 
     // edit dialog
     editStatisticsBranchDialog,
@@ -97,16 +98,15 @@ export default {
   computed: {
     ...mapState({ dashboard: "dashboard" }),
 
-    showStatisticsDialog(){
+    showStatisticsDialog() {
       return (
         this.dashboard.showStatisticsDialog &&
         this.$vuetify.breakpoint.name != "xs"
-      )
-    }
+      );
+    },
   },
 
-  watch: {
-  },
+  watch: {},
 
   mounted() {},
 
