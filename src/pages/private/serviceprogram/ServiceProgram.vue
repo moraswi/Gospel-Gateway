@@ -17,7 +17,7 @@
           <v-spacer></v-spacer>
 
           <!-- export -->
-          <v-btn class="btn orange white--text" depressed>export</v-btn>
+          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
 
           <!-- Add -->
           <v-btn

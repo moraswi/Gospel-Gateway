@@ -170,11 +170,15 @@ export default {
         );
 
         if (response.status == 200) {
-          this.$swal.fire({
-            icon: "success",
-            title: "Successful!",
-            showConfirmButton: true,
-          });
+          this.$store.dispatch(
+            "offering/getOfferingByBranchIdReq",
+            this.getUserDetails.branchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
         } else {
           this.$swal.fire({
             icon: "error",

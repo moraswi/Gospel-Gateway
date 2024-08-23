@@ -2,13 +2,6 @@
   <div class="px-md-4">
     <TheHeader title="Church offering"> </TheHeader>
 
-    <!-- <v-layout class="mt-3 hidden-sm-and-up" align-center>
-      <v-btn class="mr-2 red white--text" height="25" rounded>spend</v-btn>
-      <v-btn class="mr-2 green white--text" height="25" rounded
-        >add offering</v-btn
-      >
-    </v-layout> -->
-
     <v-data-table
       :headers="headers"
       :items="matGetOfferingByBranchId"
@@ -32,7 +25,7 @@
             width="35"
             height="35"
             depressed
-            @click="handleClick('add')"
+            @click="openAddOfferingDialog"
           >
             <v-icon size="medium" color="white">mdi-plus</v-icon>
           </v-btn>
@@ -88,6 +81,8 @@
       </template>
     </v-data-table>
 
+    <DashboardMainDialog />
+
     <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -96,13 +91,16 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 
 export default {
   name: "OfferingPage",
 
   components: {
     TheHeader,
+    DashboardMainDialog,
   },
 
   data: () => ({
@@ -175,9 +173,24 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+      // setDashboardStep
+      setDashboardStep: "dashboard/setDashboardStep",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
     editOffering() {
       // this.dialog = true;
       this.editOfferingDialog = !this.editOfferingDialog;
+    },
+
+    openAddOfferingDialog() {
+      this.setDashboardStep(2);
+      this.setShowStatisticsDialog(true);
     },
   },
 };
