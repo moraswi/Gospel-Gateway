@@ -58,16 +58,15 @@
           small
           class="mr-2"
           color="orange"
-          @click="editPeopleDetails(item)"
+          @click="editPeopleDetails(item.id)"
         >
           mdi-pencil
         </v-icon>
-
         <v-icon
           small
           class="mr-2"
           color="red"
-          @click="deleteServiceProgram(item)"
+          @click="deleteChurchPlanReq(item.id)"
         >
           mdi-delete
         </v-icon>
@@ -147,6 +146,7 @@ export default {
     // mapGetChurchPlanByBranchId
     mapGetChurchPlanByBranchId() {
       return this.getChurchPlanByBranchId.map((churchPlan) => ({
+        id: churchPlan.id,
         date: churchPlan.date,
         title: churchPlan.title,
         description: churchPlan.description,
@@ -166,9 +166,48 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
+    // openAddChurchPlanDialog
     openAddChurchPlanDialog() {
       this.setDashboardStep(12);
       this.setShowStatisticsDialog(true);
+    },
+
+    // deleteChurchPlanReq
+    async deleteChurchPlanReq(churchPlanId) {
+      try {
+        this.overlay = true;
+
+        const response = await this.$store.dispatch(
+          "churchPlan/deleteChurchPlanReq",
+          churchPlanId
+        );
+
+        if (response.status == 200) {
+          this.$store.dispatch(
+            "churchPlan/getChurchPlanByBranchIdReq",
+            this.getUserDetails.branchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        this.overlay = false;
+      }
     },
   },
 };

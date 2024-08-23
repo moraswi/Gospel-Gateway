@@ -23,6 +23,17 @@
       >
         <v-card class="custom-card px-7 py-6 mt-2" width="100%">
           <v-layout>
+            <v-spacer></v-spacer>
+            <v-icon
+              small
+              class="mr-2"
+              color="red"
+              @click="deleteAnnouncementReq(branch.id)"
+            >
+              mdi-delete
+            </v-icon>
+          </v-layout>
+          <v-layout>
             <!-- row align-center -->
             <!-- <div>
                 <h1 class="font-h4 mt-n1">member name</h1>
@@ -105,9 +116,48 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
+    // openAddAnnouncementDialog
     openAddAnnouncementDialog() {
       this.setDashboardStep(6);
       this.setShowStatisticsDialog(true);
+    },
+
+    // deleteAnnouncementReq
+    async deleteAnnouncementReq(announcementId) {
+      try {
+        this.overlay = true;
+
+        const response = await this.$store.dispatch(
+          "announcement/deleteAnnouncementReq",
+          announcementId
+        );
+
+        if (response.status == 200) {
+          this.$store.dispatch(
+            "announcement/getAnnouncementByChurchIdReq",
+            this.getUserDetails.branchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        this.overlay = false;
+      }
     },
   },
 };
