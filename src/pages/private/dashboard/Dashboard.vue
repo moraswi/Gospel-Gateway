@@ -216,9 +216,6 @@ export default {
 
     handleOfferingButtonClick(action) {
       switch (action) {
-        case "edit":
-          this.openEditOfferingDialog();
-          break;
         case "add":
           this.openAddOfferingDialog();
           break;
@@ -228,12 +225,6 @@ export default {
 
     handleEventsButtonClick(action) {
       switch (action) {
-        case "delete":
-          this.openDeleteEventDialog();
-          break;
-        case "edit":
-          this.openEditEventDialog();
-          break;
         case "add":
           this.openAddEventsDialog();
           break;
@@ -243,12 +234,6 @@ export default {
 
     handleBranchesButtonClick(action) {
       switch (action) {
-        case "delete":
-          this.openDeleteBranchDialog();
-          break;
-        case "edit":
-          this.openEditBranchDialog();
-          break;
         case "add":
           this.openAddBranchesDialog();
           break;
@@ -258,27 +243,8 @@ export default {
 
     handleAnnouncementButtonClick(action) {
       switch (action) {
-        case "delete":
-          this.openDeleteAnnouncementDialog();
-          break;
-
         case "add":
           this.openAddAnnouncementDialog();
-          break;
-        // Add more cases if needed
-      }
-    },
-
-    handleVideoButtonClick(action) {
-      switch (action) {
-        case "delete":
-          this.openDeleteVideoDialog();
-          break;
-        case "edit":
-          this.openEditVideoDialog();
-          break;
-        case "add":
-          this.openAddVideoDialog();
           break;
         // Add more cases if needed
       }
@@ -311,53 +277,6 @@ export default {
 
     openAddAnnouncementDialog() {
       this.setDashboardStep(6);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openAddVideoDialog() {
-      this.setDashboardStep(7);
-      this.setShowStatisticsDialog(true);
-    },
-
-    // edit dialog
-    openEditBranchDialog() {
-      this.setDashboardStep(8);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openEditEventDialog() {
-      this.setDashboardStep(9);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openEditOfferingDialog() {
-      this.setDashboardStep(10);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openEditVideoDialog() {
-      this.setDashboardStep(11);
-      this.setShowStatisticsDialog(true);
-    },
-
-    // delete
-    openDeleteAnnouncementDialog() {
-      this.setDashboardStep(12);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openDeleteBranchDialog() {
-      this.setDashboardStep(13);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openDeleteEventDialog() {
-      this.setDashboardStep(14);
-      this.setShowStatisticsDialog(true);
-    },
-
-    openDeleteVideoDialog() {
-      this.setDashboardStep(15);
       this.setShowStatisticsDialog(true);
     },
   },

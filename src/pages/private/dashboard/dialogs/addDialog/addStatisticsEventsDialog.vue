@@ -14,7 +14,7 @@
 
             <!-- branchName -->
             <v-text-field
-              v-model="eventName"
+              v-model="branchName"
               label="Branch Name"
               outlined
             ></v-text-field>
@@ -183,11 +183,15 @@ export default {
         const response = await this.$store.dispatch("event/addEventReq", data);
 
         if (response.status == 200) {
-          this.$swal.fire({
-            icon: "success",
-            title: "Successful!",
-            showConfirmButton: true,
-          });
+          this.$store.dispatch(
+            "event/getEventByChurchIdReq",
+            this.getUserDetails.churchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
         } else {
           this.$swal.fire({
             icon: "error",

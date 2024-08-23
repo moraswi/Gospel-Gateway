@@ -9,7 +9,7 @@
         width="35"
         height="35"
         depressed
-        @click="handleClick('add')"
+        @click="openAddEventsDialog"
       >
         <v-icon size="medium" color="white">mdi-plus</v-icon>
       </v-btn>
@@ -32,6 +32,8 @@
       </v-col>
     </v-row>
 
+    <DashboardMainDialog />
+
     <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -40,8 +42,10 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import EventsCard from "@/components/cards/EventsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 
 export default {
   name: "EventsPage",
@@ -49,6 +53,7 @@ export default {
   components: {
     EventsCard,
     TheHeader,
+    DashboardMainDialog,
   },
 
   data: () => ({
@@ -81,6 +86,23 @@ export default {
     // getUserDetails
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+      // setDashboardStep
+      setDashboardStep: "dashboard/setDashboardStep",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    openAddEventsDialog() {
+      this.setDashboardStep(4);
+      this.setShowStatisticsDialog(true);
     },
   },
 };
