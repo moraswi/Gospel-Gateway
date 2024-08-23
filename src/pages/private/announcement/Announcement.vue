@@ -1,6 +1,6 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Service program"> </TheHeader>
+    <TheHeader title="Announcements"> </TheHeader>
     <v-layout>
       <v-spacer></v-spacer>
       <v-btn
