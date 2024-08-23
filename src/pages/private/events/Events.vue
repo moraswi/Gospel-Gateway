@@ -28,6 +28,7 @@
           :timeframe="event.recurrence"
           :churchName="event.branchName"
           :eventDate="event.endDate"
+          @delete-event="deleteEventReq(event.id)"
         />
       </v-col>
     </v-row>
@@ -100,9 +101,48 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
+    // openAddEventsDialog
     openAddEventsDialog() {
       this.setDashboardStep(4);
       this.setShowStatisticsDialog(true);
+    },
+
+    // deleteEventReq
+    async deleteEventReq(eventId) {
+      try {
+        this.overlay = true;
+
+        const response = await this.$store.dispatch(
+          "event/deleteEventReq",
+          eventId
+        );
+
+        if (response.status == 200) {
+          this.$store.dispatch(
+            "event/getEventByChurchIdReq",
+            this.getUserDetails.churchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          showConfirmButton: true,
+        });
+      } finally {
+        this.overlay = false;
+      }
     },
   },
 };

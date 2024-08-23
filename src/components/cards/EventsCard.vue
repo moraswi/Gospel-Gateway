@@ -8,6 +8,9 @@
       </div>
       <v-spacer></v-spacer>
       <div class="text-right">
+        <v-btn icon @click="handleDelete">
+          <v-icon color="red" small>mdi-delete</v-icon>
+        </v-btn>
         <h4 class="font-p">{{ churchName }}</h4>
         <p class="font-p4 mt-1">{{ eventDate }}</p>
       </div>
@@ -34,6 +37,13 @@ export default {
     eventDate: {
       type: String,
       required: true,
+    },
+  },
+
+  methods: {
+    handleDelete() {
+      // Emit an event when the delete button is clicked
+      this.$emit("delete-event");
     },
   },
 };
