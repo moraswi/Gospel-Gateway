@@ -9,7 +9,7 @@
         width="35"
         height="35"
         depressed
-        @click="handleClick('add')"
+        @click="openAddAnnouncementDialog"
       >
         <v-icon size="medium" color="white">mdi-plus</v-icon>
       </v-btn>
@@ -40,6 +40,8 @@
       </v-col>
     </v-row>
 
+    <DashboardMainDialog />
+
     <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -48,7 +50,9 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
 
 export default {
   name: "MemberAndRolesPage",
@@ -56,6 +60,7 @@ export default {
   components: {
     // VueSlider,
     TheHeader,
+    DashboardMainDialog,
   },
 
   data: () => ({
@@ -86,6 +91,23 @@ export default {
     // getUserDetails
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+      // setDashboardStep
+      setDashboardStep: "dashboard/setDashboardStep",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
+    openAddAnnouncementDialog() {
+      this.setDashboardStep(6);
+      this.setShowStatisticsDialog(true);
     },
   },
 };

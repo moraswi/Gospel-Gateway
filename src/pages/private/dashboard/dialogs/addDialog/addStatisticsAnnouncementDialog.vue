@@ -28,7 +28,6 @@
               v-model="contact"
               label="Contact"
               outlined
-              type="number"
             ></v-text-field>
           </v-form>
         </v-card>

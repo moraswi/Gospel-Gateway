@@ -28,7 +28,7 @@
       <editStatisticsOfferingDialog v-show="dashboard.dashboardStep == 10" />
       <editStatisticsVideoDialog v-show="dashboard.dashboardStep == 11" />
 
-      <!-- edit dialog -->
+      <!-- add dialog -->
       <addChurchPlan v-show="dashboard.dashboardStep == 12" />
       <deleteStatisticsBranchDialog v-show="dashboard.dashboardStep == 13" />
       <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14" />
