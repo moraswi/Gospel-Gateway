@@ -204,7 +204,11 @@ export default {
           });
         }
       } catch (error) {
-        console.log(error);
+        this.$swal.fire({
+          icon: "error",
+          title: "Something went wrong! Try again",
+          showConfirmButton: true,
+        });
       } finally {
         setTimeout(() => {
           this.resetState();
