@@ -32,6 +32,7 @@
               class=""
               label="Date"
               outlined
+              type="date"
             ></v-text-field>
 
             <v-text-field
@@ -132,10 +133,19 @@ export default {
       amount: "",
       date: "",
       description: "",
+      transactionType: "",
     };
   },
 
   computed: {
+    // ...mapMutations({
+    //   // getSelectedOfferingId
+    //   getSelectedOfferingId: "offering/getSelectedOfferingId",
+    // }),
+
+    getSelectedOfferingId() {
+      return this.$store.getters["offering/getSelectedOfferingId"];
+    },
     // getUserDetails
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
@@ -146,6 +156,9 @@ export default {
     ...mapMutations({
       // setShowStatisticsDialog
       setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
+      // getSelectedOfferingId
+      //  getSelectedOfferingId: "offering/getSelectedOfferingId",
 
       // resetState
       resetState: "dashboard/resetState",
@@ -158,10 +171,10 @@ export default {
     async updateOfferingReq() {
       try {
         this.overlay = true;
-        console.log("here 1");
+        console.log("here 1", this.getSelectedOfferingId);
 
         const data = {
-          id: 13,
+          id: this.getSelectedOfferingId,
           amount: this.amount,
           date: this.date,
           description: this.description,
@@ -180,15 +193,15 @@ export default {
         // console.log(response.status);
 
         if (response.status == 200) {
-          // this.$store.dispatch(
-          //   "offering/getOfferingByBranchIdReq",
-          //   this.getUserDetails.branchId
-          // ),
-          this.$swal.fire({
-            icon: "success",
-            title: "Successful!",
-            showConfirmButton: true,
-          });
+          this.$store.dispatch(
+            "offering/getOfferingByBranchIdReq",
+            this.getUserDetails.branchId
+          ),
+            this.$swal.fire({
+              icon: "success",
+              title: "Successful!",
+              showConfirmButton: true,
+            });
         } else {
           this.$swal.fire({
             icon: "error",

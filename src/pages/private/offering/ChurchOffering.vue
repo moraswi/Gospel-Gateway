@@ -29,33 +29,6 @@
           >
             <v-icon size="medium" color="white">mdi-plus</v-icon>
           </v-btn>
-
-          <!-- dialog -->
-          <!-- <v-dialog v-model="editOfferingDialog" max-width="500px">
-            <v-card class="pa-4">
-              <h1 class="font-h4">Edit Offering</h1>
-              <v-text-field class="mt-5" label="Amount" outlined></v-text-field>
-
-              <v-text-field class="" label="Date" outlined></v-text-field>
-
-              <v-text-field
-                class=""
-                label="Description"
-                outlined
-              ></v-text-field>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="red white--text" @click="editOffering()"
-                  >Cancel</v-btn
-                >
-                <v-btn color="btn green white--text" @click="editOffering()"
-                  >Subite</v-btn
-                >
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
         </v-toolbar>
       </template>
       <!-- card or cash -->
@@ -161,6 +134,7 @@ export default {
     // matGetOfferingByBranchId
     matGetOfferingByBranchId() {
       return this.getOfferingByBranchId.map((offering) => ({
+        id: offering.id,
         date: offering.date,
         description: "description",
         type: offering.transactionType,
@@ -178,14 +152,15 @@ export default {
       setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
       // setDashboardStep
       setDashboardStep: "dashboard/setDashboardStep",
-
+      // setSelectedOfferingId
+      setSelectedOfferingId: "offering/setSelectedOfferingId",
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    editOffering() {
-      // this.dialog = true;
-      // this.editOfferingDialog = !this.editOfferingDialog;
+    editOffering(item) {
+      console.log(item.id);
+      this.setSelectedOfferingId(item.id);
       this.setDashboardStep(10);
       this.setShowStatisticsDialog(true);
     },

@@ -4,11 +4,17 @@ const offering = {
   namespaced: true,
 
   state: {
+    selectedOfferingId: null,
     getOfferingByBranchId: [],
     updateOffering: {},
   },
 
   mutations: {
+    // setSelectedOfferingId
+    setSelectedOfferingId(state, id) {
+      state.selectedOfferingId = id;
+    },
+
     // setOffering
     setOffering(state, data) {
       state.getOfferingByBranchId = data;
@@ -70,6 +76,9 @@ const offering = {
   },
 
   getters: {
+    getSelectedOfferingId(state) {
+      return state.selectedOfferingId;
+    },
     // getOfferingByBranchId
     getOfferingByBranchId(state) {
       return state.getOfferingByBranchId;
