@@ -171,7 +171,6 @@ export default {
     async updateOfferingReq() {
       try {
         this.overlay = true;
-        console.log("here 1", this.getSelectedOfferingId);
 
         const data = {
           id: this.getSelectedOfferingId,
@@ -182,15 +181,10 @@ export default {
           branchId: this.getUserDetails.branchId,
         };
 
-        console.log("here 2");
-
         const response = await this.$store.dispatch(
           "offering/updateOfferingReq",
           data
         );
-
-        // console.log(response.data);
-        // console.log(response.status);
 
         if (response.status == 200) {
           this.$store.dispatch(
