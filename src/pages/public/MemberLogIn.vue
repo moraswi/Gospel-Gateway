@@ -3,12 +3,12 @@
     <!-- login section -->
     <!-- 1a9aaa -->
     <div style="background-color: #20505d">
-      <v-container class="py-16">
+      <v-container class="py-md-16 py-3">
         <v-row>
           <v-col cols="12" md="6">
             <h1 class="red--text font-h2">GospelGateway</h1>
 
-            <h1 class="mt-10 font-h4 white--text">
+            <h1 class="mt-md-10 mt-2 font-h4 white--text">
               Easy and Affordable <span> Case Management Software </span> for
               Your Church
             </h1>
@@ -64,13 +64,13 @@
     <v-container>
       <div>
         <v-card width="600" flat>
-          <h1 class="mt-10 font-h3">
+          <h1 class="mt-md-10 mt-2 font-h3">
             assist your church in
             <span class="red--text"> understanding data </span> and evaluating
             its impact.
           </h1>
         </v-card>
-        <v-row class="mt-5 mt-md-10">
+        <v-row class="mt-2 mt-md-10">
           <v-col cols="12" md="3">
             <h2 class="red--text font-h4">
               Introduction to Case Management for Churches
@@ -95,7 +95,7 @@
             </h2>
             <p class="mt-4 font-p">
               Churches gauge impact through metrics, informing resource
-              allocation and future initiatives for effective community service.
+              allocation and future initiatives for effective members service.
             </p>
           </v-col>
 
@@ -126,7 +126,7 @@
       </v-container>
     </div>
 
-    <v-container class="mt-10 mt-md-16" width="1400px">
+    <v-container class="mt-3 mt-md-16" width="1400px">
       <div class="text-center">
         <h1 class="font-h3">
           When you create an impact, we all contribute it.
@@ -140,9 +140,9 @@
               software, we struggled to keep track of our client information and
               program data efficiently. With GospelGateway, everything is
               centralized and easy to access. We can quickly input new data,
-              retrieve information when needed, and generate reports to analyze
-              our impact. It has saved us a significant amount of time and has
-              made our data management processes much more streamlined.
+              retrieve information when needed. It has saved us a significant
+              amount of time and has made our data management processes much
+              more streamlined.
             </p>
           </v-card>
         </v-col>
@@ -171,8 +171,7 @@
               data insights provided by GospelGateway, we can tailor our
               programs to meet the specific needs of those we serve. This has
               resulted in deeper connections, increased trust, and ultimately,
-              more impactful outcomes for our organization and the people we
-              support.
+              more impactful outcomes for our church and the people we support.
             </p>
           </v-card>
         </v-col>

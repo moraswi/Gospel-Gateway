@@ -31,7 +31,7 @@
           </v-btn>
 
           <!-- dialog -->
-          <v-dialog v-model="editOfferingDialog" max-width="500px">
+          <!-- <v-dialog v-model="editOfferingDialog" max-width="500px">
             <v-card class="pa-4">
               <h1 class="font-h4">Edit Offering</h1>
               <v-text-field class="mt-5" label="Amount" outlined></v-text-field>
@@ -55,7 +55,7 @@
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </v-toolbar>
       </template>
       <!-- card or cash -->
@@ -185,7 +185,9 @@ export default {
 
     editOffering() {
       // this.dialog = true;
-      this.editOfferingDialog = !this.editOfferingDialog;
+      // this.editOfferingDialog = !this.editOfferingDialog;
+      this.setDashboardStep(10);
+      this.setShowStatisticsDialog(true);
     },
 
     openAddOfferingDialog() {

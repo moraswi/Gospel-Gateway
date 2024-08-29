@@ -1,23 +1,45 @@
 <template>
   <div>
-    <MainDialogContent title="OfferEdit Item" class="mt-10 mt-md-0">
+    <MainDialogContent title="Edit Offering" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
-        <v-card
-          class="transparent overflow-auto br-12"
-          :max-height="maxContentHeight"
-          flat
-        >
+        <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
-       <p>Are you sure you want to edit this item? verify your action by entering item ID</p>
+            <p>Are you sure you want to edit this item?</p>
+            <!-- 
+            <v-text-field
+              class="mt-2"
+              label="Offering Id"
+              outlined
+            ></v-text-field> -->
 
-            <v-text-field class="mt-2" label="Offering Id" outlined></v-text-field>
+            <v-text-field
+              v-model="amount"
+              class=""
+              label="Amount"
+              outlined
+            ></v-text-field>
 
-            <v-text-field class="" label="Amount" outlined></v-text-field>
+            <v-select
+              v-model="transactionType"
+              label="Transaction Type"
+              outlined
+              :items="['Offering', 'Spent']"
+            ></v-select>
 
-            <v-text-field class="" label="Date" outlined></v-text-field>
+            <v-text-field
+              v-model="date"
+              class=""
+              label="Date"
+              outlined
+            ></v-text-field>
 
-            <v-text-field class="" label="Description" outlined></v-text-field>
+            <v-text-field
+              v-model="description"
+              class=""
+              label="Description"
+              outlined
+            ></v-text-field>
           </v-form>
         </v-card>
       </template>
@@ -26,7 +48,12 @@
       <template v-slot:bottom>
         <v-layout align-center>
           <!--desktop Cancel  -->
-          <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="mr-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="closeAddOfferingDialog()"
               class="px-4 rounded-lg"
@@ -40,9 +67,14 @@
           </v-card>
 
           <!--desktop submit  -->
-          <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="ml-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
-              @click="submitOffering()"
+              @click="updateOfferingReq()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -68,7 +100,7 @@
 
             <!-- mobile submit -->
             <v-btn
-              @click="submitOffering()"
+              @click="updateOfferingReq()"
               class="black rounded-lg mt-3"
               width="100%"
               height="52"
@@ -96,30 +128,84 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      amount: "",
+      date: "",
+      description: "",
+    };
   },
 
-  methods:{
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
+  methods: {
     ...mapMutations({
       // setShowStatisticsDialog
-      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    closeAddOfferingDialog(){
-     this.setShowStatisticsDialog(false);
+    closeAddOfferingDialog() {
+      this.setShowStatisticsDialog(false);
     },
 
-    submitOffering(){
-      // Remove text-field details
-      setTimeout(() => {
-        this.resetState();
-      }, 1000);
-     this.setShowStatisticsDialog(false);
-    }
-  }
+    async updateOfferingReq() {
+      try {
+        this.overlay = true;
+        console.log("here 1");
+
+        const data = {
+          id: 13,
+          amount: this.amount,
+          date: this.date,
+          description: this.description,
+          transactionType: this.transactionType,
+          branchId: this.getUserDetails.branchId,
+        };
+
+        console.log("here 2");
+
+        const response = await this.$store.dispatch(
+          "offering/updateOfferingReq",
+          data
+        );
+
+        // console.log(response.data);
+        // console.log(response.status);
+
+        if (response.status == 200) {
+          // this.$store.dispatch(
+          //   "offering/getOfferingByBranchIdReq",
+          //   this.getUserDetails.branchId
+          // ),
+          this.$swal.fire({
+            icon: "success",
+            title: "Successful!",
+            showConfirmButton: true,
+          });
+        } else {
+          this.$swal.fire({
+            icon: "error",
+            title: "Something went wrong! Try again",
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setTimeout(() => {
+          this.resetState();
+        }, 1000);
+        this.setShowStatisticsDialog(false);
+      }
+    },
+  },
 };
 </script>
 
