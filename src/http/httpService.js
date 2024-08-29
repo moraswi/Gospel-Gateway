@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import store from "@/store";
 // const apiKey = "bdK/XxbJ9ZwWMAF4gwKnIA9rpD8XE6Q4LxF2TjjfHuo=";
 
 const httpService = axios.create({
@@ -10,9 +10,17 @@ const httpService = axios.create({
   },
 });
 
-const token = localStorage.getItem("token");
-if (token) {
-  httpService.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-}
+httpService.interceptors.request.use(
+  (config) => {
+    const token = store.state.authentication.token;
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default httpService;

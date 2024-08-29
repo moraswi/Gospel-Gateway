@@ -9,6 +9,7 @@ import user from "./modules/user/user.js";
 import announcement from "./modules/announcement/announcement.js";
 import branch from "./modules/branch/branch.js";
 import app from "./modules/app.js";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -32,4 +33,6 @@ export default new Vuex.Store({
     branch,
     app,
   },
+
+  plugins: [createPersistedState()],
 });
