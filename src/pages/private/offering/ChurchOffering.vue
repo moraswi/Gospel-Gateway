@@ -159,7 +159,6 @@ export default {
     }),
 
     editOffering(item) {
-      console.log(item.id);
       this.setSelectedOfferingId(item.id);
       this.setDashboardStep(10);
       this.setShowStatisticsDialog(true);

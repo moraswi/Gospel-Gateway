@@ -76,6 +76,7 @@ const offering = {
   },
 
   getters: {
+    // getSelectedOfferingId
     getSelectedOfferingId(state) {
       return state.selectedOfferingId;
     },

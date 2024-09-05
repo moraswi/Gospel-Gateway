@@ -30,7 +30,7 @@
 
       <!-- add dialog -->
       <addChurchPlan v-show="dashboard.dashboardStep == 12" />
-      <deleteStatisticsBranchDialog v-show="dashboard.dashboardStep == 13" />
+      <editChurchPlanDialog v-show="dashboard.dashboardStep == 13" />
       <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14" />
       <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15" />
     </v-dialog>
@@ -55,6 +55,7 @@ import editStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/editDi
 import editStatisticsEventsDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsEventsDialog.vue";
 import editStatisticsOfferingDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsOfferingDialog.vue";
 import editStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsVideoDialog.vue";
+import editChurchPlanDialog from "@/pages/private/dashboard/dialogs/editDialog/editChurchPlanDialog.vue";
 
 // delete dialog
 import deleteStatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/deleteDialog/deleteStatisticsAnnouncementDialog.vue";
@@ -87,6 +88,7 @@ export default {
     editStatisticsEventsDialog,
     editStatisticsOfferingDialog,
     editStatisticsVideoDialog,
+    editChurchPlanDialog,
 
     // delete dialog
     deleteStatisticsAnnouncementDialog,

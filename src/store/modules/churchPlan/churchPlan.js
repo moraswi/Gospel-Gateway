@@ -4,11 +4,17 @@ const churchPlan = {
   namespaced: true,
 
   state: {
+    selectedChurchPlanId: null,
     getChurchPlanByBranchId: [],
     updateChurchPlan: {},
   },
 
   mutations: {
+    // setSelectedChurchPlanId
+    setSelectedChurchPlanId(state, id) {
+      state.selectedChurchPlanId = id;
+    },
+
     // setChurchPlan
     setChurchPlan(state, data) {
       state.getChurchPlanByBranchId = data;
@@ -70,6 +76,10 @@ const churchPlan = {
   },
 
   getters: {
+    // getSelectedOfferingId
+    getSelectedChurchPlanId(state) {
+      return state.selectedChurchPlanId;
+    },
     // getChurchPlanByBranchId
     getChurchPlanByBranchId(state) {
       return state.getChurchPlanByBranchId;

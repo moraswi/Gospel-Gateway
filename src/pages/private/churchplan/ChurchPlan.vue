@@ -58,10 +58,11 @@
           small
           class="mr-2"
           color="orange"
-          @click="editPeopleDetails(item.id)"
+          @click="openEditChurchPlanDialog(item.id)"
         >
           mdi-pencil
         </v-icon>
+
         <v-icon
           small
           class="mr-2"
@@ -161,7 +162,8 @@ export default {
       setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
       // setDashboardStep
       setDashboardStep: "dashboard/setDashboardStep",
-
+      // setSelectedOfferingId
+      setSelectedChurchPlanId: "churchPlan/setSelectedChurchPlanId",
       // resetState
       resetState: "dashboard/resetState",
     }),
@@ -169,6 +171,14 @@ export default {
     // openAddChurchPlanDialog
     openAddChurchPlanDialog() {
       this.setDashboardStep(12);
+      this.setShowStatisticsDialog(true);
+    },
+
+    // openEditChurchPlanDialog
+    openEditChurchPlanDialog(item) {
+      // this.setSelectedChurchPlanId
+      this.setSelectedChurchPlanId(item);
+      this.setDashboardStep(13);
       this.setShowStatisticsDialog(true);
     },
 
