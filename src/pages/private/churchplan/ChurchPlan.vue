@@ -58,7 +58,7 @@
           small
           class="mr-2"
           color="orange"
-          @click="openEditChurchPlanDialog(item.id)"
+          @click="openEditChurchPlanDialog(item)"
         >
           mdi-pencil
         </v-icon>
@@ -177,7 +177,15 @@ export default {
     // openEditChurchPlanDialog
     openEditChurchPlanDialog(item) {
       // this.setSelectedChurchPlanId
-      this.setSelectedChurchPlanId(item);
+      console.log("item.id");
+      console.log(item.id);
+      console.log(item.title);
+
+      console.log(item.description);
+      console.log(item.contact);
+      console.log(item.date);
+
+      this.setSelectedChurchPlanId(item.id);
       this.setDashboardStep(13);
       this.setShowStatisticsDialog(true);
     },

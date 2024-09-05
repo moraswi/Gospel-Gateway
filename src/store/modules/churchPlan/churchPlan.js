@@ -7,6 +7,11 @@ const churchPlan = {
     selectedChurchPlanId: null,
     getChurchPlanByBranchId: [],
     updateChurchPlan: {},
+
+    churchPlanTitle: "",
+    churchPlanDescription: "",
+    churchPlanContact: "",
+    churchPlanDate: "",
   },
 
   mutations: {
@@ -23,6 +28,26 @@ const churchPlan = {
     // setUpdateChurchPlan
     setUpdateChurchPlan(state, data) {
       state.updateChurchPlan = data;
+    },
+
+    // setChurchPlanDescription
+    setChurchPlanTitle(state, data) {
+      state.churchPlanTitle = data;
+    },
+
+    // setChurchPlanDescription
+    setChurchPlanDescription(state, data) {
+      state.churchPlanDescription = data;
+    },
+
+    // setChurchPlanContact
+    setChurchPlanContact(state, data) {
+      state.churchPlanContact = data;
+    },
+
+    // setChurchPlanDate
+    setChurchPlanDate(state, data) {
+      state.churchPlanDate = data;
     },
 
     // resetState
@@ -88,6 +113,26 @@ const churchPlan = {
     // getUpdateChurchPlan
     getUpdateChurchPlan(state) {
       return state.updateChurchPlan;
+    },
+
+    // getChurchPlanTitle
+    getChurchPlanTitle(state) {
+      return state.churchPlanTitle;
+    },
+
+    // getChurchPlanDescription
+    getChurchPlanDescription(state) {
+      return state.churchPlanDescription;
+    },
+
+    // getChurchPlanContact
+    getChurchPlanContact(state) {
+      return state.churchPlanContact;
+    },
+
+    // getChurchPlanDate
+    getChurchPlanDate(state) {
+      return state.churchPlanDate;
     },
   },
 };
