@@ -53,6 +53,10 @@ const churchPlan = {
     // resetState
     resetState(state) {
       state.getChurchPlanByBranchId = [];
+      state.churchPlanTitle = "";
+      state.churchPlanDescription = "";
+      state.churchPlanContact = "";
+      state.churchPlanDate = "";
     },
   },
 
