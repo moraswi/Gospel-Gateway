@@ -6,6 +6,13 @@ const event = {
   state: {
     getEventByChurchId: [],
     updateEvent: {},
+
+    eventStartDate: "",
+    eventEndDate: "",
+    eventChurchId: null,
+    eventEventName: "",
+    eventRecurrence: "",
+    eventBranchName: "",
   },
 
   mutations: {
@@ -17,6 +24,36 @@ const event = {
     // setUpdateEvent
     setUpdateEvent(state, data) {
       state.updateEvent = data;
+    },
+
+    // setEventStartDate
+    setEventStartDate(state, data) {
+      state.eventStartDate = data;
+    },
+
+    // setEventEndDate
+    setEventEndDate(state, data) {
+      state.eventEndDate = data;
+    },
+
+    // setEventChurchId
+    setEventChurchId(state, data) {
+      state.eventChurchId = data;
+    },
+
+    // setEventEventName
+    setEventEventName(state, data) {
+      state.eventEventName = data;
+    },
+
+    // setEventRecurrence
+    setEventRecurrence(state, data) {
+      state.eventRecurrence = data;
+    },
+
+    // setEventBranchNamet
+    setEventBranchNamet(state, data) {
+      state.eventBranchName = data;
     },
 
     // resetState
@@ -79,6 +116,36 @@ const event = {
     // getUpdateEvent
     getUpdateEvent(state) {
       return state.updateEvent;
+    },
+
+    // getEventStartDate
+    getEventStartDate(state) {
+      return state.eventStartDate;
+    },
+
+    // getEventEndDate
+    getEventEndDate(state) {
+      return state.eventEndDate;
+    },
+
+    // getEventChurchId
+    getEventChurchId(state) {
+      return state.eventChurchId;
+    },
+
+    // getEventEventName
+    getEventEventName(state) {
+      return state.eventEventName;
+    },
+
+    // getEventRecurrence
+    getEventRecurrence(state) {
+      return state.eventRecurrence;
+    },
+
+    // getEventBranchNamet
+    getEventBranchNamet(state) {
+      return state.eventBranchName;
     },
   },
 };
