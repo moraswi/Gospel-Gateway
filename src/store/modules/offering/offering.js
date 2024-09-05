@@ -7,6 +7,14 @@ const offering = {
     selectedOfferingId: null,
     getOfferingByBranchId: [],
     updateOffering: {},
+
+    amount: null,
+    date: "",
+    description: "",
+    transactionType: "",
+    branchId: null,
+    createdat: "",
+    updatedat: "",
   },
 
   mutations: {
@@ -23,6 +31,41 @@ const offering = {
     // setUpdateOffering
     setUpdateOffering(state, data) {
       state.updateOffering = data;
+    },
+
+    // setAmount
+    setAmount(state, data) {
+      state.amount = data;
+    },
+
+    // setDate
+    setDate(state, data) {
+      state.date = data;
+    },
+
+    // setDescription
+    setDescription(state, data) {
+      state.description = data;
+    },
+
+    // setTransactionType
+    setTransactionType(state, data) {
+      state.transactionType = data;
+    },
+
+    // setBranchId
+    setBranchId(state, data) {
+      state.branchId = data;
+    },
+
+    // setCreatedat
+    setCreatedat(state, data) {
+      state.createdat = data;
+    },
+
+    // setUpdatedat
+    setUpdatedat(state, data) {
+      state.updatedat = data;
     },
 
     // resetState
@@ -88,6 +131,41 @@ const offering = {
     // getUpdateOffering
     getUpdateOffering(state) {
       return state.updateOffering;
+    },
+
+    // getAmount
+    getAmount(state) {
+      return state.amount;
+    },
+
+    // getDate
+    getDate(state) {
+      return state.date;
+    },
+
+    // getDescription
+    getDescription(state) {
+      return state.description;
+    },
+
+    // getTransactionType
+    getTransactionType(state) {
+      return state.transactionType;
+    },
+
+    // getBranchId
+    getBranchId(state) {
+      return state.branchId;
+    },
+
+    // getCreatedat
+    getCreatedat(state) {
+      return state.createdat;
+    },
+
+    // getUpdatedat
+    getUpdatedat(state) {
+      return state.updatedat;
     },
   },
 };
