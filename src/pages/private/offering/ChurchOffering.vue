@@ -136,7 +136,7 @@ export default {
       return this.getOfferingByBranchId.map((offering) => ({
         id: offering.id,
         date: offering.date,
-        description: "description",
+        description: offering.description,
         type: offering.transactionType,
         createdat: offering.createdat,
         updatedat: offering.updatedat,
