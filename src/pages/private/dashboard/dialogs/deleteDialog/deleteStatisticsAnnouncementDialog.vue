@@ -3,13 +3,16 @@
     <MainDialogContent title="Delete Item" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
-        <v-card
-          class="transparent overflow-auto br-12"
-          :max-height="maxContentHeight"
-          flat
-        >
-       <p>Are you sure you want to delete this item? This action cannot be undone. verify your action by entering item ID</p>
-       <v-text-field class="mt-1" label="Announcement Id" outlined></v-text-field>
+        <v-card class="transparent overflow-auto br-12" flat>
+          <p>
+            Are you sure you want to delete this item? This action cannot be
+            undone. verify your action by entering item ID
+          </p>
+          <v-text-field
+            class="mt-1"
+            label="Announcement Id"
+            outlined
+          ></v-text-field>
         </v-card>
       </template>
 
@@ -17,7 +20,12 @@
       <template v-slot:bottom>
         <v-layout align-center>
           <!--desktop Cancel  -->
-          <v-card class="mr-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="mr-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="closeAddAnnouncementDialog()"
               class="px-4 rounded-lg"
@@ -31,7 +39,12 @@
           </v-card>
 
           <!--desktop submit  -->
-          <v-card class="ml-2 hidden-xs-only" color="transparent" width="50%" flat>
+          <v-card
+            class="ml-2 hidden-xs-only"
+            color="transparent"
+            width="50%"
+            flat
+          >
             <v-btn
               @click="submitAnnouncement()"
               class="black rounded-lg"
@@ -91,27 +104,27 @@ export default {
     return {};
   },
 
-  methods:{
+  methods: {
     ...mapMutations({
       // setShowStatisticsDialog
-      setShowStatisticsDialog:"dashboard/setShowStatisticsDialog",
-      
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
-    closeAddAnnouncementDialog(){
-     this.setShowStatisticsDialog(false);
+    closeAddAnnouncementDialog() {
+      this.setShowStatisticsDialog(false);
     },
 
-    submitAnnouncement(){
+    submitAnnouncement() {
       // Remove text-field details
       setTimeout(() => {
         this.resetState();
       }, 1000);
-     this.setShowStatisticsDialog(false);
-    }
-  }
+      this.setShowStatisticsDialog(false);
+    },
+  },
 };
 </script>
 

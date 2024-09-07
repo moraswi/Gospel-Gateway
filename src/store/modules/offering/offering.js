@@ -71,6 +71,13 @@ const offering = {
     // resetState
     resetState(state) {
       state.getOfferingByBranchId = [];
+      state.amount = null;
+      state.date = "";
+      state.description = "";
+      state.transactionType = "";
+      state.branchId = null;
+      state.createdat = "";
+      state.updatedat = "";
     },
   },
 

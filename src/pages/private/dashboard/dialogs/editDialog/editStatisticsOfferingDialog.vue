@@ -6,12 +6,6 @@
         <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
             <p>Are you sure you want to edit this item?</p>
-            <!-- 
-            <v-text-field
-              class="mt-2"
-              label="Offering Id"
-              outlined
-            ></v-text-field> -->
 
             <v-text-field
               v-model="amount"
@@ -130,19 +124,14 @@ export default {
 
   data() {
     return {
-      amount: "",
-      date: "",
-      description: "",
-      transactionType: "",
+      // amount: this.getAmount, // Bind amount from Vuex
+      // // Bind date from Vuex
+      // description: this.getDescription, // Bind description from Vuex
+      //  transactionType: "Offering",
     };
   },
 
   computed: {
-    // ...mapMutations({
-    //   // getSelectedOfferingId
-    //   getSelectedOfferingId: "offering/getSelectedOfferingId",
-    // }),
-
     getSelectedOfferingId() {
       return this.$store.getters["offering/getSelectedOfferingId"];
     },
@@ -150,6 +139,96 @@ export default {
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
     },
+
+    amount: {
+      get() {
+        return this.$store.getters["offering/getAmount"];
+      },
+      set(value) {
+        this.$store.commit("offering/setAmount", value);
+      },
+    },
+
+    // Reactive date field
+    date: {
+      get() {
+        const date = this.$store.getters["offering/getDate"];
+        if (!date) return "";
+
+        const localDate = new Date(date);
+        const year = localDate.getFullYear();
+        const month = String(localDate.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+        const day = String(localDate.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+      },
+      set(value) {
+        this.$store.commit("offering/setDate", value);
+      },
+    },
+
+    // Reactive description field
+    description: {
+      get() {
+        return this.$store.getters["offering/getDescription"];
+      },
+      set(value) {
+        this.$store.commit("offering/setDescription", value);
+      },
+    },
+
+    // Reactive transaction type
+    transactionType: {
+      get() {
+        return this.$store.getters["offering/getTransactionType"];
+      },
+      set(value) {
+        this.$store.commit("offering/setTransactionType", value);
+      },
+    },
+
+    // Reactive description type
+    // description: {
+    //   get() {
+    //     return this.$store.getters["offering/getDescription"];
+    //   },
+    //   set(value) {
+    //     this.$store.commit("offering/setDescription", value);
+    //   },
+    // },
+
+    // getAmount() {
+    //   return this.$store.getters["offering/getAmount"];
+    // },
+
+    // getDate() {
+    //   return this.$store.getters["offering/getDate"];
+    // },
+
+    // // getDescription
+    // getDescription() {
+    //   return this.$store.getters["offering/getDescription"];
+    // },
+
+    // // getTransactionType
+    // getTransactionType() {
+    //   return this.$store.getters["offering/getTransactionType"];
+    // },
+
+    // // getBranchId
+    // getBranchId() {
+    //   return this.$store.getters["offering/getBranchId"];
+    // },
+
+    // // getCreatedat
+    // getCreatedat() {
+    //   return this.$store.getters["offering/getCreatedat"];
+    // },
+
+    // // getUpdatedat
+    // getUpdatedat() {
+    //   return this.$store.getters["offering/getUpdatedat"];
+    // },
   },
 
   methods: {

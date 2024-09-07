@@ -154,11 +154,43 @@ export default {
       setDashboardStep: "dashboard/setDashboardStep",
       // setSelectedOfferingId
       setSelectedOfferingId: "offering/setSelectedOfferingId",
+
+      // setSelectedOfferingId
+      setSelectedOfferingId: "offering/setSelectedOfferingId",
+
+      // setAmount
+      setAmount: "offering/setAmount",
+
+      // setDate
+      setDate: "offering/setDate",
+
+      // setDescription
+      setDescription: "offering/setDescription",
+
+      // setTransactionType
+      setTransactionType: "offering/setTransactionType",
+
+      // setBranchId
+      setBranchId: "offering/setBranchId",
+
+      // setCreatedat
+      setCreatedat: "offering/setCreatedat",
+
+      // setUpdatedat
+      setUpdatedat: "offering/setUpdatedat",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
 
     editOffering(item) {
+      this.setAmount(item.amount);
+      this.setDate(item.date);
+      this.setDescription(item.description);
+      this.setTransactionType(item.type);
+      this.setBranchId(item.branchId);
+      this.setCreatedat(item.createdat);
+      this.setUpdatedat(item.updatedat);
       this.setSelectedOfferingId(item.id);
       this.setDashboardStep(10);
       this.setShowStatisticsDialog(true);
