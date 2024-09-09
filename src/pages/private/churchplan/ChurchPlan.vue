@@ -160,10 +160,25 @@ export default {
     ...mapMutations({
       // setShowStatisticsDialog
       setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+
       // setDashboardStep
       setDashboardStep: "dashboard/setDashboardStep",
+
       // setSelectedOfferingId
       setSelectedChurchPlanId: "churchPlan/setSelectedChurchPlanId",
+
+      // setChurchPlanTitle
+      setChurchPlanTitle: "churchPlan/setChurchPlanTitle",
+
+      // setChurchPlanDescription
+      setChurchPlanDescription: "churchPlan/setChurchPlanDescription",
+
+      // setChurchPlanContact
+      setChurchPlanContact: "churchPlan/setChurchPlanContact",
+
+      // setChurchPlanDate
+      setChurchPlanDate: "churchPlan/setChurchPlanDate",
+
       // resetState
       resetState: "dashboard/resetState",
     }),
@@ -176,15 +191,10 @@ export default {
 
     // openEditChurchPlanDialog
     openEditChurchPlanDialog(item) {
-      // this.setSelectedChurchPlanId
-      console.log("item.id");
-      console.log(item.id);
-      console.log(item.title);
-
-      console.log(item.description);
-      console.log(item.contact);
-      console.log(item.date);
-
+      this.setChurchPlanTitle(item.title);
+      this.setChurchPlanDescription(item.description);
+      this.setChurchPlanContact(item.contact);
+      this.setChurchPlanDate(item.date);
       this.setSelectedChurchPlanId(item.id);
       this.setDashboardStep(13);
       this.setShowStatisticsDialog(true);
