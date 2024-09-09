@@ -7,6 +7,7 @@ import churchPlan from "./modules/churchPlan/churchPlan.js";
 import offering from "./modules/offering/offering.js";
 import user from "./modules/user/user.js";
 import announcement from "./modules/announcement/announcement.js";
+import header from "./modules/header/header.js";
 import branch from "./modules/branch/branch.js";
 import app from "./modules/app.js";
 import createPersistedState from "vuex-persistedstate";
@@ -30,6 +31,7 @@ export default new Vuex.Store({
     offering,
     user,
     announcement,
+    header,
     branch,
     app,
   },
