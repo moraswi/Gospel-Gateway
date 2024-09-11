@@ -92,9 +92,10 @@ const user = {
     },
 
     // registerUserReq
-    async registerUserReq(data) {
+    async registerUserReq({},data) {
       try {
         const response = await apiService.registerUser(data);
+        console.log(response)
         return response;
       } catch (error) {
         console.log(error);

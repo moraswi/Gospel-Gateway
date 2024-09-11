@@ -19,12 +19,16 @@
             your community.
           </p>
 
-          <v-text-field class="mt-10" label="Full Name" outlined></v-text-field>
+          <!-- Full Name -->
+          <v-text-field v-model="FullName" class="mt-7" label="Full Name" outlined></v-text-field>
 
-          <v-text-field class="" label="Email" outlined></v-text-field>
+          <!-- Email -->
+          <v-text-field v-model="Email"class="" label="Email" outlined></v-text-field>
 
-          <v-text-field class="" label="Password" outlined></v-text-field>
+          <!-- Password -->
+          <v-text-field v-model="Password" class="" label="Password" outlined></v-text-field>
 
+          <!-- Church -->
           <v-select
             v-model="selectedChurch"
             label="Church"
@@ -34,7 +38,9 @@
             item-text="churchName"
           ></v-select>
 
+          <!-- Branch -->
           <v-select
+          v-model="selectedBranch"
             label="Branch"
             outlined
             :items="getBranchByChurchId"
@@ -42,22 +48,34 @@
             item-text="name"
             :disabled="getBranchByChurchId.length === 0"
           ></v-select>
-
+          
+          <!-- Member -->
           <v-select
+          v-model="Member"
+            label="Member"
+            outlined
+            :items="[true, false]"
+          ></v-select>
+
+          <!-- Gender -->
+          <v-select
+          v-model="gender"
             label="Gender"
             outlined
             :items="['Male', 'Female']"
           ></v-select>
 
+          <!-- PhoneNumber -->
           <v-text-field
+          v-model="PhoneNumber"
             class="mt-0"
-            label="Phone number"
+            label="Phone Number"
             outlined
           ></v-text-field>
 
           <v-btn
             class="white--text"
-            :to="{ name: 'MemberLogin' }"
+            @click="registerUserReq()"
             style="background-color: red"
             block
             depressed
@@ -86,6 +104,7 @@ export default {
     overlay: false,
     selectedChurch: null,
     selectedBranch: null,
+    Member: null
   }),
 
   async created() {
@@ -124,6 +143,70 @@ export default {
     // getBranchByChurchId
     getBranchByChurchId() {
       return this.$store.getters["branch/getBranchByChurchId"];
+    },
+  },
+
+  methods: {
+  
+// registerUserReq
+  async registerUserReq() {
+      try {
+        this.overlay = true;
+
+        const data = {
+         // userName: this.UserName,
+          fullName: this.FullName,
+         // lastName: this.LastName,
+          phoneNumber: this.PhoneNumber,
+          gender: this.gender,
+          email: this.Email,
+          password: this.Password,
+          churchId: this.selectedChurch,
+          branchId: this.selectedBranch,
+          //member: true
+          member: this.Member
+        };
+        console.log(data)
+        // response
+        const response = await this.$store.dispatch("user/registerUserReq", data);
+        console.log(response);
+        if (response.status == 200) {
+          // MemberLogin
+          this.$router.push({ name: "MemberLogin" });
+
+          this.$swal({
+            toast: true,
+            position: "top-end",
+            icon: "success",
+            title: "Successfully logged in!",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+        } else {
+          this.$swal({
+            toast: true,
+            position: "top-end",
+            icon: "error",
+            title: "check your details!",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+        }
+      } catch (error) {
+        this.$swal({
+          toast: true,
+          position: "top-end",
+          icon: "error",
+          title: 'Something is wrong',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      } finally {
+        this.overlay = false;
+      }
     },
   },
 };

@@ -29,7 +29,7 @@
             <!-- Email -->
             <v-text-field
               v-model="email"
-              class="mt-5 pa-0"
+              class="mt-5 pa-0 custom-text-field"
               label="Email"
               outlined
             ></v-text-field>
@@ -38,6 +38,7 @@
             <v-text-field
               v-model="password"
               label="Password"
+              class="custom-text-field"
               outlined
             ></v-text-field>
 
@@ -206,9 +207,10 @@ export default {
     async logInReq() {
       try {
         this.overlay = true;
+       // this.$router.push({ name: "AdminDashboard" });
 
         const data = {
-          userName: this.email,
+          email: this.email,
           password: this.password,
         };
         console.log(data);
@@ -229,23 +231,13 @@ export default {
             timer: 3000,
             timerProgressBar: true,
           });
-        } else {
-          this.$swal({
-            toast: true,
-            position: "top-end",
-            icon: "error",
-            title: "check your details!",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-          });
-        }
+        } 
       } catch (error) {
         this.$swal({
           toast: true,
           position: "top-end",
           icon: "error",
-          title: "Something went wrong!",
+          title: "check your details!",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -260,4 +252,17 @@ export default {
 
 <style lang="scss" scoped>
 //
+
+
+.custom-text-field ::v-deep fieldset {
+  border-color: white !important;
+}
+
+.custom-text-field ::v-deep .v-label {
+  color: white !important;
+}
+
+.custom-text-field ::v-deep .v-input__slot input {
+  color: white !important;
+}
 </style>
