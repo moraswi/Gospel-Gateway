@@ -15,7 +15,7 @@
         <v-row class="mt-5">
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="10 000"
+              :statistic="getStatistics.totalPeople"
               card-name="People"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -25,7 +25,7 @@
           </v-col>
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="R 1 100000"
+              :statistic="getStatistics.totalOfferingAmount"
               card-name="Offering"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -45,7 +45,7 @@
           </v-col> -->
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="100"
+              :statistic="getStatistics.totalMembers"
               card-name="Members"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -55,7 +55,7 @@
           </v-col>
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="0"
+              :statistic="getStatistics.totalEvents"
               card-name="Events"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -65,7 +65,7 @@
           </v-col>
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="0"
+              :statistic="getStatistics.totalBranches"
               card-name="Branches"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -75,7 +75,7 @@
           </v-col>
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
-              statistic="3"
+              :statistic="getStatistics.totalAnnouncements"
               card-name="Announcements"
               :showDeleteButton="false"
               :showEditButton="false"
@@ -155,20 +155,30 @@ export default {
 
   data: () => ({
     overlay: false,
-    churchId: 0,
-    branches: [
-      {
-        branchName: "Branch Name",
-        branchArea: "Branch Area",
-      },
-    ],
+    churchId: null,
+    branchId:null
+    // branches: [
+    //   {
+    //     branchName: "Branch Name",
+    //     branchArea: "Branch Area",
+    //   },
+    // ],
   }),
 
   async created() {
     this.overlay = true;
+    var userDetails = this.$store.getters["user/getUserDetails"]
+    this.churchId = userDetails.churchId,
+    this.branchId = userDetails.branchId
 
+    console.log(this.getUserDetails.firstName)
     await Promise.all([
-      this.$store.dispatch("branch/getBranchByChurchIdReq", 1),
+      this.$store.dispatch("branch/getBranchByChurchIdReq", this.churchId),
+      this.$store.dispatch("dashboard/getStatisticsReq",{
+        branchId: this.branchId,
+        churchId: this.churchId
+      }),
+
     ])
       .then(() => {
         this.overlay = false;
@@ -179,6 +189,11 @@ export default {
   },
 
   computed: {
+    // getBranchByChurchId
+    getStatistics() {
+      return this.$store.getters["dashboard/getStatistics"];
+    },
+
     // getBranchByChurchId
     getBranchByChurchId() {
       return this.$store.getters["branch/getBranchByChurchId"];

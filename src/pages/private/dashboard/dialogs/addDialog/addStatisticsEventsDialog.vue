@@ -183,7 +183,15 @@ export default {
         const response = await this.$store.dispatch("event/addEventReq", data);
 
         if (response.status == 200) {
-          this.$store.dispatch(
+
+      // getStatisticsReq
+      await this.$store.dispatch("dashboard/getStatisticsReq",{
+        branchId: this.getUserDetails.branchId,
+        churchId: this.getUserDetails.churchId
+      }),
+
+      // getEventByChurchIdReq
+         await this.$store.dispatch(
             "event/getEventByChurchIdReq",
             this.getUserDetails.churchId
           ),

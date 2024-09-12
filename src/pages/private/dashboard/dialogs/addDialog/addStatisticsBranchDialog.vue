@@ -163,7 +163,15 @@ export default {
         );
 
         if (response.status == 200) {
-          this.$store.dispatch(
+
+          // getStatisticsReq
+         await this.$store.dispatch("dashboard/getStatisticsReq",{
+        branchId: this.getUserDetails.branchId,
+        churchId: this.getUserDetails.churchId
+      }),
+
+      // addBranchReq
+          await this.$store.dispatch(
             "branch/addBranchReq",
             this.getUserDetails.branchId
           ),

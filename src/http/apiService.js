@@ -50,6 +50,11 @@ const apiService = {
 
   // >>>>>>>>>>HTTPSERVICE.GET>>>>>>>>>>>HTTPSERVICE.GET<<<<<<<<<<<<<<<HTTPSERVICE.GET<<<<<<<<<<<<<<<
 
+  // getStatistics
+  getStatistics(branchId,churchId) {
+    return httpService.get(`statistics/${branchId}/${churchId}`);
+  },
+    
   //   getAllUsers
   getAllUsers() {
     return httpService.get(`get-all-users`);

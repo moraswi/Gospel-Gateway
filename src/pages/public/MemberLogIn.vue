@@ -23,7 +23,7 @@
             </p>
 
             <h3 class="mt-5 font-h3 grey--text">
-              Give us call: <span class="red--text"> +27 78 432 2343</span>
+              Get Demo: <span class="red--text"> moraswip97@gmail.com</span>
             </h3>
 
             <!-- Email -->
@@ -118,12 +118,12 @@
           <span class="red--text"> Contact us </span>, for efficiently managing
           data beyond just church services.
         </h1>
-        <v-btn
+        <!-- <v-btn
           class="white--text mt-5"
           :to="{ name: 'MemberLogin' }"
           style="background-color: red"
           >Get Demo</v-btn
-        >
+        > -->
       </v-container>
     </div>
 

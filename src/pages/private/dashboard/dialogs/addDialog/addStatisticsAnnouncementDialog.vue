@@ -167,7 +167,15 @@ export default {
         );
 
         if (response.status == 200) {
-          this.$store.dispatch(
+
+          // getStatisticsReq
+          await this.$store.dispatch("dashboard/getStatisticsReq",{
+              branchId: this.getUserDetails.branchId,
+              churchId: this.getUserDetails.churchId
+            }),
+
+            // getAnnouncementByChurchIdReq
+          await this.$store.dispatch(
             "announcement/getAnnouncementByChurchIdReq",
             this.getUserDetails.churchId
           ),

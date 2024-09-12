@@ -67,7 +67,7 @@
 
           <!-- PhoneNumber -->
           <v-text-field
-          v-model="PhoneNumber"
+            v-model="PhoneNumber"
             class="mt-0"
             label="Phone Number"
             outlined
@@ -82,8 +82,12 @@
             >Register</v-btn
           >
           <p class="mt-5 font-p">
-            Unlock exclusive church updates byYou already have account?
-            <span class="red--text"> LogIn</span>
+            You already have account?
+            <span class="red--text"> </span>
+
+            <router-link :to="{ name: 'MemberLogin' }" class="red--text"
+                >LogIn.</router-link
+              >
           </p>
         </v-col>
       </v-row>
@@ -104,7 +108,13 @@ export default {
     overlay: false,
     selectedChurch: null,
     selectedBranch: null,
-    Member: null
+    Member: null,
+    FullName: '',
+    Email: '',
+    Password: '',
+    gender: '',
+    PhoneNumber: '',
+    showErrors: false, 
   }),
 
   async created() {
@@ -150,26 +160,37 @@ export default {
   
 // registerUserReq
   async registerUserReq() {
+     // Check if any required field is empty
+     if (!this.FullName || !this.Email || !this.Password || !this.selectedChurch || !this.selectedBranch || this.Member === null || !this.gender || !this.PhoneNumber) {
+      this.$swal({
+        toast: true,
+        position: "top-end",
+        icon: "error",
+        title: "Please fill in all required fields",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+      return;
+    }
+
       try {
         this.overlay = true;
 
         const data = {
-         // userName: this.UserName,
           fullName: this.FullName,
-         // lastName: this.LastName,
           phoneNumber: this.PhoneNumber,
           gender: this.gender,
           email: this.Email,
           password: this.Password,
           churchId: this.selectedChurch,
           branchId: this.selectedBranch,
-          //member: true
           member: this.Member
         };
-        console.log(data)
+     
         // response
         const response = await this.$store.dispatch("user/registerUserReq", data);
-        console.log(response);
+       
         if (response.status == 200) {
           // MemberLogin
           this.$router.push({ name: "MemberLogin" });
