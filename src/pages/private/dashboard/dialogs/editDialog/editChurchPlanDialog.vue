@@ -123,10 +123,10 @@ export default {
 
   data() {
     return {
-      title: "",
-      date: "",
-      description: "",
-      contact: "",
+      // title: "",
+      // date: "",
+      // description: "",
+      // contact: "",
     };
   },
 
@@ -137,6 +137,54 @@ export default {
     // getUserDetails
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
+    },
+
+    // Reactive title field
+    title: {
+      get() {
+        return this.$store.getters["churchPlan/getChurchPlanTitle"];
+      },
+      set(value) {
+        this.$store.commit("churchPlan/setChurchPlanTitle", value);
+      },
+    },
+
+    // Reactive description field
+    description: {
+      get() {
+        return this.$store.getters["churchPlan/getChurchPlanDescription"];
+      },
+      set(value) {
+        this.$store.commit("churchPlan/setChurchPlanDescription", value);
+      },
+    },
+
+    // Reactive contact field
+    contact: {
+      get() {
+        return this.$store.getters["churchPlan/getChurchPlanContact"];
+      },
+      set(value) {
+        this.$store.commit("churchPlan/setChurchPlanContact", value);
+      },
+    },
+
+    // Reactive date field
+    date: {
+      get() {
+        const date = this.$store.getters["churchPlan/getChurchPlanDate"];
+        if (!date) return "";
+
+        const localDate = new Date(date);
+        const year = localDate.getFullYear();
+        const month = String(localDate.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+        const day = String(localDate.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+      },
+      set(value) {
+        this.$store.commit("churchPlan/setChurchPlanDate", value);
+      },
     },
   },
 

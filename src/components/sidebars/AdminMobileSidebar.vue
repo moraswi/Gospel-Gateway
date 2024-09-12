@@ -1,6 +1,9 @@
 <template>
   <!-- mobile-nav-overlay -->
-  <div v-if="headers.showMobileAdminSidebar" class="mobile-nav-overlay overflow-auto">
+  <div
+    v-if="headers.showMobileAdminSidebar"
+    class="mobile-nav-overlay overflow-auto"
+  >
     <v-card
       class="close-overlay"
       @click="setShowMobileSidebar(false)"
@@ -44,7 +47,7 @@
                 max-height="24"
                 contain
               /> -->
-              <v-btn  @click="setShowMobileSidebar(false)">open</v-btn>
+              <v-btn @click="setShowMobileSidebar(true)">open</v-btn>
             </v-layout>
           </div>
 
@@ -394,7 +397,6 @@ export default {
   components: {
     // UserAvatar,
     // UserFullName,
-
     // PopUpCard,
   },
 
