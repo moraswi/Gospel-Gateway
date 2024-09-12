@@ -121,11 +121,13 @@ export default {
     return {
       title: "",
       Content: "",
-      churchId: 0,
+      branchId: null,
+      churchId: null,
       contact: "",
       validUntil: "",
     };
   },
+
 
   computed: {
     // getUserDetails
@@ -167,17 +169,18 @@ export default {
         );
 
         if (response.status == 200) {
+          var userDetails = await this.$store.getters["user/getUserDetails"]
 
           // getStatisticsReq
-          await this.$store.dispatch("dashboard/getStatisticsReq",{
-              branchId: this.getUserDetails.branchId,
-              churchId: this.getUserDetails.churchId
-            }),
+          //  await this.$store.dispatch("dashboard/getStatisticsReq",{
+          //     branchId: 1,
+          //     churchId: 1
+          //   }),
 
             // getAnnouncementByChurchIdReq
           await this.$store.dispatch(
             "announcement/getAnnouncementByChurchIdReq",
-            this.getUserDetails.churchId
+            this.churchId
           ),
             this.$swal.fire({
               icon: "success",
