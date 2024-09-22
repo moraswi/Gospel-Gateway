@@ -169,18 +169,18 @@ export default {
         );
 
         if (response.status == 200) {
-          var userDetails = await this.$store.getters["user/getUserDetails"]
+         // var userDetails = await this.$store.getters["user/getUserDetails"]
 
           // getStatisticsReq
           //  await this.$store.dispatch("dashboard/getStatisticsReq",{
-          //     branchId: 1,
-          //     churchId: 1
+          //     branchId: userDetails.branchId,
+          //     churchId: userDetails.churchId
           //   }),
 
             // getAnnouncementByChurchIdReq
           await this.$store.dispatch(
             "announcement/getAnnouncementByChurchIdReq",
-            this.churchId
+            this.getUserDetails.churchId
           ),
             this.$swal.fire({
               icon: "success",

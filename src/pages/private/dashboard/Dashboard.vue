@@ -167,17 +167,18 @@ export default {
 
   async created() {
     this.overlay = true;
-    var userDetails = this.$store.getters["user/getUserDetails"]
+    var userDetails = await this.$store.getters["user/getUserDetails"]
     this.churchId = userDetails.churchId,
     this.branchId = userDetails.branchId
-
-    console.log(this.getUserDetails.firstName)
+    
+    console.log(this.getUserDetails.churchId)
+    console.log(this.getUserDetails.branchId)
     await Promise.all([
-      this.$store.dispatch("branch/getBranchByChurchIdReq", this.churchId),
-      this.$store.dispatch("dashboard/getStatisticsReq",{
+    this.$store.dispatch("dashboard/getStatisticsReq",{
         branchId: this.branchId,
         churchId: this.churchId
       }),
+      this.$store.dispatch("branch/getBranchByChurchIdReq",this.churchId ),
 
     ])
       .then(() => {

@@ -9,6 +9,22 @@
       items-per-page="13"
       class="mt-1 mt-md-7"
     >
+
+    <!-- date -->
+      <template v-slot:[`item.date`]="{ item }">
+        <FormattedDate :date="item.date" />
+      </template>
+
+      <!-- createdat -->
+      <template v-slot:[`item.createdat`]="{ item }">
+        <FormattedDate :date="item.createdat" />
+      </template>
+
+      <!-- updatedat -->
+      <template v-slot:[`item.updatedat`]="{ item }">
+        <FormattedDate :date="item.updatedat" />
+      </template>
+
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Offering</v-toolbar-title>
@@ -16,7 +32,7 @@
           <v-spacer></v-spacer>
 
           <!-- export -->
-          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+          <!-- <v-btn class="btn orange white--text mr-2" @click="exportData" depressed>export</v-btn> -->
 
           <!-- Add -->
           <v-btn
@@ -67,6 +83,7 @@
 import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
 import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
+import FormattedDate from '@/components/AppShared.vue';
 
 export default {
   name: "OfferingPage",
@@ -74,6 +91,7 @@ export default {
   components: {
     TheHeader,
     DashboardMainDialog,
+    FormattedDate
   },
 
   data: () => ({
@@ -183,6 +201,7 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
+    // editOffering
     editOffering(item) {
       this.setAmount(item.amount);
       this.setDate(item.date);
@@ -196,10 +215,50 @@ export default {
       this.setShowStatisticsDialog(true);
     },
 
+    // openAddOfferingDialog
     openAddOfferingDialog() {
       this.setDashboardStep(2);
       this.setShowStatisticsDialog(true);
     },
+
+    exportData() {
+      const data = this.matGetOfferingByBranchId;
+      const csvContent = this.convertToCSV(data);
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "offerings.csv");
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+
+     convertToCSV(data) {
+      const header = ['Date Offered/Spent', 'Description', 'Type', 'Created At', 'Updated At', 'Amount'];
+      const rows = data.map(item => [
+        item.date,
+        item.description,
+        item.type,
+        item.createdat,
+        item.updatedat,
+        item.amount
+      ]);
+
+      const csv = [
+        header.join(','), // Header row
+        ...rows.map(e => e.join(',')) // Data rows
+      ].join('\n');
+
+      return csv;
+    },
+
+    formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString(); // Customize the date format as needed
+},
+
   },
 };
 </script>
