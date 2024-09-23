@@ -8,7 +8,7 @@
       </div>
       <v-spacer></v-spacer>
       <div class="text-right">
-        <v-btn icon @click="handleDelete">
+        <v-btn v-if="this.getUserDetails.role === 'superadmin'"  icon @click="handleDelete">
           <v-icon color="red" small>mdi-delete</v-icon>
         </v-btn>
         <h4 class="font-p">{{ churchName }}</h4>
@@ -37,6 +37,13 @@ export default {
     eventDate: {
       type: String,
       required: true,
+    },
+  },
+
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
     },
   },
 

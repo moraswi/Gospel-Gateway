@@ -1,10 +1,11 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Announcements"> </TheHeader>
+    <TheHeader title="Announcements"></TheHeader>
+
     <v-layout>
       <v-spacer></v-spacer>
       <v-btn
-        v-if="this.getUserDetails.role == 'superadmin'"
+        v-if="getUserDetails.role === 'superadmin'"
         class="green mt-5"
         fab
         width="35"
@@ -14,8 +15,8 @@
       >
         <v-icon size="medium" color="white">mdi-plus</v-icon>
       </v-btn>
-      
     </v-layout>
+
     <v-row class="mt-2">
       <v-col
         v-for="(branch, index) in getChurchPlanByBranchId"
@@ -24,9 +25,10 @@
         md="6"
       >
         <v-card class="custom-card px-7 py-6 mt-2" width="100%">
-          <v-layout >
+          <v-layout>
             <v-spacer></v-spacer>
             <v-icon
+              v-if="getUserDetails.role === 'superadmin'"
               small
               class="mr-2"
               color="red"
@@ -36,16 +38,9 @@
             </v-icon>
           </v-layout>
           <v-layout>
-            <!-- row align-center -->
-            <!-- <div>
-                <h1 class="font-h4 mt-n1">member name</h1>
-              </div>
-              <v-spacer></v-spacer> -->
             <div class="text-left">
               <h4 class="font-p">{{ branch.title }}</h4>
-              <p class="font-p4 mt-1">
-                {{ branch.description }}
-              </p>
+              <p class="font-p4 mt-1">{{ branch.description }}</p>
               <h4 class="font-p">{{ branch.contact }}</h4>
             </div>
           </v-layout>
@@ -55,12 +50,12 @@
 
     <DashboardMainDialog />
 
-    <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
   </div>
 </template>
+
 
 <script>
 import { mapMutations } from "vuex";
@@ -71,7 +66,6 @@ export default {
   name: "MemberAndRolesPage",
 
   components: {
-    // VueSlider,
     TheHeader,
     DashboardMainDialog,
   },

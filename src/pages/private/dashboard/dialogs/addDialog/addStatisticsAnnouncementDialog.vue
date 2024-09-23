@@ -169,14 +169,6 @@ export default {
         );
 
         if (response.status == 200) {
-         // var userDetails = await this.$store.getters["user/getUserDetails"]
-
-          // getStatisticsReq
-          //  await this.$store.dispatch("dashboard/getStatisticsReq",{
-          //     branchId: userDetails.branchId,
-          //     churchId: userDetails.churchId
-          //   }),
-
             // getAnnouncementByChurchIdReq
           await this.$store.dispatch(
             "announcement/getAnnouncementByChurchIdReq",
