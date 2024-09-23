@@ -17,7 +17,7 @@
           <v-spacer></v-spacer>
 
           <!-- export -->
-          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+          <!-- <v-btn class="btn orange white--text mr-2" depressed>export</v-btn> -->
 
           <!-- Add -->
           <v-btn
@@ -26,10 +26,12 @@
             width="35"
             height="35"
             depressed
-            @click="handleClick('add')"
+            @click="openAddServiceProgramDialog('add')"
           >
             <v-icon size="medium" color="white">mdi-plus</v-icon>
           </v-btn>
+
+
 
           <!-- edit dialog -->
           <v-dialog v-model="editServiceProgramDialog" max-width="500px">
@@ -101,6 +103,11 @@
         </v-toolbar>
       </template>
 
+      <!-- date -->
+      <template v-slot:[`item.date`]="{ item }">
+          <FormattedDate :date="item.date" />
+      </template>
+
       <!-- edit action button -->
       <template v-slot:[`item.action`]="{ item }">
         <v-icon
@@ -124,6 +131,9 @@
       </template> -->
     </v-data-table>
 
+    <!-- DashboardMainDialog -->
+    <DashboardMainDialog />
+
     <!-- overlay -->
     <v-overlay :value="overlay" z-index="1000">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -132,13 +142,18 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
+import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
+import FormattedDate from '@/components/AppShared.vue';
 
 export default {
   membername: "ServiceProgramPage",
 
   components: {
     TheHeader,
+    DashboardMainDialog,
+    FormattedDate,
   },
 
   data: () => ({
@@ -147,9 +162,9 @@ export default {
     editServiceProgramDialog: false,
     deleteServiceProgramDialog: false,
     headers: [
-      { text: "Member name", align: "start", value: "membername" },
+      { text: "Member name", align: "start", value: "memberName" },
       { text: "Description", value: "description" },
-      { text: "Branch name", value: "branchname" },
+      // { text: "Branch name", value: "branchname" },
       { text: "Date", value: "date" },
       { text: "Action", value: "action" },
     ],
@@ -158,6 +173,8 @@ export default {
   async created() {
     this.overlay = true;
     await Promise.all([
+
+    // getServiceProgramByBranchIdReq
       this.$store.dispatch(
         "serviceProgram/getServiceProgramByBranchIdReq",
         this.getUserDetails.branchId
@@ -184,6 +201,17 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      // setShowStatisticsDialog
+      setShowStatisticsDialog: "dashboard/setShowStatisticsDialog",
+      
+      // setDashboardStep
+      setDashboardStep: "dashboard/setDashboardStep",
+
+      // resetState
+      resetState: "dashboard/resetState",
+    }),
+
     editServiceProgram() {
       this.editServiceProgramDialog = !this.editServiceProgramDialog;
     },
@@ -191,6 +219,13 @@ export default {
     deleteServiceProgram() {
       this.deleteServiceProgramDialog = !this.deleteServiceProgramDialog;
     },
+
+    // openAddOfferingDialog
+    openAddServiceProgramDialog() {
+      this.setDashboardStep(14);
+      this.setShowStatisticsDialog(true);
+    },
+
   },
 };
 </script>

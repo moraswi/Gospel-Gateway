@@ -6,12 +6,11 @@
         <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
 
-            <!-- Amount -->
-            <v-text-field
-              v-model="amount"
-              label="Amount"
+            <!-- memberName -->
+            <v-text-field 
+              v-model="memberName" 
+              label="Member Name" 
               outlined
-              type="number"
             ></v-text-field>
 
             <!-- date -->
@@ -22,14 +21,6 @@
               outlined
             ></v-text-field>
 
-            <!-- transactionType" -->
-            <v-select
-              v-model="transactionType"
-              label="Transaction Type"
-              outlined
-              :items="['Offering', 'Spent']"
-            ></v-select>
-
             <!-- description -->
             <v-textarea
               v-model="description"
@@ -37,7 +28,6 @@
               style="border-radius: 13px"
               outlined
             ></v-textarea>
-
           </v-form>
         </v-card>
       </template>
@@ -53,7 +43,7 @@
             flat
           >
             <v-btn
-              @click="closeAddOfferingDialog()"
+              @click="closeAddChurchPlanDialog()"
               class="px-4 rounded-lg"
               width="100%"
               height="56"
@@ -72,7 +62,7 @@
             flat
           >
             <v-btn
-              @click="addOfferingReq()"
+              @click="addServcieProgramReq()"
               class="black rounded-lg"
               width="100%"
               height="56"
@@ -91,14 +81,14 @@
               height="52"
               elevation="0"
               block
-              @click="closeAddOfferingDialog()"
+              @click="closeAddChurchPlanDialog()"
             >
               <h5 class="h5 black600--text text-transform-none">Cancel</h5>
             </v-btn>
 
             <!-- mobile submit -->
             <v-btn
-              @click="addOfferingReq()"
+              @click="addServcieProgramReq()"
               class="black rounded-lg mt-3"
               width="100%"
               height="52"
@@ -119,7 +109,7 @@ import { mapMutations } from "vuex";
 import MainDialogContent from "@/components/dialogs/MainDialogContent.vue";
 
 export default {
-  name: "StatisticsOfferingDialog",
+  name: "ChurchPlanDialog",
 
   components: {
     MainDialogContent,
@@ -127,10 +117,9 @@ export default {
 
   data() {
     return {
-      amount: 0,
+      memberName: "",
       date: "",
       description: "",
-      transactionType: "",
     };
   },
 
@@ -150,46 +139,41 @@ export default {
       resetState: "dashboard/resetState",
     }),
 
-    closeAddOfferingDialog() {
+    // closeAddChurchPlanDialog
+    closeAddChurchPlanDialog() {
       this.setShowStatisticsDialog(false);
     },
 
-    // addOfferingReq
-    async addOfferingReq() {
+    // addServcieProgramReq
+    async addServcieProgramReq() {
       try {
         this.overlay = true;
+      
         const data = {
-          branchId: this.getUserDetails.branchId,
-          amount: this.amount,
+          memberName: this.memberName,
           date: this.date,
+          title:"title",
           description: this.description,
-          transactionType: this.transactionType,
+          branchId: this.getUserDetails.branchId
         };
 
         // response
         const response = await this.$store.dispatch(
-          "offering/addOfferingReq",
+          "serviceProgram/addServcieProgramReq",
           data
         );
 
         if (response.status == 200) {
 
           // getStatisticsReq
-          await this.$store.dispatch("dashboard/getStatisticsReq",{
-              branchId: this.getUserDetails.branchId,
-              churchId: this.getUserDetails.churchId
-            }),
+         await this.$store.dispatch("serviceProgram/getServiceProgramByBranchIdReq", this.getUserDetails.branchId),
 
-      // getOfferingByBranchIdReq
-          await this.$store.dispatch(
-            "offering/getOfferingByBranchIdReq",
-            this.getUserDetails.branchId
-          ),
-            this.$swal.fire({
-              icon: "success",
-              title: "Successful!",
-              showConfirmButton: true,
-            });
+          // Successful
+          this.$swal.fire({
+            icon: "success",
+            title: "Successful!",
+            showConfirmButton: true,
+          });
         } else {
           this.$swal.fire({
             icon: "error",

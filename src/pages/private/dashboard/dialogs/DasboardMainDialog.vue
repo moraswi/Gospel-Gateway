@@ -21,18 +21,18 @@
       <addStatisticsBranchDialog v-show="dashboard.dashboardStep == 5" />
       <addStatisticsAnnouncementDialog v-show="dashboard.dashboardStep == 6" />
       <addStatisticsVideoDialog v-show="dashboard.dashboardStep == 7" />
-
+      <addChurchPlan v-show="dashboard.dashboardStep == 12" />
+      <addServiceProgram v-show="dashboard.dashboardStep == 14" />
+      
       <!-- edit dialog -->
       <editStatisticsBranchDialog v-show="dashboard.dashboardStep == 8" />
       <editStatisticsEventsDialog v-show="dashboard.dashboardStep == 9" />
       <editStatisticsOfferingDialog v-show="dashboard.dashboardStep == 10" />
       <editStatisticsVideoDialog v-show="dashboard.dashboardStep == 11" />
-
-      <!-- add dialog -->
-      <addChurchPlan v-show="dashboard.dashboardStep == 12" />
       <editChurchPlanDialog v-show="dashboard.dashboardStep == 13" />
-      <deleteStatisticsEventsDialog v-show="dashboard.dashboardStep == 14" />
-      <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15" />
+      
+      <!-- add dialog -->
+      <!-- <deleteStatisticsVideoDialog v-show="dashboard.dashboardStep == 15" /> -->
     </v-dialog>
   </div>
 </template>
@@ -49,6 +49,7 @@ import addStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/addDial
 import addStatisticsAnnouncementDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsAnnouncementDialog.vue";
 import addStatisticsVideoDialog from "@/pages/private/dashboard/dialogs/addDialog/addStatisticsVideoDialog.vue";
 import addChurchPlan from "@/pages/private/dashboard/dialogs/addDialog/addChurchPlan.vue";
+import addServiceProgram from "@/pages/private/dashboard/dialogs/addDialog/addServiceProgram.vue";
 
 // edit dialogs
 import editStatisticsBranchDialog from "@/pages/private/dashboard/dialogs/editDialog/editStatisticsBranchDialog.vue";
@@ -82,6 +83,7 @@ export default {
     addStatisticsAnnouncementDialog,
     addStatisticsVideoDialog,
     addChurchPlan,
+    addServiceProgram,
 
     // edit dialog
     editStatisticsBranchDialog,

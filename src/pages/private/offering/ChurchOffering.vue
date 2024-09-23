@@ -10,7 +10,7 @@
       class="mt-1 mt-md-7"
     >
 
-    <!-- date -->
+     <!-- date -->
       <template v-slot:[`item.date`]="{ item }">
         <FormattedDate :date="item.date" />
       </template>
@@ -70,6 +70,7 @@
       </template>
     </v-data-table>
 
+    <!-- DashboardMainDialog -->
     <DashboardMainDialog />
 
     <!-- overlay -->
@@ -245,9 +246,9 @@ export default {
     },
 
     formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString(); // Customize the date format as needed
-},
+      const date = new Date(dateString);
+      return date.toLocaleDateString(); // Customize the date format as needed
+    },
 
   },
 };

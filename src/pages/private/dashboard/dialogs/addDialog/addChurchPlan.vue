@@ -1,13 +1,19 @@
 <template>
   <div>
-    <MainDialogContent title="Offering" class="mt-10 mt-md-0">
+    <MainDialogContent title="Church Plan" class="mt-10 mt-md-0">
       <!-- Main -->
       <template v-slot:main>
         <v-card class="transparent overflow-auto br-12" flat>
           <v-form class="py-1">
-            <!-- Amount -->
-            <v-text-field v-model="title" label="Title" outlined></v-text-field>
 
+            <!-- Amount -->
+            <v-text-field 
+            v-model="title" 
+            label="Title" 
+            outlined
+            ></v-text-field>
+
+            <!-- Date -->
             <v-text-field
               v-model="date"
               label="Date"
@@ -15,7 +21,7 @@
               outlined
             ></v-text-field>
 
-            <!-- v-model="contact" -->
+            <!-- contact -->
             <v-text-field
               v-model="contact"
               label="Contact"
@@ -23,12 +29,13 @@
             ></v-text-field>
 
             <!-- description -->
-            <v-text-field
+            <v-textarea
               v-model="description"
-              class=""
               label="Description"
+              style="border-radius: 13px"
               outlined
-            ></v-text-field>
+            ></v-textarea>
+
           </v-form>
         </v-card>
       </template>

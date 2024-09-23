@@ -21,7 +21,7 @@ const serviceProgram = {
 
   actions: {
     // AddServcieProgramReq
-    async AddServcieProgramReq({}, data) {
+    async addServcieProgramReq({}, data) {
       try {
         const response = await apiService.addServiceProgram(data)
         return response;

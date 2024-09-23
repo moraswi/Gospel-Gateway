@@ -6,7 +6,7 @@
     <HeaderMainCard class="hidden-sm-and-down">
       <v-layout column fill-height>
         <h2 class="white--text">
-          Hi {{ getUserDetails.firstName }} {{ getUserDetails.lastName }}
+          Hi {{ getUserDetails.fullName }}
         </h2>
 
         <!-- Enjoy GospelGateway service -->
@@ -88,6 +88,7 @@
     </HeaderMainCard>
 
     <v-row class="mt-10">
+      <!-- Branches -->
       <v-col cols="12" md="6">
         <h1 class="font-h4">Branches</h1>
         <v-card
@@ -108,6 +109,7 @@
         </v-card>
       </v-col>
 
+      <!-- Sunday Program -->
       <v-col cols="12" md="6">
         <h1 class="font-h4">Sunday Program</h1>
         <div v-for="item in getServiceProgramByBranchIdReq" :key="item.id">
@@ -118,7 +120,7 @@
             </div>
             <v-spacer></v-spacer>
             <div class="text-right">
-              <h4 class="font-p">{{item.title}}</h4>
+              <h4 class="font-p">{{item.description}}</h4>
               <p class="font-p4 mt-1"> <FormattedDate :date="item.date" /></p>
             </div>
           </v-layout>
