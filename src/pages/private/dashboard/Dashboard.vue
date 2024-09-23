@@ -110,18 +110,20 @@
 
       <v-col cols="12" md="6">
         <h1 class="font-h4">Sunday Program</h1>
+        <div v-for="item in getServiceProgramByBranchIdReq" :key="item.id">
         <v-card class="custom-card px-7 py-6 mt-2" width="100%">
           <v-layout row align-center>
             <div>
-              <h1 class="font-h4 mt-n1">member name</h1>
+              <h1 class="font-h4 mt-n1">{{item.memberName}}</h1>
             </div>
             <v-spacer></v-spacer>
             <div class="text-right">
-              <h4 class="font-p">preaching</h4>
-              <p class="font-p4 mt-1">12/12/2000</p>
+              <h4 class="font-p">{{item.title}}</h4>
+              <p class="font-p4 mt-1"> <FormattedDate :date="item.date" /></p>
             </div>
           </v-layout>
         </v-card>
+      </div>
       </v-col>
     </v-row>
 
@@ -141,6 +143,7 @@ import TheMemberMobileHeader from "@/components/headers/TheMobileHeader.vue";
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
 import TheHeader from "@/components/headers/TheHeader";
 import HeaderMainCard from "@/components/cards/HeaderMainCard.vue";
+import FormattedDate from '@/components/AppShared.vue';
 
 export default {
   name: "DashboardPage",
@@ -151,6 +154,8 @@ export default {
     StatisticsCard,
     TheHeader,
     HeaderMainCard,
+    FormattedDate
+
   },
 
   data: () => ({
@@ -171,8 +176,9 @@ export default {
     this.churchId = userDetails.churchId,
     this.branchId = userDetails.branchId
     
-    console.log(this.getUserDetails.churchId)
-    console.log(this.getUserDetails.branchId)
+    // console.log(this.getUserDetails.churchId)
+    // console.log(this.getUserDetails.branchId)
+    // getBranchByChurchIdReq
     await Promise.all([
     this.$store.dispatch("dashboard/getStatisticsReq",{
         branchId: this.branchId,
@@ -180,16 +186,26 @@ export default {
       }),
       this.$store.dispatch("branch/getBranchByChurchIdReq",this.churchId ),
 
+      // getServiceProgramByBranchIdReq
+      this.$store.dispatch(
+        "serviceProgram/getServiceProgramByBranchIdReq",
+        this.getUserDetails.branchId
+      ),
     ])
       .then(() => {
         this.overlay = false;
       })
       .catch(() => {
         this.overlay = false;
-      });
+      })
   },
 
   computed: {
+     // getServiceProgramByBranchIdReq
+     getServiceProgramByBranchIdReq() {
+      return this.$store.getters["serviceProgram/getServiceProgramByBranchIdReq"];
+    },
+    
     // getBranchByChurchId
     getStatistics() {
       return this.$store.getters["dashboard/getStatistics"];

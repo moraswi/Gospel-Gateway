@@ -108,17 +108,7 @@ export default {
       { text: "Amount", value: "amount" },
       { text: "Action", value: "action" },
     ],
-    formattedFeedback: [
-      {
-        date: "12/02/1221",
-        description: "description",
-        type: "Add offerring",
-        createdat: "12/02/1221",
-        updatedat: "12/02/1221",
-        amount: 10,
-        action: "icon",
-      },
-    ],
+
   }),
 
   async created() {

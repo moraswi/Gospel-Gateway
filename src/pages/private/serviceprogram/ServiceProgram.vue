@@ -153,30 +153,6 @@ export default {
       { text: "Date", value: "date" },
       { text: "Action", value: "action" },
     ],
-    formattedFeedback: [
-      {
-        membername: "John Doe",
-        description: "description of the event ",
-        branchname: "01123212",
-        date: "12/21/1321",
-        action: "icon",
-      },
-      {
-        membername: "Jane Smith",
-        description: "description",
-        branchname: "jane@example.com",
-        date: "12/21/1321",
-        action: "icon",
-      },
-      {
-        membername: "Bob Johnson",
-        description: "description",
-        branchname: "01321312",
-        date: "12/21/1321",
-        action: "icon",
-      },
-      // Add more branchname items as needed
-    ],
   }),
 
   async created() {
