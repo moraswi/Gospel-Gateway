@@ -13,6 +13,7 @@
       >
         <v-icon size="medium" color="white">mdi-plus</v-icon>
       </v-btn>
+      
     </v-layout>
     <v-row class="mt-2">
       <v-col
@@ -31,6 +32,14 @@
               @click="deleteAnnouncementReq(branch.id)"
             >
               mdi-delete
+            </v-icon>
+            <v-icon
+              small
+              class="mr-2"
+              color="orange"
+              @click="deleteAnnouncementReq(branch.id)"
+            >
+            mdi-pencil
             </v-icon>
           </v-layout>
           <v-layout>
