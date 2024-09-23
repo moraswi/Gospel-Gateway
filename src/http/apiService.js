@@ -60,6 +60,11 @@ const apiService = {
     return httpService.get(`get-all-users`);
   },
 
+  //  getUsersByBranchId
+  getUsersByBranchId(branchId) {
+    return httpService.get(`get-users-bybranchid/${branchId}`);
+  },
+  
   //   getOfferingByBranchId
   getOfferingByBranchId(branchId) {
     return httpService.get(`get-offering-bybranchid/${branchId}`);

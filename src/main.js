@@ -9,7 +9,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 
 const options = {
   confirmButtonColor: "#192028",
-  cancelButtonColor: "#B71C1C",
+  cancelButtonColor: "#FFFFFF",
   confirmButtonText: "Okay",
 };
 

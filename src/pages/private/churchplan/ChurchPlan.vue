@@ -8,7 +8,7 @@
       <v-spacer></v-spacer>
 
       <!-- export -->
-      <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+      <!-- <v-btn class="btn orange white--text mr-2" depressed>export</v-btn> -->
 
       <!-- Add -->
       <v-btn
@@ -51,8 +51,14 @@
       :items="mapGetChurchPlanByBranchId"
       item-key="title"
       items-per-page="15"
-      class="mt-7"
+      class="mt-3"
     >
+        <!-- date -->
+      <template v-slot:[`item.date`]="{ item }">
+        <FormattedDate :date="item.date" />
+      </template>
+
+      <!-- action icons -->
       <template v-slot:[`item.action`]="{ item }">
         <v-icon
           small
@@ -87,6 +93,7 @@
 import { mapMutations } from "vuex";
 import TheHeader from "@/components/headers/TheHeader";
 import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
+import FormattedDate from '@/components/AppShared.vue';
 
 export default {
   title: "ChurchPlanPage",
@@ -94,6 +101,7 @@ export default {
   components: {
     TheHeader,
     DashboardMainDialog,
+    FormattedDate
   },
 
   data: () => ({

@@ -130,7 +130,7 @@
           </v-card>
 
           <!-- Service Program -->
-          <v-card
+          <!-- <v-card
             class="mt-1"
             color="transparent"
             width="100%"
@@ -151,7 +151,7 @@
                 <v-list-item-title> Service Program </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-          </v-card>
+          </v-card> -->
 
           <!-- Add Events -->
           <!-- <v-card

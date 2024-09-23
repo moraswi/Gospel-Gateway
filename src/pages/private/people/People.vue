@@ -4,7 +4,7 @@
 
     <v-data-table
       :headers="headers"
-      :items="formattedFeedback"
+      :items="getUsersByBranchIdReq"
       item-key="name"
       items-per-page="13"
       class="mt-7 table-elevated"
@@ -14,7 +14,7 @@
           <v-toolbar-title>member and users</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
-          <v-btn class="btn orange white--text mr-2" depressed>export</v-btn>
+          <!-- <v-btn class="btn orange white--text mr-2" depressed>export</v-btn> -->
           <!-- <v-btn class="btn green white--text" depressed>Add Member</v-btn> -->
           <v-dialog v-model="dialog" max-width="500px">
             <v-card class="pa-4">
@@ -46,7 +46,7 @@
       <!-- card or cash -->
       <template v-slot:[`item.member`]="{ item }">
         <v-chip
-          v-if="item.member === 'Yes'"
+          v-if="item.member === true"
           class="ma-2"
           color="green"
           text-color="white"
@@ -57,7 +57,7 @@
         <v-chip v-else class="ma-2" color="red" text-color="white"> No </v-chip>
       </template>
 
-      <template v-slot:[`item.action`]="{ item }">
+      <!-- <template v-slot:[`item.action`]="{ item }">
         <v-icon
           small
           class="mr-2"
@@ -75,7 +75,7 @@
         >
           mdi-delete
         </v-icon>
-      </template>
+      </template> -->
     </v-data-table>
 
     <!-- overlay -->
@@ -101,61 +101,49 @@ export default {
     dialog: false,
 
     headers: [
-      { text: "Name", align: "start", value: "name" },
+      { text: "Name", align: "start", value: "fullName" },
       { text: "Email", value: "email" },
-      { text: "Phone Number", value: "phonenumber" },
+      { text: "Phone Number", value: "phoneNumber" },
       { text: "Member", value: "member" },
-      { text: "Branch Name", value: "branchname" },
-      { text: "Action", value: "action" },
+      // { text: "Action", value: "action" },
     ],
-    formattedFeedback: [
-      {
-        name: "John Doe",
-        email: "john@example.com",
-        phonenumber: "0342142421",
-        member: "Yes",
-        branchname: "HOG",
-        action: "icon",
-      },
-      {
-        name: "Jane Smith",
-        email: "jane@example.com",
-        phonenumber: "012321212",
-        member: "Yes",
-        branchname: "HOG",
-        action: "icon",
-      },
-      {
-        name: "Bob Johnson",
-        email: "bob@example.com",
-        phonenumber: "0232321221",
-        member: "Yes",
-        branchname: "HOG",
-        action: "icon",
-      },
-      {
-        name: "John Doe",
-        email: "john@example.com",
-        phonenumber: "0342142421",
-        member: "Yes",
-        branchname: "HOG",
-        action: "icon",
-      },
-    ],
-    select: { state: "Florida", abbr: "FL" },
-    items: [
-      { state: "Florida", abbr: "FL" },
-      { state: "Georgia", abbr: "GA" },
-      { state: "Nebraska", abbr: "NE" },
-      { state: "California", abbr: "CA" },
-      { state: "New York", abbr: "NY" },
-    ],
+
+    // select: { state: "Florida", abbr: "FL" },
+    // items: [
+    //   { state: "Florida", abbr: "FL" },
+    //   { state: "Georgia", abbr: "GA" },
+    //   { state: "Nebraska", abbr: "NE" },
+    //   { state: "California", abbr: "CA" },
+    //   { state: "New York", abbr: "NY" },
+    // ],
   }),
+
+  async created() {
+    this.overlay = true;
+
+    await Promise.all([
+      this.$store.dispatch(
+        "user/getUsersByBranchIdReq",
+        this.getUserDetails.branchId
+      ),
+    ])
+      .then(() => {
+        this.overlay = false;
+      })
+      .catch(() => {
+        this.overlay = false;
+      });
+  },
 
   computed: {
     // getUserDetails
     getUserDetails() {
       return this.$store.getters["user/getUserDetails"];
+    },
+
+    // getUsersByBranchIdReq
+    getUsersByBranchIdReq() {
+      return this.$store.getters["user/getUsersByBranchIdReq"];
     },
   },
 

@@ -33,14 +33,14 @@
             >
               mdi-delete
             </v-icon>
-            <v-icon
+            <!-- <v-icon
               small
               class="mr-2"
               color="orange"
               @click="deleteAnnouncementReq(branch.id)"
             >
             mdi-pencil
-            </v-icon>
+            </v-icon> -->
           </v-layout>
           <v-layout>
             <!-- row align-center -->

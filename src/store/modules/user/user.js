@@ -6,8 +6,8 @@ const user = {
   state: {
     logIn: JSON.parse(localStorage.getItem("logIn")) || {},
     getAllUsers: [],
+    getUsersByBranchId:[],
     updateUser: {},
-
     userUserName: "",
     userFirstName: "",
     userLastName: "",
@@ -29,6 +29,11 @@ const user = {
       state.getAllUsers = data;
     },
 
+    // setUsersByBranchId
+    setUsersByBranchId(state, data) {
+        state.getUsersByBranchId = data;
+    },
+    
     // setUpdateUser
     setUpdateUser(state, data) {
       state.updateUser = data;
@@ -113,6 +118,18 @@ const user = {
       }
     },
 
+        // getUsersByBranchIdReq
+        async getUsersByBranchIdReq({ commit }, branchId) {
+          try {
+            const response = await apiService.getUsersByBranchId(branchId);
+            commit("setUsersByBranchId", response.data);
+            return response;
+          } catch (error) {
+            console.log(error);
+          }
+        },
+
+    
     // updateUserReq
     async updateUserReq({ commit }, data) {
       try {
@@ -144,6 +161,11 @@ const user = {
     // getAllUsers
     getAllUsersReq(state) {
       return state.getAllUsers;
+    },
+
+    // getUsersByBranchIdReq
+    getUsersByBranchIdReq(state){
+      return state.getUsersByBranchId
     },
 
     // getUpdateUserReq
