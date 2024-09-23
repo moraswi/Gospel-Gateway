@@ -4,6 +4,7 @@
     <v-layout>
       <v-spacer></v-spacer>
       <v-btn
+        v-if="this.getUserDetails.role == 'superadmin'"
         class="green mt-5"
         fab
         width="35"
@@ -23,7 +24,7 @@
         md="6"
       >
         <v-card class="custom-card px-7 py-6 mt-2" width="100%">
-          <v-layout>
+          <v-layout >
             <v-spacer></v-spacer>
             <v-icon
               small
@@ -33,14 +34,6 @@
             >
               mdi-delete
             </v-icon>
-            <!-- <v-icon
-              small
-              class="mr-2"
-              color="orange"
-              @click="deleteAnnouncementReq(branch.id)"
-            >
-            mdi-pencil
-            </v-icon> -->
           </v-layout>
           <v-layout>
             <!-- row align-center -->

@@ -25,17 +25,18 @@
         <FormattedDate :date="item.updatedat" />
       </template>
 
-      <template v-slot:top>
+      <template v-if="this.getUserDetails.role == 'superadmin'"  v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Offering</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
-          <v-spacer></v-spacer>
+          <v-spacer ></v-spacer>
 
           <!-- export -->
           <!-- <v-btn class="btn orange white--text mr-2" @click="exportData" depressed>export</v-btn> -->
 
           <!-- Add -->
           <v-btn
+            
             class="green"
             fab
             width="35"
@@ -63,7 +64,7 @@
       </template>
 
       <!-- edit action button -->
-      <template v-slot:[`item.action`]="{ item }">
+      <template v-if="this.getUserDetails.role == 'superadmin'" v-slot:[`item.action`]="{ item }">
         <v-icon small class="mr-2" color="orange" @click="editOffering(item)">
           mdi-pencil
         </v-icon>

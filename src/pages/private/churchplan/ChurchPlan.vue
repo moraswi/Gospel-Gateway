@@ -2,7 +2,7 @@
   <div class="px-md-4">
     <TheHeader title="Church plan" color="red"> </TheHeader>
 
-    <v-toolbar flat class="mt-10">
+    <v-toolbar v-if="this.getUserDetails.role == 'superadmin'" flat class="mt-10">
       <v-toolbar-title>Church plan</v-toolbar-title>
       <v-divider class="mx-4" inset vertical></v-divider>
       <v-spacer></v-spacer>
@@ -59,7 +59,7 @@
       </template>
 
       <!-- action icons -->
-      <template v-slot:[`item.action`]="{ item }">
+      <template v-if="this.getUserDetails.role == 'superadmin'" v-slot:[`item.action`]="{ item }">
         <v-icon
           small
           class="mr-2"

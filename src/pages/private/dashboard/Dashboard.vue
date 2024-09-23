@@ -13,7 +13,10 @@
         <h4 class="white--text mt-2">Enjoy GospelGateway service.</h4>
         <!-- </v-flex> -->
         <v-row class="mt-5">
-          <v-col cols="12" xl="2" md="3">
+          <v-col
+           v-if="this.getUserDetails.role == 'superadmin'"
+            cols="12" xl="2" md="3">
+            <!-- totalPeople -->
             <StatisticsCard
               :statistic="getStatistics.totalPeople"
               card-name="People"
@@ -23,7 +26,11 @@
               @click="handlePeopleButtonClick"
             />
           </v-col>
-          <v-col cols="12" xl="2" md="3">
+
+          <!-- totalOfferingAmount -->
+          <v-col 
+          v-if="this.getUserDetails.role == 'superadmin' || this.getUserDetails.role == 'bookkeeper'"
+           cols="12" xl="2" md="3">
             <StatisticsCard
               :statistic="getStatistics.totalOfferingAmount"
               card-name="Offering"
@@ -33,17 +40,11 @@
               @click="handleOfferingButtonClick"
             />
           </v-col>
-          <!-- <v-col cols="12" xl="2" md="3">
-            <StatisticsCard
-              statistic="R 1 000"
-              card-name="Spent"
-              :showDeleteButton="false"
-              :showEditButton="false"
-              :showAddButton="true"
-              @click="handleOfferingButtonClick"
-            />
-          </v-col> -->
-          <v-col cols="12" xl="2" md="3">
+
+          <!-- totalMembers -->
+          <v-col 
+          v-if="this.getUserDetails.role == 'superadmin' " 
+          cols="12" xl="2" md="3">
             <StatisticsCard
               :statistic="getStatistics.totalMembers"
               card-name="Members"
@@ -53,6 +54,8 @@
               @click="handlePeopleButtonClick"
             />
           </v-col>
+
+          <!-- totalEvents -->
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
               :statistic="getStatistics.totalEvents"
@@ -63,6 +66,8 @@
               @click="handleEventsButtonClick"
             />
           </v-col>
+
+          <!-- totalBranches -->
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
               :statistic="getStatistics.totalBranches"
@@ -73,6 +78,8 @@
               @click="handleBranchesButtonClick"
             />
           </v-col>
+
+          <!-- totalAnnouncements -->
           <v-col cols="12" xl="2" md="3">
             <StatisticsCard
               :statistic="getStatistics.totalAnnouncements"
@@ -112,6 +119,12 @@
       <!-- Sunday Program -->
       <v-col cols="12" md="6">
         <h1 class="font-h4">Sunday Program</h1>
+        <v-card
+          class=" px-2 pb-2"
+          height="350"
+          style="overflow-y: auto"
+          flat
+        >
         <div v-for="item in getServiceProgramByBranchIdReq" :key="item.id">
         <v-card class="custom-card px-7 py-6 mt-2" width="100%">
           <v-layout row align-center>
@@ -126,6 +139,7 @@
           </v-layout>
         </v-card>
       </div>
+      </v-card>
       </v-col>
     </v-row>
 
@@ -178,14 +192,14 @@ export default {
     this.churchId = userDetails.churchId,
     this.branchId = userDetails.branchId
     
-    // console.log(this.getUserDetails.churchId)
-    // console.log(this.getUserDetails.branchId)
     // getBranchByChurchIdReq
     await Promise.all([
     this.$store.dispatch("dashboard/getStatisticsReq",{
         branchId: this.branchId,
         churchId: this.churchId
       }),
+
+      // getBranchByChurchIdReq
       this.$store.dispatch("branch/getBranchByChurchIdReq",this.churchId ),
 
       // getServiceProgramByBranchIdReq

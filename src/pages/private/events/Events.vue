@@ -4,6 +4,7 @@
     <v-layout class="mt-2">
       <v-spacer></v-spacer>
       <v-btn
+        v-if="this.getUserDetails.role == 'superadmin'"
         class="green mt-5"
         fab
         width="35"

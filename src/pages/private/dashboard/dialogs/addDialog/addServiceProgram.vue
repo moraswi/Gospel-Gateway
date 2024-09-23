@@ -166,7 +166,7 @@ export default {
         if (response.status == 200) {
 
           // getStatisticsReq
-         await this.$store.dispatch("serviceProgram/getServiceProgramByBranchIdReq", this.getUserDetails.branchId),
+          await this.$store.dispatch("serviceProgram/getServiceProgramByBranchIdReq", this.getUserDetails.branchId),
 
           // Successful
           this.$swal.fire({

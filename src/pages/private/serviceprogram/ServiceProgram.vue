@@ -9,7 +9,7 @@
       items-per-page="15"
       class="mt-7"
     >
-      <template v-slot:top>
+      <template v-if="this.getUserDetails.role == 'superadmin'" v-slot:top>
         <v-toolbar flat>
           <!-- Service Program -->
           <v-toolbar-title>Service Program</v-toolbar-title>
@@ -109,7 +109,7 @@
       </template>
 
       <!-- edit action button -->
-      <template v-slot:[`item.action`]="{ item }">
+      <template v-if="this.getUserDetails.role == 'superadmin'" v-slot:[`item.action`]="{ item }">
         <v-icon
           small
           class="mr-2"

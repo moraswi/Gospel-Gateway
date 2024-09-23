@@ -59,6 +59,7 @@
 
           <!-- People -->
           <v-card
+            v-if="this.getUserDetails.role == 'superadmin'"
             class="mt-1"
             color="transparent"
             width="100%"
@@ -107,6 +108,7 @@
 
           <!-- Offerring -->
           <v-card
+            v-if="this.getUserDetails.role == 'superadmin' || this.getUserDetails.role == 'bookkeeper'"
             class="mt-1"
             color="transparent"
             width="100%"
@@ -305,7 +307,12 @@ export default {
     };
   },
 
-  mounted() {},
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
 
   methods: {
     // logOut
