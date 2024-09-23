@@ -85,9 +85,9 @@ const apiService = {
     return httpService.get(`get-all-churches`);
   },
 
-  // getBranchByBranchId
-  getBranchByBranchId(churchId) {
-    return httpService.get(`get-branch-bybranchid/${churchId}`);
+  // getServiceProgramByBranchId
+  getServiceProgramByBranchId(branchId) {
+    return httpService.get(`get-serviceprogram-bybranchid/${branchId}`);
   },
 
   // getBranchByChurchId

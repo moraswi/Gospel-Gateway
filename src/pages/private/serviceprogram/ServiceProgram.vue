@@ -4,7 +4,7 @@
 
     <v-data-table
       :headers="headers"
-      :items="formattedFeedback"
+      :items="getServiceProgramByBranchIdReq"
       item-key="membername"
       items-per-page="15"
       class="mt-7"
@@ -183,8 +183,8 @@ export default {
     this.overlay = true;
     await Promise.all([
       this.$store.dispatch(
-        "event/getEventByChurchIdReq",
-        this.getUserDetails.churchId
+        "serviceProgram/getServiceProgramByBranchIdReq",
+        this.getUserDetails.branchId
       ),
     ])
       .then(() => {
@@ -196,9 +196,9 @@ export default {
   },
 
   computed: {
-    // getEventByChurchId
-    getEventByChurchId() {
-      return this.$store.getters["event/getEventByChurchId"];
+    // getServiceProgramByBranchIdReq
+    getServiceProgramByBranchIdReq() {
+      return this.$store.getters["serviceProgram/getServiceProgramByBranchIdReq"];
     },
 
     // getUserDetails

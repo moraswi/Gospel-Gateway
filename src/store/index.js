@@ -10,6 +10,7 @@ import announcement from "./modules/announcement/announcement.js";
 import header from "./modules/header/header.js";
 import branch from "./modules/branch/branch.js";
 import app from "./modules/app.js";
+import serviceProgram from "./modules/serviceProgram/serviceProgram.js";
 import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
@@ -34,6 +35,7 @@ export default new Vuex.Store({
     header,
     branch,
     app,
+    serviceProgram
   },
 
   plugins: [createPersistedState()],
