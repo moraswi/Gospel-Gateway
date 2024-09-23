@@ -29,7 +29,7 @@
         </v-btn>
         <!-- Add Button -->
         <v-btn
-          v-if="showAddButton"
+          v-if="showAddButton && this.getUserDetails.role == 'superadmin'"
           class="transparent"
           fab
           width="25"
@@ -72,6 +72,15 @@ export default {
       default: true, // Show by default
     },
   },
+
+  computed: {
+
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
+
   methods: {
     handleClick(action) {
       this.$emit("click", action);
