@@ -1,5 +1,5 @@
 <template>
-  <v-card class="grey rounded-lg">
+  <v-card class=" rounded-lg" color="#f2f2f2">
     <!-- Content -->
     <v-card class="transparent br-16 px-3 px-sm-9 pb-sm-5 pt-sm-2" width="100%" flat>
       <!-- Title -->
@@ -23,8 +23,9 @@
     <!-- Bottom Card -->
     <v-card
       :class="bottomCardBg"
-      class="right-0 bottom-0 left-0 relative z-index-2 red"
-      flat
+      class="right-0 bottom-0 left-0 relative z-index-2 "
+      flat 
+      color="#e9e9e9"
     >
       <div class="box-shadow-3 gray50 pa-6 px-sm-9 pt-sm-5 pb-sm-8 pb-xl-11">
         <slot name="bottom"></slot>

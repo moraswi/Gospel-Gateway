@@ -36,7 +36,7 @@
               card-name="Offering"
               :showDeleteButton="false"
               :showEditButton="false"
-              :showAddButton="true"
+              :showAddButton="false"
               @click="handleOfferingButtonClick"
             />
           </v-col>
@@ -62,7 +62,7 @@
               card-name="Events"
               :showDeleteButton="false"
               :showEditButton="false"
-              :showAddButton="true"
+              :showAddButton="false"
               @click="handleEventsButtonClick"
             />
           </v-col>
@@ -74,7 +74,7 @@
               card-name="Branches"
               :showDeleteButton="false"
               :showEditButton="false"
-              :showAddButton="true"
+              :showAddButton="false"
               @click="handleBranchesButtonClick"
             />
           </v-col>
@@ -86,7 +86,7 @@
               card-name="Announcements"
               :showDeleteButton="false"
               :showEditButton="false"
-              :showAddButton="true"
+              :showAddButton="false"
               @click="handleAnnouncementButtonClick"
             />
           </v-col>
@@ -101,7 +101,7 @@
         <v-card
           class="custom-card px-3 py-6 mt-2"
           width="100%"
-          height="350"
+          max-height="350"
           style="overflow-y: auto"
         >
           <div
@@ -121,7 +121,7 @@
         <h1 class="font-h4">Sunday Program</h1>
         <v-card
           class=" px-2 pb-2"
-          height="350"
+          max-height="350"
           style="overflow-y: auto"
           flat
         >
