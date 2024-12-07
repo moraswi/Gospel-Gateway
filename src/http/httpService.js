@@ -12,10 +12,10 @@ const httpService = axios.create({
 
 httpService.interceptors.request.use(
   (config) => {
-    const token = store.state.authentication.token;
-    if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
-    }
+    // const token = store.state.authentication.token;
+    // if (token) {
+    //   config.headers["Authorization"] = `Bearer ${token}`;
+    // }
     return config;
   },
   (error) => {

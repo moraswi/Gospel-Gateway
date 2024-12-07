@@ -213,11 +213,13 @@ export default {
           email: this.email,
           password: this.password,
         };
-        console.log(data);
+        // console.log(data);
 
         // response
         const response = await this.$store.dispatch("user/logInReq", data);
-        console.log(response);
+        // console.log(response);
+        // console.log(response.data);
+        // console.log(response.status);
         if (response.status == 200) {
           // AdminDashboard
           this.$router.push({ name: "AdminDashboard" });
