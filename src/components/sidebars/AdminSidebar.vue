@@ -190,20 +190,20 @@
     </v-card>
 
     <!-- Mobile -->
-    <div class="hidden-md-and-up">
-      <AdminMobileSidebar/>
-    </div>
+    <!-- <div class="hidden-md-and-up"> -->
+      <!-- <AdminMobileSidebar/> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
+// import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
 
 export default {
   name: "GospelGatewayAdminSidebar",
 
   components: {
-    AdminMobileSidebar
+    // AdminMobileSidebar
   },
 
   data() {
@@ -220,10 +220,7 @@ export default {
   },
 
   methods: {
-    // logOut
-    logOut() {
-      this.$router.push({ name: "MemberLogin" });
-    },
+
   },
 };
 </script>

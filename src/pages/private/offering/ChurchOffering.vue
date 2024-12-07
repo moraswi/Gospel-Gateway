@@ -7,7 +7,7 @@
       :items="matGetOfferingByBranchId"
       item-key="date"
       items-per-page="13"
-      class="mt-1 mt-md-7"
+      class="mt-7"
     >
 
      <!-- date -->

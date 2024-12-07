@@ -4,7 +4,8 @@
       <!-- Desktop -->
       <v-layout>
         <AdminSidebar class="hidden-sm-and-down" />
-
+        <AdminMobileSidebar class="hidden-md-and-up" />
+        
         <v-card class="overflow-auto" color="transparent" width="100%" flat>
           <v-layout column>
             <router-view />
@@ -17,12 +18,14 @@
 
 <script>
 import AdminSidebar from "@/components/sidebars/AdminSidebar.vue";
+import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
 
 export default {
   name: "GospelGatewayAdmin",
 
   components: {
     AdminSidebar,
+    AdminMobileSidebar,
   },
 
   computed: {

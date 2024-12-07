@@ -1,6 +1,6 @@
 <template>
   <div class="px-md-4">
-    <TheHeader title="Church plan" color="red"> </TheHeader>
+    <TheHeader title="Church plan"> </TheHeader>
 
     <v-toolbar v-if="this.getUserDetails.role == 'superadmin'" flat class="mt-10">
       <v-toolbar-title>Church plan</v-toolbar-title>

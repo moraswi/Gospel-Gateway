@@ -13,6 +13,38 @@
               Your Church
             </h1>
 
+             <!-- Email -->
+             <v-text-field
+              v-model="email"
+              class="mt-5 pa-0 custom-text-field hidden-md-and-up"
+              label="Email"
+              outlined
+            ></v-text-field>
+
+            <!-- Password -->
+            <v-text-field
+              v-model="password"
+              label="Password"
+              class="custom-text-field hidden-md-and-up"
+              outlined
+            ></v-text-field>
+
+            <v-btn
+              class="white--text hidden-md-and-up"
+              @click="logInReq"
+              style="background-color: red"
+              block
+              depressed
+              >Login</v-btn
+            >
+            <p class="mt-5 font-p white--text hidden-md-and-up">
+              Don't you have account yet?
+              <router-link :to="{ name: 'MemberSignup' }" class="red--text"
+                >Create Account.</router-link
+              >
+            </p>
+
+
             <p class="mt-5 white--text font-p">
               Streamline your church's administrative tasks with our
               user-friendly case management software. How about
@@ -29,7 +61,7 @@
             <!-- Email -->
             <v-text-field
               v-model="email"
-              class="mt-5 pa-0 custom-text-field"
+              class="mt-5 pa-0 custom-text-field hidden-sm-and-down"
               label="Email"
               outlined
             ></v-text-field>
@@ -38,19 +70,19 @@
             <v-text-field
               v-model="password"
               label="Password"
-              class="custom-text-field"
+              class="custom-text-field hidden-sm-and-down"
               outlined
             ></v-text-field>
 
             <v-btn
-              class="white--text"
+              class="white--text hidden-sm-and-down"
               @click="logInReq"
               style="background-color: red"
               block
               depressed
               >Login</v-btn
             >
-            <p class="mt-5 font-p white--text">
+            <p class="mt-5 font-p white--text hidden-sm-and-down">
               Don't you have account yet?
               <router-link :to="{ name: 'MemberSignup' }" class="red--text"
                 >Create Account.</router-link
@@ -76,7 +108,7 @@
             <h2 class="red--text font-h4">
               Introduction to Case Management for Churches
             </h2>
-            <p class="mt-4 font-p">
+            <p class="mt-md-4  font-p">
               Churches manage data efficiently with structured case management,
               turning it into actionable insights for impactful ministry.
             </p>
@@ -84,7 +116,7 @@
 
           <v-col cols="12" md="3">
             <h2 class="red--text font-h4">Streamlining Data Management</h2>
-            <p class="mt-4 font-p">
+            <p class="mt-md-4 font-p">
               Tools streamline data collection, storage, and retrieval, ensuring
               accessibility and informed decision-making for outreach programs.
             </p>
@@ -94,7 +126,7 @@
             <h2 class="red--text font-h4">
               Measuring Impact and Effectiveness
             </h2>
-            <p class="mt-4 font-p">
+            <p class="mt-md-4  font-p">
               Churches gauge impact through metrics, informing resource
               allocation and future initiatives for effective members service.
             </p>
@@ -102,7 +134,7 @@
 
           <v-col cols="12" md="3">
             <h2 class="red--text font-h4">Empowering Meaningful Engagement</h2>
-            <p class="mt-4 font-p">
+            <p class="mt-md-4  font-p">
               Tailored outreach fosters trust, strengthens relationships, and
               creates lasting positive impacts on the community.
             </p>
@@ -111,7 +143,7 @@
       </div>
     </v-container>
 
-    <div class="mt-1 mt-md-16 py-10 py-md-16" style="background-color: #e6ebf1">
+    <div class="mt-1 mt-md-16  py-md-16" style="background-color: #e6ebf1">
       <v-container class="text-center">
         <h1 class="font-h3">
           to begin using our user-friendly client management software,
@@ -127,7 +159,7 @@
       </v-container>
     </div>
 
-    <v-container class="mt-3 mt-md-16" width="1400px">
+    <v-container class="mt-2 mt-md-16" width="1400px">
       <div class="text-center">
         <h1 class="font-h3">
           When you create an impact, we all contribute it.
@@ -137,13 +169,7 @@
         <v-col cols="12" md="4">
           <v-card class="pa-5 rounded-xl" rounded>
             <p font-p>
-              GospelGateway has been a game-changer for us. Before using this
-              software, we struggled to keep track of our client information and
-              program data efficiently. With GospelGateway, everything is
-              centralized and easy to access. We can quickly input new data,
-              retrieve information when needed. It has saved us a significant
-              amount of time and has made our data management processes much
-              more streamlined.
+              We are grateful for GospelGateway and the simplicity it brings to managing our church's data. This system has become an essential part of our operations, allowing us to securely store and organize important information in one central place. With its reliability and ease of use, GospelGateway helps us focus more on ministry and less on administrative challenges.
             </p>
           </v-card>
         </v-col>
@@ -151,14 +177,7 @@
         <v-col cols="12" md="4">
           <v-card class="pa-5 rounded-xl" rounded>
             <p font-p>
-              I can't praise GospelGateway enough. As someone who works closely
-              with our outreach programs, having access to this software has
-              been invaluable. It allows us to monitor participation rates,
-              track outcomes, and identify areas for improvement. The
-              user-friendly interface makes it easy for everyone on our team to
-              navigate, even those who aren't tech-savvy. Thanks to
-              GospelGateway, we're able to make more informed decisions and
-              better serve our community.
+              The way GospelGateway seamlessly manages member records, offerings, and other critical data has truly transformed how we operate. By providing a safe and accessible platform, it has given us the confidence to handle our church's information efficiently. This system ensures that our records are always up-to-date and easy to retrieve whenever needed, simplifying processes for our team.
             </p>
           </v-card>
         </v-col>
@@ -166,13 +185,7 @@
         <v-col cols="12" md="4">
           <v-card class="pa-5 rounded-xl" rounded>
             <p font-p>
-              GospelGateway has transformed the way we engage with our
-              community. Before using this software, we struggled to personalize
-              our outreach efforts and provide targeted support. Now, with the
-              data insights provided by GospelGateway, we can tailor our
-              programs to meet the specific needs of those we serve. This has
-              resulted in deeper connections, increased trust, and ultimately,
-              more impactful outcomes for our church and the people we support.
+              We appreciate GospelGateway for its role in making data management stress-free for our church. It’s a tool that not only saves time but also helps us stay organized as we serve our congregation. GospelGateway is more than just a system – it’s a valuable asset that supports our mission by keeping our operations running smoothly.
             </p>
           </v-card>
         </v-col>
@@ -201,6 +214,13 @@ export default {
     email: "",
     password: "",
   }),
+
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
+  },
 
   methods: {
     // logInReq

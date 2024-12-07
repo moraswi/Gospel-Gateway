@@ -6,7 +6,7 @@
       <v-spacer></v-spacer>
       <v-btn
         v-if="getUserDetails.role === 'superadmin'"
-        class="green mt-5"
+        class="green mt-7"
         fab
         width="35"
         height="35"

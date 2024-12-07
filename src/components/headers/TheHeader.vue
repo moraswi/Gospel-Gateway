@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="main-card py-5 px-2">
+    <v-card class="main-card py-5 px-2 hidden-sm-and-down">
       <h1 class="font-h3" :style="{ color: '#20505d' }">{{ title }}</h1>
     </v-card>
   </div>

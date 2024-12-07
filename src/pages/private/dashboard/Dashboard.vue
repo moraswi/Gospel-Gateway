@@ -1,8 +1,5 @@
 <template>
   <div class="px-md-4">
-    <!-- <TheHeader title="Dashboard"> </TheHeader> -->
-    <TheMemberMobileHeader />
-
     <HeaderMainCard class="hidden-sm-and-down">
       <v-layout column fill-height>
         <h2 class="white--text">
@@ -94,7 +91,7 @@
       </v-layout>
     </HeaderMainCard>
 
-    <v-row class="mt-md-10">
+    <v-row class="mt-10">
       <!-- Branches -->
       <v-col cols="12" md="6">
         <h1 class="font-h4">Branches</h1>
@@ -155,11 +152,9 @@
 <script>
 import { mapMutations } from "vuex";
 import DashboardMainDialog from "@/pages/private/dashboard/dialogs/DasboardMainDialog.vue";
-// import TheMemberMobileHeader from "@/components/headers/TheMobileHeader.vue";
-import TheMemberMobileHeader from "@/components/sidebars/AdminMobileSidebar.vue";
+
 
 import StatisticsCard from "@/components/cards/StatisticsCard.vue";
-import TheHeader from "@/components/headers/TheHeader";
 import HeaderMainCard from "@/components/cards/HeaderMainCard.vue";
 import FormattedDate from '@/components/AppShared.vue';
 
@@ -168,9 +163,7 @@ export default {
 
   components: {
     DashboardMainDialog,
-    TheMemberMobileHeader,
     StatisticsCard,
-    TheHeader,
     HeaderMainCard,
     FormattedDate
 

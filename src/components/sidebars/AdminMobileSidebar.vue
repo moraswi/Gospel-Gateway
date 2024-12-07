@@ -15,7 +15,7 @@
       <v-list density="compact" nav>
 
         <!-- People -->
-        <v-list-item value="people" :to="{ name: 'AdminPeople' }">
+        <v-list-item  v-if="this.getUserDetails.role == 'superadmin'" value="people" :to="{ name: 'AdminPeople' }">
           <v-list-item-icon>
             <v-icon>mdi-account-group</v-icon>
           </v-list-item-icon>
@@ -35,7 +35,7 @@
         </v-list-item>
 
           <!-- Events -->
-        <v-list-item value="offering" :to="{ name: 'AdminOffering' }">
+        <v-list-item v-if="this.getUserDetails.role == 'superadmin' || this.getUserDetails.role == 'bookkeeper'" value="offering" :to="{ name: 'AdminOffering' }">
           <v-list-item-icon>
             <v-icon>mdi-offer</v-icon>
           </v-list-item-icon>
@@ -89,7 +89,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <div class="d-flex justify-end align-center h-100">
+      <!-- <div class="d-flex align-center h-100"> -->
 
       <v-icon
           large
@@ -98,7 +98,7 @@
         >
         mdi-menu
         </v-icon>
-      </div>
+      <!-- </div> -->
 
     </v-main>
   </v-layout>
@@ -108,9 +108,15 @@
 export default {
   data() {
     return {
-      // drawer: null,
-      drawer: true,
+      drawer: null,
     };
+  },
+
+  computed: {
+    // getUserDetails
+    getUserDetails() {
+      return this.$store.getters["user/getUserDetails"];
+    },
   },
 };
 </script>
