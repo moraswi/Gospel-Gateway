@@ -15,47 +15,6 @@
 
         <!-- Main Menu List-->
         <v-list class="transparent mt-1">
-          <!-- Dashboard -->
-          <v-card color="transparent" width="100%" height="48" flat>
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'AdminDashboard' }"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon color="white">mdi-view-dashboard</v-icon>
-              </v-list-item-icon>
-
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Dashboard </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-
-          <!-- Gallary -->
-          <!-- <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'AdminGallary' }"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon color="white">mdi-view-gallery</v-icon>
-              </v-list-item-icon>
-
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Gallary </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card> -->
 
           <!-- People -->
           <v-card
@@ -155,33 +114,6 @@
             </v-list-item>
           </v-card>
 
-          <!-- Add Events -->
-          <!-- <v-card
-            class="mt-1"
-            color="transparent"
-            width="100%"
-            height="48"
-            flat
-          >
-            <v-list-item
-              class="transparent white--text"
-              active-class="bg-active gray50--text"
-              :to="{ name: 'AdminEvents' }"
-              link
-            >
-              <v-list-item-icon>
-                <v-icon
-                color="white"
-              >mdi-file-document-plus</v-icon>
-
-              </v-list-item-icon>
-
-              <v-list-item-content v-if="opened">
-                <v-list-item-title> Add Events </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card> -->
-
           <!-- Church Plan -->
           <v-card
             class="mt-1"
@@ -230,33 +162,6 @@
             </v-list-item>
           </v-card>
 
-          <!-- Refer a Friend -->
-          <!-- <v-card
-                 class="mt-1"
-                 color="transparent"
-                 width="100%"
-                 height="48"
-                 flat
-               >
-                 <v-list-item
-                   class="transparent white--text"
-                   active-class="bg-active gray50--text"
-                   :to="{ name: 'MemberLogin' }"
-                   link
-                 >
-                   <v-list-item-icon>
-                     <v-icon
-                     color="white"
-                   >mdi-floor-plan</v-icon>
-     
-                   </v-list-item-icon>
-     
-                   <v-list-item-content v-if="opened">
-                     <v-list-item-title> Refer a Friend </v-list-item-title>
-                   </v-list-item-content>
-                 </v-list-item>
-               </v-card> -->
-
           <!-- logout -->
           <v-card
             class="mt-1"
@@ -285,20 +190,20 @@
     </v-card>
 
     <!-- Mobile -->
-    <!-- <div class="hidden-md-and-up">
+    <div class="hidden-md-and-up">
       <AdminMobileSidebar/>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
-// import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
+import AdminMobileSidebar from "@/components/sidebars/AdminMobileSidebar.vue";
 
 export default {
   name: "GospelGatewayAdminSidebar",
 
   components: {
-    // AdminMobileSidebar
+    AdminMobileSidebar
   },
 
   data() {

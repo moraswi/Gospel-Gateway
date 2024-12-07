@@ -3,12 +3,12 @@
     <!-- login section -->
     <!-- 1a9aaa -->
     <div style="background-color: #20505d">
-      <v-container class="py-md-16 py-3">
+      <v-container class="py-md-10 py-3">
         <v-row>
           <v-col cols="12" md="6">
             <h1 class="red--text font-h2">GospelGateway</h1>
 
-            <h1 class="mt-md-10 mt-2 font-h4 white--text">
+            <h1 class="mt-md-10 font-h4 white--text">
               Easy and Affordable <span> Case Management Software </span> for
               Your Church
             </h1>
