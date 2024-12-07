@@ -1,9 +1,12 @@
 <template>
-  <v-layout>
+   <v-app>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <!-- <v-toolbar-title>App Header</v-toolbar-title> -->
+    </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
-      temporary
-      absolute
+      app
     >
       <v-list-item
         prepend-avatar="https://randomuser.me/api/portraits/men/78.jpg"
@@ -88,8 +91,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
-      <!-- <div class="d-flex align-center h-100"> -->
+    <!-- <v-main>
 
       <v-icon
           large
@@ -98,10 +100,9 @@
         >
         mdi-menu
         </v-icon>
-      <!-- </div> -->
 
-    </v-main>
-  </v-layout>
+    </v-main> -->
+  </v-app>
 </template>
 
 <script>
